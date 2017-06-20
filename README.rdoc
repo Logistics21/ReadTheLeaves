@@ -1,0 +1,2 @@
+ReadTheLeaves is a casual meetup app based on TeaWithStrangers, created by
+Ankit Shah.  
