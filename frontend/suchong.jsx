@@ -3,20 +3,23 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import { signup, signin, signout } from './util/session_api_util';
+import { signup, signin, signout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
+  store = configureStore();
   window.signup = signup;
   window.signin = signin;
   window.signout = signout;
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
   // if (window.currentUser) {
     // const preloadedState = { session: { currentUser: window.currentUser } };
     // store = configureStore(preloadedState);
     // delete window.currentUser;
+    // store = configureStore();
   // } else {
-    store = configureStore();
   // }
   const root = document.getElementById('root');
-  ReactDOM.render(<h1>Read The Leaves</h1>, root);
+  ReactDOM.render(<Root store={store} />, root);
 });
