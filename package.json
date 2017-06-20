@@ -1,5 +1,5 @@
 {
-  "name": "TWSClone",
+  "name": "ReadTheLeaves",
   "version": "1.0.0",
   "description": "== README",
   "main": "index.js",
@@ -7,19 +7,20 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Logistics21/TWSClone.git"
+    "url": "git+https://github.com/Logistics21/ReadTheLeaves.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Logistics21/TWSClone/issues"
+    "url": "https://github.com/Logistics21/ReadTheLeaves/issues"
   },
-  "homepage": "https://github.com/Logistics21/TWSClone#readme",
+  "homepage": "https://github.com/Logistics21/ReadTheLeaves#readme",
   "dependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.0.0",
@@ -29,7 +30,10 @@
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "redux": "^3.7.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "webpack": "^2.6.1"
   }
 }
