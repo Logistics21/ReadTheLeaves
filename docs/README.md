@@ -4,7 +4,7 @@
 
 [Trello Link][trello]
 
-[heroku]: linksforthcoming
+[heroku]: https://readtheleaves.herokuapp.com/
 [trello]: https://trello.com/b/94a5MSEk/readtheleaves
 
 ## Minimum Viable Product
