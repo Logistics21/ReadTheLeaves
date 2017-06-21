@@ -21,11 +21,7 @@ class SignUp extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.signin) {
-      this.props.history.push('/');
-    } else {
-      this.props.history.push('/cities');
-    }
+    if (nextProps.signin) this.props.history.push('/');
   }
 
   update(field) {
@@ -35,9 +31,10 @@ class SignUp extends React.Component {
   guestSignIn(e) {
     e.preventDefault();
     const guestUser = { user: { email: "guest@gmail.com", password: "password"} }
-
-    this.props.signin(guestUser).then(() =>
-      this.props.history.push('/cities'));
+    this.action = signin;
+    debugger
+    this.props.processForm(guestUser);
+    // .then(() => this.props.history.push('/cities'));
   }
 
   handleSubmit(e) {
