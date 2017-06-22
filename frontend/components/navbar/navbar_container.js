@@ -1,20 +1,17 @@
 import { connect } from 'react-redux';
-import { signin, signup, signout } from '../../actions/session_actions';
-import NavBar from './navbar.jsx';
+import { signout } from '../../actions/session_actions';
+import NavBar from './navbar';
 
-const mapStateToProps = ({ session, history }) => {
+const mapStateToProps = ({ session }) => {
   return {
     session,
     signedIn: Boolean(session.currentUser),
-    history
   };
 };
 
-const mapDispatchToProps = (dispatch, { location }) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     signout: () => dispatch(signout()),
-    signup: () => dispatch(signup()),
-    signin: () => dispatch(signin())
   };
 };
 

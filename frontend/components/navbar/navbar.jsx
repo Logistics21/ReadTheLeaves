@@ -1,25 +1,47 @@
 import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 
-class NavBar extends React.Component {
-  // const isSignedIn = [CITIES, HOSTING, ABOUT, SIGNIN, SIGNUP, SIGNOUT]
-
-  handleSignOut(e) {
-    return e => {
-      e.preventDefault()
-      signOut()
-      history.push('/')
+const NavBar = ({signedIn, signout}) => {
+  const navbarRight = () => {
+    if (signedIn) {
+      return (
+        <button className="nav-button" onClick={signout}>SIGN OUT</button>
+      );
+    } else {
+      return (
+        <div>
+          <Link className="nav-button" to="/signin">SIGN IN</Link>
+          <NavLink className="nav-signup-button" to="/signup">SIGN UP</NavLink>
+        </div>
+      );
     }
   };
 
-  render() {
-    // debugger
+  return (
+    <div className="navbar-container">
+      <div className="nav-links">
+        <Link to="/cities">Cities</Link>
+        <Link to="/hosting">Hosting</Link>
+        <Link to="/about">About</Link>
+        {navbarRight()}
+      </div>
+    </div>
+  );
+};
+
+export default NavBar;
 
 
-    return (
-      <h1>NavBar</h1>
-    )
-  }
-}
 
-export default withRouter(NavBar);
+
+// city() {
+//   if (this.props.signedIn) {
+//     return (
+//       <Link to="/cityId">{this.props.currentUser.city_name}</Link>
+//     );
+//   } else {
+//     return null;
+//   }
+// }
+
+// {this.city()}

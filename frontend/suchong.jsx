@@ -4,7 +4,6 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 import { signup, signin, signout } from './actions/session_actions';
-// import { signup, signin, signout } from './util/session_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -13,14 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloadedState = { session: { currentUser: window.currentUser } };
     store = configureStore(preloadedState);
     delete window.currentUser;
-    store = configureStore();
   } else {
     store = configureStore();
   }
 
   window.signup = signup;
   window.signin = signin;
-  window.signout = signout;
+  // window.signout = signout;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
