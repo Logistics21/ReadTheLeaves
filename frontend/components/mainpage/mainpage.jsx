@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MainPage = (state, ownProps) => {
-  return (
-    <div className="mainpage-container">
-      <div className="mainpage-content">
+class MainPage extends React.Component {
+  render() {
+    return (
+      <div className="mainpage-container">
         <div className="pitch-container">
           <div className="pitch-box">
             <h1 className="pitch-text">Everyone is interesting</h1>
             <h2>But you don’t discover that when you’re staring at a screen.</h2>
-            <Link to={`/cities`} className="top-signup-button">LET'S GET TEA!</Link>
+            <Link to='/signup' className="top-signup-button">LET'S GET TEA!</Link>
           </div>
         </div>
 
@@ -75,7 +75,7 @@ const MainPage = (state, ownProps) => {
         <div className="mid-signup">
           <div className="mid-sign-box">
             <h2>Actually talk to people.</h2>
-            <Link to={`/cities`} className="mid-signup-button">LET'S GET TEA!</Link>
+            <Link to='/signup' className="mid-signup-button">LET'S GET TEA!</Link>
           </div>
         </div>
 
@@ -130,13 +130,13 @@ const MainPage = (state, ownProps) => {
           <div className="lower-signup">
             <div className="lower-sign-box">
               <h2>Do we get to high five yet?</h2>
-              <Link to={`/cities`} className="lower-signup-button">YES</Link>
+              <Link to='/signup' className="lower-signup-button">YES</Link>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default MainPage;

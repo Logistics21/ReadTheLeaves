@@ -11,11 +11,11 @@ class SignUp extends React.Component {
     };
 
     if (this.props.formType === "signin") {
-      this.header = "Join for tea time"
-    } else {
       this.header = "Hey Stranger!"
+    } else {
+      this.header = "Join for tea time"
     }
-
+    debugger
     this.guestSignIn = this.guestSignIn.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -30,10 +30,9 @@ class SignUp extends React.Component {
 
   guestSignIn(e) {
     e.preventDefault();
-    const guestUser = { user: { email: "guest@gmail.com", password: "password"} }
-    this.action = signin;
+    const guestUser = { email: "guest@gmail.com", password: "password"}
     debugger
-    this.props.processForm(guestUser);
+    this.props.signin(guestUser);
     // .then(() => this.props.history.push('/cities'));
   }
 
@@ -60,7 +59,8 @@ class SignUp extends React.Component {
   };
 
   render() {
-    if (this.formType === "signup") {
+    // debugger
+    if (this.props.formType === "signup") {
       return (
         <div className="signup-form-contianer">
           <form onSubmit={this.handleSubmit}
@@ -69,27 +69,25 @@ class SignUp extends React.Component {
               {this.header}
             </h2>
             <p className="sign-up-p">
-              Thousands of strangers across the world have sat together for conversations. We can't wait for you to join them.
+              Thousands of strangers across the world have sat together
+              for conversations. We can't wait for you to join them.
             </p>
             <div className="sign-up-field">
               <input
                 className="input-box"
                 type="text"
-                value={this.state.first_name}
                 placeholder="First name (or nickname)"
                 onChange={this.update('first_name')}
               />
               <input
                 className="input-box"
                 type="text"
-                value={this.state.email}
                 placeholder="Email address"
                 onChange={this.update('email')}
               />
               <input
                 className="input-box"
                 type="password"
-                value={this.state.password}
                 placeholder="Password (at least 8 characters you won't forget!)"
                 onChange={this.update('password')}
               />
@@ -110,20 +108,19 @@ class SignUp extends React.Component {
               {this.header}
             </h2>
             <p className="sign-up-p">
-              It's good to have you back. Sign in here and sign up for your next tea time!
+              It's good to have you back. Sign in here and sign up for
+              your next tea time!
             </p>
             <div className="sign-up-field">
               <input
                 className="input-box"
                 type="text"
-                value={this.state.email}
                 placeholder="Email address"
                 onChange={this.update('email')}
               />
               <input
                 className="input-box"
                 type="password"
-                value={this.state.password}
                 placeholder="Password (at least 8 characters you won't forget!)"
                 onChange={this.update('password')}
               />
@@ -140,3 +137,7 @@ class SignUp extends React.Component {
 }
 
 export default SignUp;
+
+// value={this.state.first_name}
+// value={this.state.email}
+// value={this.state.password}

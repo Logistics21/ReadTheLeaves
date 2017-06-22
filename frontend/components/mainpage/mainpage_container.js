@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import MainPage from './main_page';
+import MainPage from './mainpage';
 
 export const mapStateToProps = ({ session }) => ({
   session
