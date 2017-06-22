@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 const Footer = () => (
   <div className="footer-container">
     <div className="footer-links">
-      <Link to="/about">About</Link>;
-      <Link to="/hosting">Hosting</Link>;
-      <Link to="/cities">Cities</Link>;
-      <Link to="/">Facebook</Link>;
-      <Link to="/">Twitter</Link>;
+      <Link to="/about">About</Link>
+      <Link to="/hosting">Hosting</Link>
+      <Link to="/cities">Cities</Link>
+      <Link to="/">Facebook</Link>
+      <Link to="/">Twitter</Link>
     </div>
     <div className="footer-about">
       <p className="footer-p">

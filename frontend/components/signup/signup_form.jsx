@@ -15,7 +15,6 @@ class SignUp extends React.Component {
     } else {
       this.header = "Join for tea time"
     }
-    debugger
     this.guestSignIn = this.guestSignIn.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -30,8 +29,7 @@ class SignUp extends React.Component {
 
   guestSignIn(e) {
     e.preventDefault();
-    const guestUser = { email: "guest@gmail.com", password: "password"}
-    debugger
+    const guestUser = { email: "guest@gmail.com", password: "password" }
     this.props.signin(guestUser);
     // .then(() => this.props.history.push('/cities'));
   }
@@ -39,7 +37,7 @@ class SignUp extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm({user});
+    this.props.processForm(user);
   }
 
   redirect() {
@@ -59,7 +57,6 @@ class SignUp extends React.Component {
   };
 
   render() {
-    // debugger
     if (this.props.formType === "signup") {
       return (
         <div className="signup-form-contianer">
