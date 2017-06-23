@@ -21,7 +21,7 @@ class SignUp extends React.Component {
   header() {
     if (this.props.location.pathname === "/signup") {
       return (
-        <div>
+        <div className="header-container">
           <h2 className="sign-up-header">
             Join for tea time
           </h2>
@@ -32,7 +32,7 @@ class SignUp extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div className="header-container">
           <h2 className="sign-up-header">
             Hey stranger!
           </h2>
@@ -108,8 +108,8 @@ class SignUp extends React.Component {
               placeholder="Password (at least 8 characters you won't forget!)"
               onChange={this.update('password')}
             />
-          <input type="submit" value="LET'S GET TEA" />
-          <button className="guest-button"
+          <input className="signup-button" type="submit" value="LET'S GET TEA" />
+          <button className="signup-button"
             onClick={this.guestSignIn}>GUEST SIGN IN
           </button>
           </div>

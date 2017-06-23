@@ -7,9 +7,9 @@ import Footer from './footer/footer';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 const App = () => (
-  <div>
+  <div className="main-content">
     <NavBarContainer />
-    <div className="main-content">
+    <div className="body-content">
       <Switch>
         <AuthRoute path="/signup" component={SignUpContainer} />
         <AuthRoute path="/signin" component={SignInContainer} />

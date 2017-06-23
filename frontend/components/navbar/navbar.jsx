@@ -5,27 +5,33 @@ const NavBar = ({signedIn, signout}) => {
   const navbarRight = () => {
     if (signedIn) {
       return (
-        <button className="nav-button" onClick={signout}>SIGN OUT</button>
+        <button className="nav-item nav-button" onClick={signout}>SIGN OUT</button>
       );
     } else {
       return (
-        <div>
-          <Link className="nav-button" to="/signin">SIGN IN</Link>
-          <NavLink className="nav-signup-button" to="/signup">SIGN UP</NavLink>
-        </div>
+        [
+          <Link key="1" className="nav-item nav-button" to="/signin">SIGN IN</Link>,
+          <NavLink key="2" className="nav-item nav-signup-button" to="/signup">SIGN UP</NavLink>
+        ]
       );
     }
   };
 
   return (
-    <div className="navbar-container">
-      <div className="nav-links">
-        <Link to="/cities">Cities</Link>
-        <Link to="/hosting">Hosting</Link>
-        <Link to="/about">About</Link>
-        {navbarRight()}
+    <header className="header">
+      <div className="navbar-container">
+        [<div className="logo-container">]
+          <i className="fa fa-envira fa-lg" aria-hidden="true"></i>
+          <i className="fa fa-leaf fa-lg" aria-hidden="true">Read The Leaves</i>
+        </div>
+        <div className="nav-links">
+          <Link className="nav-item" to="/cities">CITIES</Link>
+          <Link className="nav-item" to="/hosting">HOSTING</Link>
+          <Link className="nav-item" to="/about">ABOUT</Link>
+          {navbarRight()}
+        </div>
       </div>
-    </div>
+    </header>
   );
 };
 
