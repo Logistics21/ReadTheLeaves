@@ -6,3 +6,78 @@
   font-family: Helvetica;
   color: white;
 }
+
+.pitch-container{
+  background: rgba(247,191,77,0.87);
+  display: flex;
+  justify-content: center;
+  padding: 110px;
+}
+
+.pitch-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: Helvetica;
+}
+
+.pitch-text {
+  margin-bottom: 19px;
+  font-weight: 600;
+  width: 700px;
+  font-size: 2.25em;
+  text-align: center;
+}
+
+.pitch-p {
+  margin-bottom: 40px;
+  font-size: 1.125em;
+  font-weight: 100;
+}
+
+.top-signup-button {
+  text-align: center;
+  width: 350px;
+  background-color: #EF6236;
+  border: 2px solid #EF6236;
+  font-weight: 400;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 1em 1.5em;
+  letter-spacing: 2px;
+  padding: 1em 1.5em;
+  border: 2px;
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: #F3ECCE;
+  text-align: center;
+  padding: 2.4em 1em;
+  margin-bottom: 3em;
+}
+
+.about-item-container {
+  display: flex;
+  justify-content: center;
+  width: 1140px;
+}
+.about-part {
+  margin-right: 23.2px;
+  width: 33%;
+ }
+
+.about-headline {
+  color: #EF6236;
+  margin-bottom: 9px;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.about-text {
+  color: black;
+  font-weight: 200;
+}

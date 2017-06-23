@@ -20,9 +20,9 @@ const NavBar = ({signedIn, signout}) => {
   return (
     <header className="header">
       <div className="navbar-container">
-        [<div className="logo-container">]
+        <div className="logo-container">
           <i className="fa fa-envira fa-lg" aria-hidden="true"></i>
-          <i className="fa fa-leaf fa-lg" aria-hidden="true">Read The Leaves</i>
+          <i className="fa fa-leaf fa-lg right-leaf" aria-hidden="true"> Read The Leaves</i>
         </div>
         <div className="nav-links">
           <Link className="nav-item" to="/cities">CITIES</Link>

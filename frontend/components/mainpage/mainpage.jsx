@@ -8,25 +8,27 @@ class MainPage extends React.Component {
         <div className="pitch-container">
           <div className="pitch-box">
             <h1 className="pitch-text">Everyone is interesting</h1>
-            <h2>But you don’t discover that when you’re staring at a screen.</h2>
+            <h2 className="pitch-p">But you don’t discover that when you’re staring at a screen.</h2>
             <Link to='/signup' className="top-signup-button">LET'S GET TEA!</Link>
           </div>
         </div>
 
           <div className="about-container">
-            <div className="about-part">
-              <h2 className="about-headline">Show up for tea time</h2>
-              <p className="about-text">You and a few others join a host at a cafe.</p>
-            </div>
+            <div className="about-item-container">
+              <div className="about-part">
+                <h2 className="about-headline">Show up for tea time</h2>
+                <p className="about-text">You and a few others join a host at a cafe.</p>
+              </div>
 
-            <div className="about-part">
-              <h2 className="about-headline">Have a real conversation</h2>
-              <p className="about-text">You talk for two hours about anything.</p>
-            </div>
+              <div className="about-part">
+                <h2 className="about-headline">Have a real conversation</h2>
+                <p className="about-text">You talk for two hours about anything.</p>
+              </div>
 
-            <div className="about-part">
-              <h2 className="about-headline">See what happens</h2>
-              <p className="about-text">That's it. No strings attached.</p>
+              <div className="about-part">
+                <h2 className="about-headline">See what happens</h2>
+                <p className="about-text">That's it. No strings attached.</p>
+              </div>
             </div>
         </div>
 
