@@ -5,11 +5,12 @@ class MainPage extends React.Component {
   render() {
     return (
       <div className="mainpage-container">
+        <div className="jumbotron"></div>
         <div className="pitch-container">
           <div className="pitch-box">
             <h1 className="pitch-text">Everyone is interesting</h1>
             <h2 className="pitch-p">But you don’t discover that when you’re staring at a screen.</h2>
-            <Link to='/signup' className="top-signup-button">LET'S GET TEA!</Link>
+            <Link to='/signup' className="top-signup-button">LET'S GET TEA</Link>
           </div>
         </div>
 
@@ -38,6 +39,7 @@ class MainPage extends React.Component {
             <h3 className="why-title">SO WHY ARE THOUSANDS OF PEOPLE DOING IT?</h3>
 
             <div className="why-explain">
+              <img className="mainpage-image" src={window.images.people} />
               <div className="why-explain-right">
                 <h2 className="why-explain-header h2">It’s weird.</h2>
                 <p className="why-explain-p p">
@@ -59,9 +61,11 @@ class MainPage extends React.Component {
                   we manufacture serendipity.
                 </p>
               </div>
+              <img className="mainpage-image" src={window.images.never} />
             </div>
 
             <div className="why-explain">
+              <img className="mainpage-image" src={window.images.five} />
               <div className="why-explain-right">
                 <h2 className="why-explain-header h2">Your hands are made for high fiving!</h2>
                 <p className="why-explain-p p">
@@ -76,8 +80,8 @@ class MainPage extends React.Component {
 
         <div className="body-signup">
           <div className="body-sign-box">
-            <h2>Actually talk to people.</h2>
-            <Link to='/signup' className="mid-signup-button">LET'S GET TEA!</Link>
+            <h2 className="signup-h2">Actually talk to people.</h2>
+            <Link to='/signup' className="body-signup-button">LET'S GET TEA</Link>
           </div>
         </div>
 
@@ -102,9 +106,12 @@ class MainPage extends React.Component {
             </div>
           </div>
 
+          <img className="mainpage-image" src={window.images.weird} />
+
           <div className="stranger-container">
             <h3 className="stranger-title">THERE'S NO SUCH THING AS A STRANGER.</h3>
 
+            <img className="mainpage-image" src={window.images.camp} />
               <article className="stranger-right">
                 <p className="p">
                   You'd never think of yourself as a stranger. But
@@ -131,8 +138,8 @@ class MainPage extends React.Component {
 
           <div className="body-signup">
             <div className="body-sign-box">
-              <h2>Do we get to high five yet?</h2>
-              <Link to='/signup' className="lower-signup-button">YES</Link>
+              <h2 className="signup-h2">Do we get to high five yet?</h2>
+              <Link to='/signup' className="body-signup-button">YES</Link>
             </div>
           </div>
         </div>

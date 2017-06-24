@@ -3,5 +3,16 @@
   	window.currentUser = <%= render("api/users/user.json.jbuilder",
   		user: current_user).html_safe %>
   <% end %>
+
+
+window.images = {
+  camp: '<%= image_path("camp.png") %>',
+  five: '<%= image_path("five.png") %>',
+  never: '<%= image_path("never.png") %>',
+  people: '<%= image_path("people.png") %>',
+  weird: '<%= image_path("weird.png") %>',
+  teatime: '<%= image_path("teatime.jpg") %>'
+}
+
 </script>
 <main id="root"></main>
