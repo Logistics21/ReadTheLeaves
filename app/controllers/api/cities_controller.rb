@@ -1,20 +1,26 @@
 class Api::CitiesController < ApplicationController
   def index
+    @cities = City.all
   end
 
   def create
-  end
+    @city = City.new(city_params)
 
-  def new
-  end
-
-  def edit
+    if @city.save
+      render :show
+    else
+      render json: @city.errors.full_messages, status: 422
+    end
   end
 
   def show
-  end
+    @city = City.find_by(id: params[:id])
 
-  def update
+    if @city
+      render :show
+    else
+      render json: "City not found", status: 422
+    end
   end
 
   private

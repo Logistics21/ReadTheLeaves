@@ -7,3 +7,11 @@ User.create(first_name: "jimmy", last_name: "the", email: "test2@gmail.com", pas
 User.create(first_name: "kimmy", last_name: "store", email: "test3@gmail.com", password: "password")
 User.create(first_name: "slimmy", last_name: "for", email: "test4@gmail.com", password: "password")
 User.create(first_name: "clyde", last_name: "gorceries", email: "test5@gmail.com", password: "password")
+
+City.destroy_all
+
+City.create(name: "San Francisco", city_code: "SF")
+City.create(name: "New York City", city_code: "NYC")
+City.create(name: "Chicago", city_code: "CHI")
+City.create(name: "Washington D.C", city_code: "DC")
+City.create(name: "Los Angeles", city_code: "LAX")
