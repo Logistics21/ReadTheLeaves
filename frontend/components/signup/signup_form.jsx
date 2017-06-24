@@ -47,7 +47,8 @@ class SignUp extends React.Component {
   guestSignIn(e) {
     e.preventDefault();
     const guestUser = { email: "guest@gmail.com", password: "password" };
-    this.props.signin(guestUser);
+    this.props.signin(guestUser)
+    .then(() => this.props.history.push('/cities'));
   }
 
   handleSubmit(e) {
@@ -74,9 +75,9 @@ class SignUp extends React.Component {
 
   redirect() {
     if (this.props.location.pathname === '/signin') {
-      return <Link to="/signup">If you've never signed up before, click here and do that</Link>;
+      return <Link className="redirect" to="/signup">If you've never signed up before, click here and do that</Link>;
     } else {
-      return <Link to="/signin">If you've already done this before, click here to log in</Link>;
+      return <Link className="redirect" to="/signin">If you've already done this before, click here to log in</Link>;
     }
   }
 
@@ -90,7 +91,7 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <div className="signup-form-contianer">
+      <div className="signup-form-container">
         <form onSubmit={this.handleSubmit}
           className="sign-up-form">
           {this.header()}
@@ -113,8 +114,8 @@ class SignUp extends React.Component {
             onClick={this.guestSignIn}>GUEST SIGN IN
           </button>
           </div>
-          {this.redirect()}
         </form>
+        {this.redirect()}
       </div>
     );
   }

@@ -5,7 +5,7 @@ const NavBar = ({signedIn, signout}) => {
   const navbarRight = () => {
     if (signedIn) {
       return (
-        <button className="nav-item nav-button" onClick={signout}>SIGN OUT</button>
+        <Link className="nav-item nav-button" to="/" onClick={signout}>SIGN OUT</Link>
       );
     } else {
       return (
@@ -21,8 +21,8 @@ const NavBar = ({signedIn, signout}) => {
     <header className="header">
       <div className="navbar-container">
         <div className="logo-container">
-          <i className="fa fa-envira fa-lg" aria-hidden="true"></i>
-          <i className="fa fa-leaf fa-lg right-leaf" aria-hidden="true"> Read The Leaves</i>
+          <Link to="/"><i className="fa fa-envira fa-lg" aria-hidden="true"></i></Link>
+          <Link to="/"><i className="fa fa-leaf fa-lg right-leaf" aria-hidden="true"> Read The Leaves</i></Link>
         </div>
         <div className="nav-links">
           <Link className="nav-item" to="/cities">CITIES</Link>
