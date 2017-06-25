@@ -4,7 +4,6 @@ import  { selectAllCities } from '../../reducers/selectors';
 import CitiesIndex from './cities_index';
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     cities: selectAllCities(state)
   };
