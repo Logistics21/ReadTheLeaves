@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import { signup, signin, signout } from './actions/session_actions';
+import { fetchCities, fetchCity } from './util/city_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.signup = signup;
-  window.signin = signin;
+  window.fetchCities = fetchCities;
+  window.fetchCity = fetchCity;
   // window.signout = signout;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
