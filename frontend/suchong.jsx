@@ -4,6 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 import { fetchCities, fetchCity } from './actions/cities_actions';
+import { selectAllCities } from './reducers/selectors';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.fetchCities = fetchCities;
   window.fetchCity = fetchCity;
-  // window.signout = signout;
+  window.selectAllCities = selectAllCities;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 

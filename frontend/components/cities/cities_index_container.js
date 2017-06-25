@@ -1,22 +1,23 @@
 import { connect } from 'react-redux';
-import { fetchCities } from '../../actions/cities_actions';
-
+import { fetchCities, fetchCity } from '../../actions/cities_actions';
+import  { selectAllCities } from '../../reducers/selectors';
 import CitiesIndex from './cities_index';
 
-const mapStateToProps = ({ cities }) => {
+const mapStateToProps = (state) => {
+  debugger
   return {
-    cities
-  }
-}
+    cities: selectAllCities(state)
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchCities: () => dispatch(fetchCities()),
     fetchCity: (id) => dispatch(fetchCity(id))
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CitiesIndex)
+)(CitiesIndex);

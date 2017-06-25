@@ -1,19 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import CitiesIndexItem from './cities_index_item';
+
 class CitiesIndex extends React.Component {
   constructor(props) {
     super(props);
   }
-
 
   componentDidMount() {
     this.props.fetchCities();
   }
 
   render() {
-    debugger
-    // const cities =
+    const cities = this.props.cities.map(city => {
+      return (
+        <CitiesIndexItem city={city} />
+      );
+    });
+
     return (
       <div className="cities-container">
         <div className="cities-list-container">
@@ -29,6 +34,9 @@ class CitiesIndex extends React.Component {
                 <p>
                   You should be able to sign up for a tea time today!
                 </p>
+              </div>
+              <div className="current-cities-container">
+                {cities}
               </div>
               <div className="cities-section-container">
                 <div className="cities-section-header">
