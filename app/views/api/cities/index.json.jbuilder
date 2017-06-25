@@ -1,5 +1,5 @@
 @cities.each do |city|
   json.set! city.id do
-    json.partial! 'city', city: city
+    json.extract! city, :id, :name, :city_code
   end
 end
