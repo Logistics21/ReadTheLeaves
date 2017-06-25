@@ -22,32 +22,34 @@ class CitiesIndex extends React.Component {
     return (
       <div className="cities-container">
         <div className="cities-list-container">
-          <div className="cities-header">
-            <h2>Set your home city</h2>
-            <p>
+          <div className="cities-header-container">
+            <h2 className="cities-title">Set your home city</h2>
+            <p className="cities-p">
               Make sure you're the first to hear about Tea With Strangers
               updates relevant to you!
             </p>
-            <div className="cities-list">
-              <div className="cities-list-header">
-                <h2>We're building our communities here 🏠</h2>
-                <p>
-                  You should be able to sign up for a tea time today!
+          </div>
+          <div className="cities-list">
+            <div className="cities-partial">
+              <h2 className="cities-subtitle">We're building our communities here 🏠</h2>
+              <p className="cities-sub-p">
+                You should be able to sign up for a tea time today!
+              </p>
+            </div>
+            <div className="current-cities-container">
+              {cities}
+            </div>
+            <div className="cities-section-container">
+              <div className="cities-partial">
+                <h2 className="cities-subtitle">We'll get here eventually ✈️</h2>
+                <p className="cities-sub-p">
+                  For now, find and set your home city. Well make sure you
+                  know when we Tea With Strangers is coming your way!
                 </p>
               </div>
-              <div className="current-cities-container">
-                {cities}
-              </div>
-              <div className="cities-section-container">
-                <div className="cities-section-header">
-                  <h2>We'll get here eventually ✈️</h2>
-                  <p>
-                    For now, find and set your home city. Well make sure you
-                    know when we Tea With Strangers is coming your way!
-                  </p>
-                </div>
-                <div className="cities-section-list-container">
-                </div>
+              <div className="cities-section-list-container">
+                <Link className="button">DON'T SEE YOUR CITY? ADD IT HERE!</Link>
+                {this.suggestedCitiesList()}
               </div>
             </div>
           </div>
