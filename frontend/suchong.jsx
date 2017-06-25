@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import { fetchCities, fetchCity } from './util/city_api_util';
+import { fetchCities, fetchCity } from './actions/cities_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
