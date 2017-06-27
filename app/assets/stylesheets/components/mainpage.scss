@@ -152,6 +152,7 @@
 
 .body-signup {
   background: #F3ECCE;
+  width: 100%;
 }
 
 .body-sign-box {
@@ -181,4 +182,75 @@
   font-size: 17px;
   border-radius: 10px;
   line-height: normal;
+}
+
+.lower-body-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: center;
+      margin-top: 3.5em;
+  margin-bottom: 1.625em;
+}
+
+.quotes {
+  display: flex;
+  width: 984px;
+  font-weight: 400;
+  justify-content: center;
+}
+
+.quote {
+  padding: 0.5em 2.5em 0.5em 1.25em;
+  border-right: 0.5em solid #fcebc7;
+  border-left: 0.5em solid #fcebc7;
+  text-align: left;
+  font-size: 15.5px;
+  width: 331.66px;
+  color: #595959;
+  line-height: 1.625;
+}
+
+.quote-bold {
+  color: rgb(239, 98, 54);
+  font-weight: 600;
+}
+
+.img2 {
+  margin-left: 40px;
+}
+
+.stranger-title {
+  text-align: center;
+  margin-top: 75px;
+  margin-bottom: 1em;
+}
+
+.stranger-story {
+  display: flex;
+  align-items: center;
+  margin-bottom: 94px;
+}
+
+.stranger-right {
+  margin-left: 42px;
+  width: 396px;
+  height: 450px;
+  line-height: 1.625;
+  font-weight: 400;
+}
+
+.stranger-p {
+  margin-bottom: 0.8125em;
+  font-size: 18px;
+}
+
+.img3 {
+  width: 354.5px;
+  height: 322.33px;
+  padding-bottom: 6em;
 }

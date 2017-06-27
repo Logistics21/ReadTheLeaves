@@ -106,34 +106,36 @@ class MainPage extends React.Component {
             </div>
           </div>
 
-          <img className="mainpage-image" src={window.images.weird} />
+          <img className="mainpage-image img2" src={window.images.weird} />
 
           <div className="stranger-container">
             <h3 className="stranger-title">THERE'S NO SUCH THING AS A STRANGER.</h3>
 
-            <img className="mainpage-image" src={window.images.camp} />
-              <article className="stranger-right">
-                <p className="p">
-                  You'd never think of yourself as a stranger. But
-                  everyone else does. You know your story. Your
-                  embarrassments. Your joy. Your idiocyncrasies — the
-                  thing that make you, you. But they don't.
-                </p>
-                <p className="p">
-                  And everyone has these — whether or not we know what
-                  they are. Everyone around you is a person, loaded
-                  with stories that you can't even begin to fathom.
-                  They're different from yours, but the fact that we
-                  all have them is what brings us together.
-                </p>
-                <p className="p">
-                  In a stranger's story, we might discover parts of
-                  our own. And in seeing where a stranger is coming
-                  from, we might realize they're actually not so
-                  strange. But we don't discover much just by thinking
-                  about it. So let's find out.
-                </p>
-              </article>
+            <div className="stranger-story">
+              <img className="mainpage-image img3" src={window.images.camp} />
+                <article className="stranger-right">
+                  <p className="stranger-p">
+                    You'd never think of yourself as a stranger. But
+                    everyone else does. You know your story. Your
+                    embarrassments. Your joy. Your idiocyncrasies — the
+                    thing that make you, you. But they don't.
+                  </p>
+                  <p className="stranger-p">
+                    And everyone has these — whether or not we know what
+                    they are. Everyone around you is a person, loaded
+                    with stories that you can't even begin to fathom.
+                    They're different from yours, but the fact that we
+                    all have them is what brings us together.
+                  </p>
+                  <p className="stranger-p">
+                    In a stranger's story, we might discover parts of
+                    our own. And in seeing where a stranger is coming
+                    from, we might realize they're actually not so
+                    strange. But we don't discover much just by thinking
+                    about it. So let's find out.
+                  </p>
+                </article>
+            </div>
           </div>
 
           <div className="body-signup">
