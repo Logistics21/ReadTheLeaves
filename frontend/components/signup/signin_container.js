@@ -4,7 +4,7 @@ import SignUp from './signup_form';
 import { withRouter } from 'react-router-dom';
 import { clearErrors } from '../../actions/errors_actions';
 
-const mapStateToProps = ( { errors } ) => {
+const mapStateToProps = ( { session, errors } ) => {
   return {
     errors: errors.errors,
   }

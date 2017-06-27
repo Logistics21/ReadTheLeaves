@@ -15,6 +15,7 @@ City.create(name: "New York City", city_code: "NYC")
 City.create(name: "Chicago", city_code: "CHI")
 City.create(name: "Washington D.C", city_code: "DC")
 City.create(name: "Los Angeles", city_code: "LAX")
+City.create(name: "London", city_code: "LDN")
 
 Event.destroy_all
 

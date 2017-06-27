@@ -9,11 +9,14 @@ class SignUp extends React.Component {
       email: '',
       password: '',
     };
-
+    debugger
     this.guestSignIn = this.guestSignIn.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    // if (this.)
+  }
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
