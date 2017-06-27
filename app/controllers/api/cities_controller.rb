@@ -15,7 +15,9 @@ class Api::CitiesController < ApplicationController
 
   def show
     @city = City.find_by(id: params[:id])
-
+    @hosts = @city.city_hosts
+    @events = @city.events
+    
     if @city
       render :show
     else

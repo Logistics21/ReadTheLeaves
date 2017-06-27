@@ -1,16 +1,10 @@
 import React from 'react';
 
-const Flash = ({ signedIn }) => {
-  console.log(signedIn);
-  if (signedIn) {
-    return (
-      <div>Signed out successfully.</div>
-    )
-  } else {
-    return (
-      <div>Invalid email or password.</div>
-    )
-  }
-}
+const signoutFlash = () => {
+  return (
+    <div>Signed out successfully.</div>
+  );
+};
 
-export default Flash;
+
+export default signoutFlash;

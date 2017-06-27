@@ -6,8 +6,6 @@ class City < ActiveRecord::Base
 
   def city_events
     self.events
-
-
   end
 
   def city_hosts

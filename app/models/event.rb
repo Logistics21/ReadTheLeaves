@@ -12,6 +12,6 @@ class Event < ActiveRecord::Base
   has_one :host,
     class_name: "User",
     primary_key: :id,
-    foreign_key: :user_id,
+    foreign_key: :id,
     dependent: :destroy
 end

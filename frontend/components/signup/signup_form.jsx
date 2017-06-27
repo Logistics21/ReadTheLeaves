@@ -75,28 +75,42 @@ class SignUp extends React.Component {
 
   redirect() {
     if (this.props.location.pathname === '/signin') {
-      return <Link onClick={() => this.props.clearErrors()} className="redirect" to="/signup">If you've never signed up before, click here and do that</Link>;
+      return <Link
+              onClick={() => this.props.clearErrors()}
+              className="redirect" to="/signup">
+              If you've never signed up before, click here and do that
+              </Link>;
     } else {
-      return <Link onClick={() => this.props.clearErrors()} className="redirect" to="/signin">If you've already done this before, click here to log in</Link>;
+      return <Link
+              onClick={() => this.props.clearErrors()}
+              className="redirect" to="/signin">
+              If you've already done this before, click here to log in
+            </Link>;
     }
   }
 
   renderErrors() {
-    return(
-      <ul className="errors-list">
-        {this.props.errors.map((error, i) => (
-          <li className="error" key={i}>{error}</li>
-        ))}
-      </ul>
-    );
+    if (this.props.errors.length !== 0) {
+      return(
+        <ul className="errors-list">
+          {this.props.errors.map((error, i) => (
+            <li className="error" key={i}>{error}</li>
+          ))}
+        </ul>
+      );
+    } else {
+      return (
+        <ul className="no-errors"></ul>
+      );
+    }
   }
 
   render() {
     return (
       <div className="signup-form-container">
+        { this.renderErrors() }
         <form onSubmit={this.handleSubmit}
           className="sign-up-form">
-          { this.renderErrors() }
           {this.header()}
           <div className="sign-up-field">
             {this.nameInput()}

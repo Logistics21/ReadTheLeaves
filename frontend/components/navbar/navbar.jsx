@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 import Flash from '../flash/flash';
 
-const NavBar = ({signedIn, signout}) => {
+const NavBar = ({signedIn, signout, clearErrors}) => {
   const navbarRight = () => {
     if (signedIn) {
       return (
@@ -11,8 +11,18 @@ const NavBar = ({signedIn, signout}) => {
     } else {
       return (
         [
-          <Link key="1" className="nav-item nav-button" to="/signin">SIGN IN</Link>,
-          <NavLink key="2" className="nav-item nav-signup-button" to="/signup">SIGN UP</NavLink>
+          <Link
+            onClick={() => clearErrors()}
+            key="1"
+            className="nav-item nav-button"
+            to="/signin">SIGN IN
+          </Link>,
+          <NavLink
+            onClick={() => clearErrors()}
+            key="2"
+            className="nav-item nav-signup-button"
+            to="/signup">SIGN UP
+          </NavLink>
         ]
       );
     }
@@ -30,8 +40,6 @@ const NavBar = ({signedIn, signout}) => {
           <Link className="nav-item" to="/hosting">HOSTING</Link>
           <Link className="nav-item" to="/about">ABOUT</Link>
           {navbarRight()}
-        </div>
-        <div className="flash-notice">
         </div>
       </div>
     </header>
