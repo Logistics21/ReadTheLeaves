@@ -43,7 +43,7 @@
     id: 4,
     name: "Portland",
     image_url: "This url",
-    city_events: [1, 2, 3] (event ids)
+    events: [1, 2, 3] (event ids)
   },
   hosts: {
     id: 1,

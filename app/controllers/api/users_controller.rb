@@ -1,4 +1,14 @@
 class Api::UsersController < ApplicationController
+
+  def index
+    @city = City.find_by(city_id: params[:city_id])
+    if @city.users
+      render json: @city.users
+    else
+      render json: @city.errors.full_messages, status: 422
+    end
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save

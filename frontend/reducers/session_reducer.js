@@ -3,7 +3,6 @@ import { merge } from 'lodash';
 
 const _defaultState = Object.freeze({
   currentUser: null,
-  errors: []
 });
 
 const sessionReducer = (state = _defaultState, action) => {

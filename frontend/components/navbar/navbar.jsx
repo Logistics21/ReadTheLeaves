@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
+import Flash from '../flash/flash';
 
 const NavBar = ({signedIn, signout}) => {
   const navbarRight = () => {
@@ -30,6 +31,8 @@ const NavBar = ({signedIn, signout}) => {
           <Link className="nav-item" to="/about">ABOUT</Link>
           {navbarRight()}
         </div>
+        <div className="flash-notice">
+        </div>
       </div>
     </header>
   );
@@ -39,6 +42,7 @@ export default NavBar;
 
 
 
+// <Flash message={ signedIn } />
 
 // city() {
 //   if (this.props.signedIn) {

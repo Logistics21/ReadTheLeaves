@@ -6,11 +6,15 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   # validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 
-  after_initialize :ensure_session_token
+  belongs_to :city
+  
+  has_many :attendances
 
-  # has_many :events,
-  # through: :attendants,
-  # source: :events
+  has_many :events,
+  through: :attendances,
+  source: :events
+
+  after_initialize :ensure_session_token
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

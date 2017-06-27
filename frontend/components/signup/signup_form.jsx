@@ -9,7 +9,7 @@ class SignUp extends React.Component {
       email: '',
       password: '',
     };
-
+    // this.clearErrors = this.clearErrors.bind(this);
     this.guestSignIn = this.guestSignIn.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -56,6 +56,7 @@ class SignUp extends React.Component {
     const user = this.state;
     this.props.processForm(user)
     .then(() => this.props.history.push('/cities'));
+    // this.props.clearErrors();
   }
 
   nameInput() {
@@ -75,16 +76,20 @@ class SignUp extends React.Component {
 
   redirect() {
     if (this.props.location.pathname === '/signin') {
+      // this.props.clearErrors();
       return <Link className="redirect" to="/signup">If you've never signed up before, click here and do that</Link>;
     } else {
+      // this.props.clearErrors();
       return <Link className="redirect" to="/signin">If you've already done this before, click here to log in</Link>;
     }
   }
 
   renderErrors() {
     return(
-      <ul>
-        {this.props.errors.map((error, i) => (<li key={i}>{error}</li>))}
+      <ul className="errors-list">
+        {this.props.errors.map((error, i) => (
+          <li className="error" key={i}>{error}</li>
+        ))}
       </ul>
     );
   }
@@ -94,6 +99,7 @@ class SignUp extends React.Component {
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit}
           className="sign-up-form">
+          { this.renderErrors() }
           {this.header()}
           <div className="sign-up-field">
             {this.nameInput()}
