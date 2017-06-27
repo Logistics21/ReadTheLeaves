@@ -9,18 +9,20 @@ export const receiveCurrentUser = currentUser => ({
 });
 
 export const signup = user => dispatch => (
-  APIUtil.signup(user).then(user => (
-    dispatch(receiveCurrentUser(user))
-  ), err => (
+  APIUtil.signup(user).then(user => {
+    dispatch(clearErrors());
+    return dispatch(receiveCurrentUser(user));
+  }, err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
 );
 
 
 export const signin = user => dispatch => (
-  APIUtil.signin(user).then(user => (
-    dispatch(receiveCurrentUser(user))
-  ), err => (
+  APIUtil.signin(user).then(user => {
+    dispatch(clearErrors());
+    dispatch(receiveCurrentUser(user));
+  }, err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
 );
