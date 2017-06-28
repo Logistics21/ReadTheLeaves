@@ -104,6 +104,8 @@ class CityDetail extends React.Component {
 
   renderCityAlert() {
     const user = this.props.currentUser;
+    const city = this.props.city;
+    debugger
     if (!user) {
       return (
         <Link className="city-button" to="/signup">SIGN UP</Link>
@@ -113,7 +115,7 @@ class CityDetail extends React.Component {
         <Link
           className="city-button"
           to="/hosting">
-          CLICK HERE TO HOST AN EVENT IN {this.props.city.city_code.toUpperCase()}
+          CLICK HERE TO HOST AN EVENT IN {city.city_code.toUpperCase()}
         </Link>
       );
     } else if (user.city_id === this.id && !user.is_host) {
@@ -126,12 +128,17 @@ class CityDetail extends React.Component {
     } else if (user.city_id && user.city_id !== this.id) {
       return (
         <div>
-          <h4>Do you live in {this.props.city.city_code.toUpperCase()} now?</h4>
+          <h4>Do you live in {city.city_code.toUpperCase()} now?</h4>
           <Link
             className="city-button"
-            to="/cities">
-            {user.city_code} is your home city right now. The big button will change that!
+            onClick={() => this.props.updateUserCity(user, this.id, city.name, city.city_code)}
+            to={`/cities/${this.id}`}>
+            YUP!
           </Link>
+          <Link
+            to={`/cities/${user.city_id}`}>
+            {user.city_name}
+          </Link> is your home city right now. The big button will change that!
         </div>
       );
     } else {
@@ -140,9 +147,9 @@ class CityDetail extends React.Component {
           <h4>You have no home city yet!</h4>
           <Link
             className="city-button"
-            onClick={() => this.props.updateUserCity(user, this.id)}
+            onClick={() => this.props.updateUserCity(user, this.id, city.name, city.city_code)}
             to={`/cities/${this.id}`}>
-            SET {this.props.city.name.toUpperCase()} AS MY HOME CITY
+            SET {city.name.toUpperCase()} AS MY HOME CITY
           </Link>
         </div>
       );

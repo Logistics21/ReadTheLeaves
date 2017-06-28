@@ -6,10 +6,9 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({ session, cities }, ownProps) => {
   const city = cities[ownProps.match.params.id] ?
-  cities[ownProps.match.params.id] : {hosts: [], name: "", city_code: ""} ;
-  if (!city.hosts) {
-    city.hosts = [];
-  }
+  cities[ownProps.match.params.id] : {hosts: [], name: "", city_code: "", city_name: ""} ;
+  if (!city.hosts) city.hosts = [];
+  if (!city.events) city.events = [];
 
   return {
     currentUser: session.currentUser,
@@ -20,8 +19,9 @@ const mapStateToProps = ({ session, cities }, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchCity: (id) => dispatch(fetchCity(id)),
-    updateUserCity: (user, city_id) => dispatch(updateUserCity(user, city_id))
-  };
+    updateUserCity: (user, city_id, city_name, city_code) => (
+      dispatch(updateUserCity(user, city_id, city_name, city_code))
+  )};
 };
 
 export default withRouter(

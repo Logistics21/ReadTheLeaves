@@ -36,8 +36,8 @@ export const signout = () => dispatch => (
 
 
 
-export const updateUserCity = (user, city_id) => dispatch => (
-  APIUtil.updateUserCity(user, city_id).then(user => {
+export const updateUserCity = (user, city_id, city_name, city_code) => dispatch => (
+  APIUtil.updateUserCity(user, city_id, city_name, city_code).then(user => {
     dispatch(clearErrors());
     return dispatch(receiveCurrentUser(user));
   }, err => (
