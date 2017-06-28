@@ -9,5 +9,6 @@ json.events events do |event|
   json.address event.address
   json.description event.description
   json.city_id event.city_id
-  json.host_id event.host_id
+  json.host_id User.find_by(id: event.host_id), :id
+  json.host_name User.find_by(id: event.host_id), :first_name
 end
