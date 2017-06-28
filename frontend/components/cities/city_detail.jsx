@@ -31,6 +31,16 @@ class CityDetail extends React.Component {
 
   renderHasEvents() {
     if (this.props.city.events !== undefined) {
+      const events = this.props.city.events.map(event => {
+        return (
+          <li key={event.id} className="event-container">
+            {event.date}
+            {event.address}
+            {event.description}
+          </li>
+        );
+      });
+
       return (
         <div className="tea-time-container">
           <h2 className="tea-time-title">
@@ -41,6 +51,7 @@ class CityDetail extends React.Component {
             You'll never leave without questions, new perspectives, and the
             reminder that we're far more the same than we are different.
           </p>
+          {events}
       </div>
       );
     } else {
@@ -105,7 +116,6 @@ class CityDetail extends React.Component {
   renderCityAlert() {
     const user = this.props.currentUser;
     const city = this.props.city;
-    debugger
     if (!user) {
       return (
         <Link className="city-button" to="/signup">SIGN UP</Link>

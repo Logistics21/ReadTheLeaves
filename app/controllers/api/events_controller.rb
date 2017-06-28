@@ -6,15 +6,15 @@ class Api::EventsController < ApplicationController
       if @city.events.length > 0
       render json: @city.events
     else
-      render json: @city.errors.full_messages, status: 422
+      render json: "There are no events in this city"
     end
   end
 
   def create
     @event = Event.new(event_params)
+    @event.host_id = current_user.id
 
     if @event.save
-      @event.host_id = current_user.id
       render :show
     else
       render json: @event.errors.full_messages, status: 422
@@ -23,6 +23,7 @@ class Api::EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    @host = User.find_by(id: @event.host_id)
     @event ? render :show : render json: "Event not found", status: 422
   end
 
@@ -38,6 +39,6 @@ class Api::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :address, :city_id)
+    params.require(:event).permit(:date, :address, :city_id, :host_id)
   end
 end
