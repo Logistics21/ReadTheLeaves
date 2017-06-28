@@ -8,6 +8,5 @@ json.events events do |event|
   json.date event.date.strftime("%A, %d %b %Y %l:%M %p")
   json.address event.address
   json.description event.description
-  json.city_id event.city_id
   json.host_id event.host_id
 end
