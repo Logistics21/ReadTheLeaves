@@ -38,7 +38,6 @@ export const signout = () => dispatch => (
 
 export const updateUserCity = (user, city_id) => dispatch => (
   APIUtil.updateUserCity(user, city_id).then(user => {
-    // debugger
     dispatch(clearErrors());
     return dispatch(receiveCurrentUser(user));
   }, err => (
@@ -48,7 +47,6 @@ export const updateUserCity = (user, city_id) => dispatch => (
 
 export const updateUser = user => dispatch => (
   APIUtil.updateUser(user).then(user => {
-    // debugger
     dispatch(clearErrors());
     return dispatch(receiveCurrentUser(user));
   }, err => (

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import CityDetail from './city_detail';
 import { fetchCity } from '../../actions/cities_actions';
+import { updateUserCity } from '../../actions/session_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({ session, cities }, ownProps) => {
@@ -9,7 +10,7 @@ const mapStateToProps = ({ session, cities }, ownProps) => {
   if (!city.hosts) {
     city.hosts = [];
   }
-  
+
   return {
     currentUser: session.currentUser,
     city
@@ -18,7 +19,8 @@ const mapStateToProps = ({ session, cities }, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCity: (id) => dispatch(fetchCity(id))
+    fetchCity: (id) => dispatch(fetchCity(id)),
+    updateUserCity: (user) => dispatch(updateUserCity(user))
   };
 };
 

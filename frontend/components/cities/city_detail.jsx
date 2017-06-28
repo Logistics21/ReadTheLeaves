@@ -109,7 +109,7 @@ class CityDetail extends React.Component {
 
   renderCityAlert() {
     const user = this.props.currentUser;
-    debugger
+    // debugger
     if (!user) {
       return (
         <Link className="city-button" to="/signup">SIGN UP</Link>
@@ -129,14 +129,19 @@ class CityDetail extends React.Component {
       return (
         <div>
           <h4>You have no home city yet!</h4>
-          <Link className="city-button" to="/cities">SET {this.props.city.name.toUpperCase()} AS MY HOME CITY</Link>
+          <Link
+            className="city-button"
+            onClick={() => this.props.updateUserCity(user)}
+            to={`/cities/${this.id}`}>
+            SET {this.props.city.name.toUpperCase()} AS MY HOME CITY
+          </Link>
         </div>
       );
     }
   }
 
   render() {
-    debugger
+    // debugger
     return (
       <div className="city-detail-container">
         {this.renderCityName()}
