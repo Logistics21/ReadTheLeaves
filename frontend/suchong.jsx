@@ -3,7 +3,13 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import { fetchCities, fetchCity } from './actions/cities_actions';
+import {
+  updateUserCity,
+  updateUser,
+  RECEIVE_CURRENT_USER,
+  receiveCurrentUser
+} from './actions/session_actions';
+
 import { selectAllCities } from './reducers/selectors';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.fetchCities = fetchCities;
-  window.fetchCity = fetchCity;
-  window.selectAllCities = selectAllCities;
+  window.updateUserCity = updateUserCity;
+  window.updateUser = updateUser;
+  window.receiveCurrentUser = receiveCurrentUser;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 

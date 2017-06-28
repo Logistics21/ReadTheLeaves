@@ -3,16 +3,20 @@ import CityDetail from './city_detail';
 import { fetchCity } from '../../actions/cities_actions';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = ({ session, cities }) => {
-  // debugger
+const mapStateToProps = ({ session, cities }, ownProps) => {
+  const city = cities[ownProps.match.params.id] ?
+  cities[ownProps.match.params.id] : {hosts: [], name: "", city_code: ""} ;
+  if (!city.hosts) {
+    city.hosts = [];
+  }
+  
   return {
     currentUser: session.currentUser,
-    cities: cities
-  }
-}
+    city
+  };
+};
 
 const mapDispatchToProps = dispatch => {
-  // debugger
   return {
     fetchCity: (id) => dispatch(fetchCity(id))
   };

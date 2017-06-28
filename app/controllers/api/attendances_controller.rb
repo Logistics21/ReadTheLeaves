@@ -2,10 +2,11 @@ class Api::AttendancesController < ApplicationController
   def create
     @attendance = Attendance.new(attendance_params)
 
-    if @attendance.save!
-      render json: Event.find_by(event_id: params[:event_id])
+    if @attendance.save
+      render: show
+      # render json: Event.find_by(event_id: params[:event_id])
     else
-      render @attendance.errors.full_messages, status: 422
+      render json: @attendance.errors.full_messages, status: 422
     end
   end
 
