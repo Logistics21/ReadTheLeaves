@@ -15,10 +15,10 @@ class Api::CitiesController < ApplicationController
 
   def show
     @city = City.find_by(id: params[:id])
-    @hosts = @city.city_hosts
-    @events = @city.events
-    
+
     if @city
+      @hosts = @city.city_hosts
+      @events = @city.events
       render :show
     else
       render json: "City not found", status: 422

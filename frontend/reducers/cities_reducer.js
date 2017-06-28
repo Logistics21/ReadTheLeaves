@@ -1,10 +1,6 @@
 import { RECEIVE_CITIES, RECEIVE_CITY } from '../actions/cities_actions';
 import { merge } from 'lodash';
 
-// const _defaultState = {
-//
-// }
-
 const CitiesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
