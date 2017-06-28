@@ -4,9 +4,10 @@ class Api::EventsController < ApplicationController
 
     if @city
       if @city.events.length > 0
-      render json: @city.events
-    else
-      render json: "There are no events in this city"
+        render json: @city.events
+      else
+        render json: "There are no events in this city"
+      end
     end
   end
 
@@ -24,6 +25,7 @@ class Api::EventsController < ApplicationController
   def show
     @event = Event.find_by(id: params[:id])
     @host = User.find_by(id: @event.host_id)
+
     if @event
       render :show
     else
