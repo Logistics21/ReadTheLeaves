@@ -24,7 +24,11 @@ class Api::EventsController < ApplicationController
   def show
     @event = Event.find_by(id: params[:id])
     @host = User.find_by(id: @event.host_id)
-    @event ? render :show : render json: "Event not found", status: 422
+    if @event
+      render :show
+    else
+      render json: "Event not found", status: 422
+    end
   end
 
   def destroy
