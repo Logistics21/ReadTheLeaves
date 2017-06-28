@@ -3,11 +3,9 @@ class Api::EventsController < ApplicationController
     @city = City.find_by(id: params[:city_id])
 
     if @city
-      if @city.events.length > 0
-        render json: @city.events
-      else
-        render json: "There are no events in this city"
-      end
+      render json: @city.events if @city.events.length > 0
+    else
+      render json: "There are no events in this city"
     end
   end
 
