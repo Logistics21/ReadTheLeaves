@@ -3,7 +3,7 @@ class Api::AttendancesController < ApplicationController
     @attendance = Attendance.new(attendance_params)
 
     if @attendance.save
-      render: show
+      render :show
       # render json: Event.find_by(event_id: params[:event_id])
     else
       render json: @attendance.errors.full_messages, status: 422
