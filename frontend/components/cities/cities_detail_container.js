@@ -20,7 +20,7 @@ const mapStateToProps = ({ session, cities }, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchCity: (id) => dispatch(fetchCity(id)),
-    updateUserCity: (user) => dispatch(updateUserCity(user))
+    updateUserCity: (user, city_id) => dispatch(updateUserCity(user, city_id))
   };
 };
 

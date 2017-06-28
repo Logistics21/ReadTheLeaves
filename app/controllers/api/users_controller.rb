@@ -46,3 +46,6 @@ class Api::UsersController < ApplicationController
     params.require(:user).permit(:email, :first_name, :password, :last_name, :city_id, :is_host)
   end
 end
+
+# :city_code,
+# add migration to give users city_code
