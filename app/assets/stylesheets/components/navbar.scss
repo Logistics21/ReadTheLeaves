@@ -1,6 +1,7 @@
 .header {
   max-width: 100%;
   background: rgba(247,191,77,0.87);
+  height: 85px;
 }
 
 .navbar-container {
@@ -16,20 +17,23 @@
 .logo-container {
   display: flex;
   align-items: center;
+  padding-top: 4px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  width: 420px;
+  width: 450px;
   height: 40px;
+  font-size: 19px;
+  padding-top: 4px;
 }
-//
+
 .nav-item {
   display: flex;
   align-items: center;
   padding:0 9px;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   font-size: 0.75em;
   font-weight: 500;
   height: 40px;
@@ -47,38 +51,8 @@
   padding: 0 18px;
   transition: .3s;
 }
-//
+
 .nav-signup-button:hover {
   background-color: Transparent;
   color: white;
 }
-// .navbar-container{
-//   display: flex;
-//   justify-content: flex-end;
-//   padding: 18px;
-//   background-color: #F7BF4D
-// }
-//
-// .nav-links {
-//   font-family: Helevetica Neue;
-//   display: flex;
-//   justify-content: flex-end;
-//   align-items: center;
-//   letter-spacing: 1px;
-//   font-weight: 500;
-//   width:495px;
-//   height: 40px;
-//   color: white;
-// }
-//
-// .nav-item {
-//   padding-left: 18px;
-// }
-//
-// .nav-button {
-//
-// }
-//
-// .nav-signup-button {
-//
-// }

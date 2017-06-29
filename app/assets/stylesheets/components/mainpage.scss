@@ -1,7 +1,7 @@
 .main-content {
   width: 100%;
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 600;
   font-family: Helvetica;
 }
@@ -10,13 +10,13 @@
   background: rgba(247,191,77,0.87);
   display: flex;
   justify-content: center;
-  padding: 110px;
+  padding: 170px;
   color: white;
 }
 
 .jumbotron {
   background: image-url('teatime.jpg') no-repeat center center;
-  height: 411px;
+  height: 521px;
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -70,7 +70,7 @@
 .about-item-container {
   display: flex;
   justify-content: center;
-  width: 1140px;
+  width: 1160px;
 }
 .about-part {
   margin-right: 31px;
@@ -91,7 +91,7 @@
 
 .h2 {
   color: #EF6236;
-  font-size: 1.25em;
+  font-size: 1.5em;
   font-weight: 600;
 }
 
@@ -111,7 +111,7 @@
   margin-bottom: 1em;
   font-weight: 600;
   font-family: Helvetica;
-  font-size: 0.91em;
+  font-size: 1.125em;
 }
 
 .why-explain {
@@ -147,7 +147,7 @@
   color: black;
   font-weight: 400;
   line-height: 1.625;
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .body-signup {
@@ -165,7 +165,7 @@
 
 .signup-h2 {
   color: #5C5C5C;
-  font-size: 1.70em;
+  font-size: 1.875em;
   margin-bottom: 29px;
   margin-top: 3px;
 }
@@ -209,7 +209,7 @@
   border-right: 0.5em solid #fcebc7;
   border-left: 0.5em solid #fcebc7;
   text-align: left;
-  font-size: 15.5px;
+  font-size: 17px;
   width: 331.66px;
   color: #595959;
   line-height: 1.625;
@@ -228,6 +228,7 @@
   text-align: center;
   margin-top: 75px;
   margin-bottom: 1em;
+  font-size: 19px;
 }
 
 .stranger-story {
@@ -246,7 +247,7 @@
 
 .stranger-p {
   margin-bottom: 0.8125em;
-  font-size: 18px;
+  font-size: 19px;
 }
 
 .img3 {
