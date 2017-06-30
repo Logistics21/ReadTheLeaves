@@ -95,8 +95,7 @@ class CityDetail extends React.Component {
         <p className="past-host-p">
           Every host in the community has played a huge role in making this
           movement come to life. You might not have seen tea times from these
-          hosts in a bit, but without them, Tea With Strangers in New York
-          City wouldn't be where it is today.
+          hosts in a bit, but without them, Read the Leaves in {this.props.city.name} wouldn't be where it is today.
         </p>
         {this.pastHosts()}
       </div>

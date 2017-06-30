@@ -98,7 +98,7 @@ class MainPage extends React.Component {
               </p>
               <p className="quote">
                 ”I’m not the type of person who talks to strangers.
-                This doesn’t mean I don’t want to. Tea With Strangers
+                This doesn’t mean I don’t want to. Read The Leaves
                 just makes it easier because you know everyone there
                 wants it too.”
                 <span className="quote-bold">Molly, SF</span>

@@ -46,7 +46,7 @@ class CitiesIndex extends React.Component {
           <div className="cities-header-container">
             <h2 className="cities-title">Set your home city</h2>
             <p className="cities-p">
-              Make sure you're the first to hear about Tea With Strangers
+              Make sure you're the first to hear about Read The Leaves
               updates relevant to you!
             </p>
           </div>
@@ -65,7 +65,7 @@ class CitiesIndex extends React.Component {
                 <h2 className="cities-subtitle">We'll get here eventually ✈️</h2>
                 <p className="cities-section-p">
                   For now, find and set your home city. Well make sure you
-                  know when we Tea With Strangers is coming your way!
+                  know when we Read The Leaves is coming your way!
                 </p>
               </div>
               <div className="cities-section-list-container">
