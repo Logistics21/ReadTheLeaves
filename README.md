@@ -12,9 +12,8 @@ Read The Leaves is a casual meetup app based on TeaWithStrangers, created by Ank
 
 The core feature of this application is anonymously joining tea times, in a given city.
 
-![City Event List](app/assets/images/city_event_list.png)
+![City Event List](app/assets/images/city_event_list1.png)
 
----
 Once they join, a user may leave the event at any time for any or no reason. If the event is currently full the user will be added to a waitlist and will be added to the event if another user should leave.
 
 ---
@@ -43,7 +42,7 @@ But we're getting ahead of ourselves.
 
 After signing up users will choice their home city and can now attend tea times. If a user cannot find their home city they may suggest a new potential home city for Read The Leaves to host tea times in.
 
-![Suggested Cities](app/assets/images/suggested_cities.png)
+![Suggested Cities](app/assets/images/suggested_cities1.png)
 
 ---
 
