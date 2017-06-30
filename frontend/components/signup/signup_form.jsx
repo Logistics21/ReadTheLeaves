@@ -78,13 +78,13 @@ class SignUp extends React.Component {
               onClick={() => this.props.clearErrors()}
               className="redirect" to="/signup">
               If you've never signed up before, click here and do that
-              </Link>;
+              </Link>
     } else {
       return <Link
               onClick={() => this.props.clearErrors()}
               className="redirect" to="/signin">
               If you've already done this before, click here to log in
-            </Link>;
+            </Link>
     }
   }
 

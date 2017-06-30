@@ -99,10 +99,6 @@
   font-weight: 400;
 }
 
-.e-date {
-
-}
-
 .e-time {
   font-size: 14px;
   margin-bottom: 29px;
@@ -145,17 +141,51 @@
   line-height: 1.625;
 }
 
+.change-city-container {
+  display: flex;
+  align-items: center;
+}
+
+.change-home {
+  color: #eda20b;
+  font-size: 17px;
+  margin: 0;
+}
+
+.change-small {
+  color: #eda20b;
+  font-size: 17px;
+  font-weight: 100;
+  margin: 0;
+}
+
+.city-change {
+  color: #EF6236;
+  font-weight: 100;
+  font-size: 17px;
+}
+
 .alert-container {
+  width: 612px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: #f1e9c6;
-  margin-bottom: 72px;
+  padding: 1.5em;
+}
+
+.redirect-link {
+  font-weight: 100;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  color: #EF6236;
+  padding-top: 1.5em;
 }
 
 .home-sentence {
   color: #eda20b;
-  padding: 1em;
+  padding-bottom: 1em;
   font-size: 17px;
   margin: 0;
 }
@@ -197,7 +227,12 @@
   margin-bottom: 65px;
 }
 
-.past-host-list-container {
+.set-city {
+  color: #eda20b;
+  padding-top: 1.5em;
+  font-size: 13px;
+  margin: 0;
+  font-weight: 400;
 }
 
 .past-host {
@@ -214,7 +249,7 @@
   justify-content: space-between;
   margin-bottom: 30px;
   list-style-type: none;
-  margin-top: 60px;
+  margin-top: 50px;
 }
 .event {
   background: #FEFEFE;

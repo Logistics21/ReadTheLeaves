@@ -138,27 +138,41 @@ class CityDetail extends React.Component {
     const city = this.props.city;
     if (!user) {
       return (
-        <Link className="city-button" to="/signup">SIGN UP</Link>
+        <div className="alert-container">
+          <h6 className="home-sentence">
+            You can set your city once you've signed up!
+          </h6>
+          <Link className="city-button" to="/signup">SIGN UP</Link>
+            <Link
+              className="redirect-link"
+              onClick={() => this.props.clearErrors()}
+              to="/signin">
+              Log in if you've signed up before
+            </Link>
+        </div>
       );
     } else if (user.city_id === this.id && user.is_host) {
       return (
-        <Link
-          className="city-button"
-          to="/hosting">
-          CLICK HERE TO HOST AN EVENT IN {city.city_code.toUpperCase()}
-        </Link>
+        <div className="alert-container">
+          <Link
+            className="city-button"
+            to="/hosting">
+            CLICK HERE TO HOST AN EVENT IN {city.city_code.toUpperCase()}
+          </Link>
+        </div>
       );
     } else if (user.city_id === this.id && !user.is_host) {
       return (
         <div className="alert-container">
-          <h6 className="home-sentence">
-            This is your home city! If you've moved
-          <Link
-            className="city-button"
-            to="/cities">
-            change your home city here.
-          </Link>
-        </h6>
+          <div className="change-city-container">
+            <h6 className="change-home">
+              This is your home city! </h6>
+            <h6 className="change-small">If you've moved, </h6>
+            <Link
+              className="city-change"
+              to="/cities"> change your home city here.
+            </Link>
+          </div>
         </div>
       );
     } else if (user.city_id && user.city_id !== this.id) {
@@ -173,7 +187,7 @@ class CityDetail extends React.Component {
             to={`/cities/${this.id}`}>
             YUP!
           </Link>
-          <h6 className="home-sentence">
+          <h6 className="set-city">
             <Link
               className="home-link"
               to={`/cities/${user.city_id}`}>
@@ -184,7 +198,9 @@ class CityDetail extends React.Component {
     } else {
       return (
         <div className="alert-container">
-          <h4>You have no home city yet!</h4>
+          <h6 className="home-sentence">
+            You have no home city yet!
+          </h6>
           <Link
             className="city-button"
             onClick={() => this.props.updateUserCity(user, this.id, city.name, city.city_code)}
