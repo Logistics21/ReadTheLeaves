@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
 
   has_many :users,
   through: :attendances,
-  source: :users
+  source: :user
 
   belongs_to :city
 

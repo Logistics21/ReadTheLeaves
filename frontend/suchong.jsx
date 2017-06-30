@@ -11,6 +11,7 @@ import {
 } from './actions/session_actions';
 
 import { selectAllCities } from './reducers/selectors';
+import { attendEvent } from './util/attend_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.updateUserCity = updateUserCity;
   window.updateUser = updateUser;
-  window.receiveCurrentUser = receiveCurrentUser;
+  window.attendEvent = attendEvent;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 

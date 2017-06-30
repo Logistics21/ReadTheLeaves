@@ -25,6 +25,7 @@
       id: 4,
       username: "Doc Brown",
       email: "bttf@gmail.com"
+      events: [5, 19, 2] (event ids)
     }
   },
   events: {

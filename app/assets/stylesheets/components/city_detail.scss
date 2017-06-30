@@ -1,0 +1,265 @@
+.city-name-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  padding-top: 6.5em;
+  padding-bottom: 6.5em;
+}
+
+.city-image {
+  width: 100%;
+  top: -400px;
+  position: absolute;
+  z-index: -1;
+}
+
+.city-title {
+  font-size: 2.5em;
+  text-transform: uppercase;
+}
+
+.get-tea {
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.city-detail-body-container {
+  background-color: #FAF6E8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tea-time-container {
+  margin-top: 61px;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tea-time-title {
+  font-size: 26px;
+  color: #EF6236;
+  margin-bottom: 18px;
+  width: 648px;
+}
+
+.tea-time-p {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.625;
+  margin-bottom: 12px;
+  width: 648px;
+}
+
+.events-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hosts-container {
+  width: 648px;
+}
+
+.current-hosts-container {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  flex-direction: row;
+  width: 800px;
+}
+
+.city-head-container {
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.current-host-container {
+  padding: 7em 3em 1em 3em;
+  background: #FEFEFE;
+  border: 1px solid #DDD;
+  margin-left: 20px;
+}
+
+.event {
+  background: #FEFEFE;
+  border: 1px solid #DDD;
+  padding: 0.75em 0.75em 1em 0.75em;
+  width: 199.5px;
+  height: 192px;
+}
+
+.e-day {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #929292;
+  font-weight: 400;
+}
+
+.e-date {
+
+}
+
+.e-time {
+  font-size: 14px;
+  margin-bottom: 29px;
+}
+
+.e-add {
+  color: #929292;
+  font-size: 14px;
+}
+
+.e-des {
+  color: #929292;
+  font-size: 14px;
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 37px;
+}
+
+.hosts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hosts-stories {
+  display: flex;
+  width: 648px;
+  flex-direction: column;
+  margin-left: 70px;
+}
+
+.host-title {
+  font-size: 26px;
+  color: #EF6236;
+  margin-bottom: 18px;
+}
+
+.host-p {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.625;
+}
+
+.alert-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f1e9c6;
+  margin-bottom: 72px;
+}
+
+.home-sentence {
+  color: #eda20b;
+  padding: 1em;
+  font-size: 17px;
+  margin: 0;
+}
+
+.city-button {
+  background-color: #EF6236;
+  border: 2px solid #EF6236;
+  border-radius: 10px;
+  color: white;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 1em 1.5em;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.home-link {
+  color: #EF6236;
+  font-size: 13px;
+  font-weight: 100;
+}
+
+.past-hosts-container {
+  margin: 36px 0 36px 0;
+  width: 648px;
+  margin-left: 75px;
+}
+
+.past-host-title {
+  color: #EF6236;
+  font-size: 17px;
+  margin-bottom: 18px;
+}
+
+.past-host-p {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.625;
+  margin-bottom: 65px;
+}
+
+.past-host-list-container {
+}
+
+.past-host {
+  text-align: center;
+  color: #EF6236;
+  font-weight: 100;
+  font-size: 17px;
+  margin-bottom: 50px;
+}
+
+.event-list-container {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  list-style-type: none;
+  margin-top: 60px;
+}
+.event {
+  background: #FEFEFE;
+  border: 1px solid #DDD;
+  padding: 0.75em 0.75em 1em 0.75em;
+  width: 199.5px;
+  height: 192px;
+}
+
+.e-day {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #929292;
+  font-weight: 400;
+}
+
+.e-time {
+  font-size: 14px;
+  margin-bottom: 29px;
+}
+
+.e-add {
+  color: #929292;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.e-des {
+  color: #929292;
+  font-size: 14px;
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 37px;
+  font-weight: 100;
+}
+
+.join-button {
+  background-color: #F7BF4D;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 2px solid #F7BF4D;
+  padding: 1em 1.5em;
+  color: white;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  font-size: 17px;
+  margin-top: 18px;
+  text-align: center;
+}

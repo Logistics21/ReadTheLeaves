@@ -32,9 +32,9 @@ class Api::EventsController < ApplicationController
   end
 
   def destroy
-    event = Event.find_by(id: params[:id])
-    event.destroy
-    render :show
+    event = Event.find(params[:id])
+    event.destroy!
+    render json: { eventId: event.id }
   end
 
   def update

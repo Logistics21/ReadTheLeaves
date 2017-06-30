@@ -1,22 +1,21 @@
 class Api::AttendancesController < ApplicationController
   def create
-    @attendance = Attendance.new(attendance_params)
-
+    @attendance = current_user.attendances.new(attendance_params)
     if @attendance.save
       render :show
-      # render json: Event.find_by(event_id: params[:event_id])
     else
       render json: @attendance.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    attendance = Attendance.Find_by(id: params[:id])
-    attendance.destroy
-    render json: {}
+    @attendance = Attendance.find_by(event_id: params[:event_id],
+    user_id: current_user.id)
+    @attendance.destroy!
+    render :show
   end
 
   def attendance_params
-    params.require(:attendance).permit(:user_id, :event_id)
+    params.require(:attendance).permit(:event_id)
   end
 end

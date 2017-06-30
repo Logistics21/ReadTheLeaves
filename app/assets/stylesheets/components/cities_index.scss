@@ -5,8 +5,18 @@
   background-color: #FAF6E8;
   font-family: Helvetica;
 }
+
 .cities-list-container {
   margin-bottom: 3em;
+}
+
+.city-image-container {
+  width: 100%;
+  height: 324px;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.85;
+  background: rgba(247, 191, 77, 0.87);
 }
 .cities-header-container {
   padding: 2.2em 0 1.5em;
@@ -16,15 +26,38 @@
   color: #5C5C5C;
 }
 
+.current-cities-container {
+  column-count: 3;
+}
+
 .cities-title {
   margin-bottom: 18px;
   font-size: 2.35em;
   font-family: Helvetica;
 }
+.city-name {
+  position: relative;
+  text-align: center;
+  top: 100px;
+  color: white;
+  z-index: 1;
+  opacity: 0.9;
+  font-size: 26px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.city_image {
+  background-color: rgba(247,191,77, 0.8);
+  width: 312.5px;
+  height: 160px;
+}
 
 .city-index-image {
   width: 312.5px;
   height: 160px;
+  opacity: 0.5;
 }
 
 .cities-partial {
@@ -60,6 +93,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
 }
 
 .cities-section-p {

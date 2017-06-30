@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :events,
   through: :attendances,
-  source: :events
+  source: :event
 
   after_initialize :ensure_session_token
 

@@ -14,44 +14,62 @@ class CityDetail extends React.Component {
   renderCityName() {
     return (
       <div className="city-name-container">
-        <h1 className="city-title">{this.props.city.name}</h1>
-        <h3 className="get-tea">LET'S GET TEA!</h3>
+        <div className="city-image-container"></div>
+          <img className="city-image" src={this.props.city.image_url} />
+        <div className="city-head-container">
+          <h1 className="city-title">{this.props.city.name}</h1>
+          <h3 className="get-tea">LET'S GET TEA!</h3>
+        </div>
       </div>
     );
   }
 
   pastHosts() {
     return (
-      [
-        "Shiv", "Jillian","Misha", "Kyle","Nou", "Owen", "Yohan",
-        "Willie", "Alex", "Sophia", "Shumita", "Joel", "Claire"
-      ]
+      <div className="past-host-list-container">
+        <div className="past-host">
+          Shiv Jillian Misha Kyle Nou Owen Yohan
+          Willie Alex Sophia Shumita Joel Claire
+        </div>
+      </div>
     );
+  }
+
+  eventlist() {
+    const events = this.props.city.events.map(event => {
+      return (
+        <li key={event.id} className="event-container">
+          <div className="event">
+            <div className="e-day">{event.day}</div>
+            <div className="e-date">{event.date}</div>
+            <div className="e-time">{event.time}</div>
+            <div className="e-add">{event.address}</div>
+            <div className="e-des">{event.description}</div>
+          </div>
+          <div className="join-button">
+            <button>Join Event</button>
+          </div>
+        </li>
+      );
+    });
+
+    return (<div className="event-list-container">{events}</div>);
   }
 
   renderHasEvents() {
     if (this.props.city.events !== undefined) {
-      const events = this.props.city.events.map(event => {
-        return (
-          <li key={event.id} className="event-container">
-            {event.date}
-            {event.address}
-            {event.description}
-          </li>
-        );
-      });
-
       return (
-        <div className="tea-time-container">
-          <h2 className="tea-time-title">
-            Tea Time is a conversation between a few
-            people who know nothing about each other.
-          </h2>
-          <p className="tea-time-p">
-            You'll never leave without questions, new perspectives, and the
-            reminder that we're far more the same than we are different.
-          </p>
-          {events}
+        <div>
+          <div className="tea-time-container">
+            <h2 className="tea-time-title">
+              Tea Time is a conversation between a few
+              people who know nothing about each other.
+            </h2>
+            <p className="tea-time-p">
+              You'll never leave without questions, new perspectives, and the
+              reminder that we're far more the same than we are different.
+            </p>
+        </div>
       </div>
       );
     } else {
@@ -88,9 +106,9 @@ class CityDetail extends React.Component {
   renderCurrentHosts() {
     const hosts = this.props.city.hosts.map( (host, idx) => {
       return (
-        <li key={idx} className="current-hosts-container">
+        <div className="current-host-container" key={idx}>
           <h2>{host.first_name}</h2>
-        </li>
+        </div>
       );
     });
 
@@ -107,7 +125,9 @@ class CityDetail extends React.Component {
             open-mindedness, and presence.
           </p>
         </div>
-        {hosts}
+        <div className="current-hosts-container">
+          {hosts}
+        </div>
         {this.renderPastHosts()}
       </div>
     );
@@ -130,30 +150,40 @@ class CityDetail extends React.Component {
       );
     } else if (user.city_id === this.id && !user.is_host) {
       return (
-        <div>
-          <h4>This is your home city! If you've moved</h4>
-          <Link className="city-button" to="/cities">change your home city here.</Link>
+        <div className="alert-container">
+          <h6 className="home-sentence">
+            This is your home city! If you've moved
+          <Link
+            className="city-button"
+            to="/cities">
+            change your home city here.
+          </Link>
+        </h6>
         </div>
       );
     } else if (user.city_id && user.city_id !== this.id) {
       return (
-        <div>
-          <h4>Do you live in {city.city_code.toUpperCase()} now?</h4>
+        <div className="alert-container">
+          <h6 className="home-sentence">
+            Do you live in {city.city_code.toUpperCase()} now?
+          </h6>
           <Link
             className="city-button"
             onClick={() => this.props.updateUserCity(user, this.id, city.name, city.city_code)}
             to={`/cities/${this.id}`}>
             YUP!
           </Link>
-          <Link
-            to={`/cities/${user.city_id}`}>
-            {user.city_name}
-          </Link> is your home city right now. The big button will change that!
+          <h6 className="home-sentence">
+            <Link
+              className="home-link"
+              to={`/cities/${user.city_id}`}>
+              {user.city_name}
+          </Link> is your home city right now. The big button will change that!</h6>
         </div>
       );
     } else {
       return (
-        <div>
+        <div className="alert-container">
           <h4>You have no home city yet!</h4>
           <Link
             className="city-button"
@@ -170,9 +200,12 @@ class CityDetail extends React.Component {
     return (
       <div className="city-detail-container">
         {this.renderCityName()}
-        {this.renderCityAlert()}
-        {this.renderHasEvents()}
-        {this.renderCurrentHosts()}
+        <div className="city-detail-body-container">
+          {this.renderHasEvents()}
+          {this.renderCityAlert()}
+          {this.eventlist()}
+          {this.renderCurrentHosts()}
+        </div>
     </div>
     );
   }
