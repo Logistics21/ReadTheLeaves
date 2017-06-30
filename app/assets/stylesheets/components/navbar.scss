@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'NanumPenScript-Regular';
+  src:font-url('NanumPenScript-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .header {
   max-width: 100%;
   background: rgba(247,191,77,0.95);
@@ -18,6 +25,15 @@
   display: flex;
   align-items: center;
   padding-top: 4px;
+}
+
+.right-leaf {
+  margin-right: 5px;
+}
+
+.logo-text {
+  font-family: 'NanumPenScript-Regular';
+  font-size: 30px;
 }
 
 .nav-links {

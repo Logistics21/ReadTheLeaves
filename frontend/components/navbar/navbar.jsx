@@ -33,7 +33,9 @@ const NavBar = ({signedIn, signout, clearErrors}) => {
       <div className="navbar-container">
         <div className="logo-container">
           <Link to="/"><i className="fa fa-envira fa-lg" aria-hidden="true"></i></Link>
-          <Link to="/"><i className="fa fa-leaf fa-lg right-leaf" aria-hidden="true"> Read The Leaves</i></Link>
+          <Link to="/"><i className="fa fa-leaf fa-lg right-leaf" aria-hidden="true"></i></Link>
+          <Link className="logo-text" to="/"> Read The Leaves</Link>
+
         </div>
         <div className="nav-links">
           <Link className="nav-item" to="/cities">CITIES</Link>
