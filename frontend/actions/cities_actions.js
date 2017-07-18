@@ -7,6 +7,7 @@ export const receiveCity = (city) => ({
   type: RECEIVE_CITY,
   city
 });
+
 export const receiveCities = (cities) => ({
   type: RECEIVE_CITIES,
   cities

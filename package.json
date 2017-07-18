@@ -37,8 +37,10 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "redux": "^3.7.0",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "webpack": "^2.6.1"
-  }
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
+  },
 }

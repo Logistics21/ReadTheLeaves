@@ -9,8 +9,10 @@ class Api::AttendancesController < ApplicationController
   end
 
   def destroy
-    @attendance = Attendance.find_by(event_id: params[:event_id],
-    user_id: current_user.id)
+    @attendance = Attendance.find_by(
+      event_id: params[:event_id],
+      user_id: current_user.id)
+
     @attendance.destroy!
     render :show
   end

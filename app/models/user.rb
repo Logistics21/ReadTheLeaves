@@ -8,7 +8,12 @@ class User < ActiveRecord::Base
 
   belongs_to :city
 
-  has_many :attendances
+  has_many :attendances, dependent: :destroy
+
+  has_many :hosted_events,
+    class_name: "Event",
+    primary_key: :id,
+    foreign_key: :host_id
 
   has_many :events,
   through: :attendances,

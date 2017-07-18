@@ -9,9 +9,8 @@ class Event < ActiveRecord::Base
 
   belongs_to :city
 
-  has_one :host,
+  belongs_to :host,
     class_name: "User",
     primary_key: :id,
-    foreign_key: :id,
-    dependent: :destroy
+    foreign_key: :host_id
 end

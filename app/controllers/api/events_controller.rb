@@ -1,12 +1,14 @@
 class Api::EventsController < ApplicationController
   def index
-    @city = City.find_by(id: params[:city_id])
-
-    if @city
-      render json: @city.events
-    else
-      render json: "There are no events in this city"
-    end
+    @events = Event.all
+    render "api/events/index"
+  #   @city = City.find_by(id: params[:city_id])
+  #
+  #   if @city
+  #     render json: @city.events
+  #   else
+  #     render json: "There are no events in this city"
+  #   end
   end
 
   def create
@@ -22,7 +24,7 @@ class Api::EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
-    @host = User.find_by(id: @event.host_id)
+    # @host = User.find_by(id: @event.host_id)
 
     if @event
       render :show
@@ -34,10 +36,17 @@ class Api::EventsController < ApplicationController
   def destroy
     event = Event.find(params[:id])
     event.destroy!
-    render json: { eventId: event.id }
+    render :show
   end
 
   def update
+    @event = Event.find_by(id: params[:id])
+
+    if @event.update(event_params)
+      render :show
+    else
+      render json: @event.errors.full_messages, status: 422
+    end
   end
 
   private
