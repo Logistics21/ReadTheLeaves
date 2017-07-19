@@ -10,9 +10,13 @@ import {
   receiveCurrentUser
 } from './actions/session_actions';
 
-// import { selectAllCities } from './reducers/selectors';
-// import { attendEvent } from './util/attend_util';
-import * as Event from './util/event_util';
+import {
+  createEvent,
+  updateEvent,
+  removeEvent,
+  leaveEvent,
+  attendEvent
+} from './actions/events_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -25,12 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.requestCityEvents = Event.requestCityEvents;
-  window.createEvent = Event.createEvent;
-  window.updateEvent = Event.updateEvent;
-  window.deleteEvent = Event.deleteEvent;
-  window.leaveEvent = Event.leaveEvent;
-  window.attendEvent = Event.attendEvent;
+  window.createEvent = createEvent;
+  window.updateEvent = updateEvent;
+  window.removeEvent = removeEvent;
+  window.leaveEvent = leaveEvent;
+  window.attendEvent = attendEvent;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 

@@ -24,7 +24,6 @@ class Api::EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
-    # @host = User.find_by(id: @event.host_id)
 
     if @event
       render :show
@@ -34,7 +33,6 @@ class Api::EventsController < ApplicationController
   end
 
   def destroy
-    debugger
     @event = Event.find(params[:id])
     @event.destroy!
     render json: {}
