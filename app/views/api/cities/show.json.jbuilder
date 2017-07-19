@@ -7,7 +7,7 @@ json.image_url asset_path(@city.image.url)
 #   json.array! hosts, :first_name
 # end
 
-# changes events from array to object with keys pointing to events
+# changes events from array to object with keys pointing to event ids
 json.events do
   @city.events.each do |event|
     json.set! event.id do
@@ -15,6 +15,8 @@ json.events do
     end
   end
 end
+
+# stores city-based events in arrayarray
 # json.events @city.events do |event|
 #   json.partial! "api/events/event", event: event
 # end

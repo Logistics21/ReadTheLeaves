@@ -9,6 +9,7 @@ class Api::AttendancesController < ApplicationController
   end
 
   def destroy
+    debugger
     @attendance = Attendance.find_by(
       event_id: params[:event_id],
       user_id: current_user.id)
