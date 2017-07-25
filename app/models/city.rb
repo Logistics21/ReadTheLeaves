@@ -7,11 +7,7 @@ class City < ActiveRecord::Base
   has_many :events
   has_many :users
 
-  def city_events
-    self.events
-  end
-
   def city_hosts
-    hosts = self.users.where(is_host: true)
+    @hosts = self.users.where(is_host: true)
   end
 end

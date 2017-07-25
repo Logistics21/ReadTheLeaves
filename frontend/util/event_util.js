@@ -1,7 +1,7 @@
 export const requestCityEvents = city_id => (
   $.ajax({
     method: 'GET',
-    url: `api/events/${city_id}`
+    url: `api/cities/${city_id}/events`
   })
 );
 

@@ -4,11 +4,12 @@ import { Route, Link } from 'react-router-dom';
 class CityDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.id = parseInt(this.props.match.params.id);
+    this.id = this.props.match.params.id;
+    // this.id = parseInt(this.props.match.params.id);
   }
 
   componentDidMount() {
-    this.props.fetchCity(this.id);
+    this.props.fetchCity(this.props.match.params.id);
   }
 
   renderCityName() {
@@ -24,6 +25,20 @@ class CityDetail extends React.Component {
     );
   }
 
+  renderCurrentUsers() {
+    const users = this.props.users.map( (user, idx) => {
+      debugger
+      return (
+        <div className="current-host-container" key={idx}>
+          <h2>{user.first_name}</h2>
+        </div>
+      );
+    });
+
+    return users
+  }
+
+
   pastHosts() {
     return (
       <div className="past-host-list-container">
@@ -36,7 +51,7 @@ class CityDetail extends React.Component {
   }
 
   eventlist() {
-    const events = this.props.city.events.map(event => {
+    const events = this.props.events.map(event => {
       return (
         <li key={event.id} className="event-container">
           <div className="event">
@@ -57,7 +72,7 @@ class CityDetail extends React.Component {
   }
 
   renderHasEvents() {
-    if (this.props.city.events !== undefined) {
+    if (this.props.events !== undefined) {
       return (
         <div>
           <div className="tea-time-container">
@@ -103,7 +118,7 @@ class CityDetail extends React.Component {
   }
 
   renderCurrentHosts() {
-    const hosts = this.props.city.hosts.map( (host, idx) => {
+    const hosts = this.props.hosts.map( (host, idx) => {
       return (
         <div className="current-host-container" key={idx}>
           <h2>{host.first_name}</h2>
@@ -216,6 +231,7 @@ class CityDetail extends React.Component {
       <div className="city-detail-container">
         {this.renderCityName()}
         <div className="city-detail-body-container">
+          {this.renderCurrentUsers()}
           {this.renderHasEvents()}
           {this.renderCityAlert()}
           {this.eventlist()}

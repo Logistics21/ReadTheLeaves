@@ -4,4 +4,18 @@ import { values } from 'lodash';
 //  will extract events from cities once they have them
 // }
 
-export const selectAllCities = ({ cities }) => values(cities);
+export const selectAllCities = (state) => {
+  return values(state.cities);
+}
+
+export const selectAllEvents = (events) => {
+  return values(events);
+}
+
+export const selectAllUsers = (users) => {
+  return values(users);
+}
+
+export const selectAllHosts = (hosts) => {
+  return values(hosts);
+}

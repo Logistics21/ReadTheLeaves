@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8, allow_nil: true }
   # validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 
+  has_attached_file :image, default_url: "mike.jpg"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   belongs_to :city
 
   has_many :attendances, dependent: :destroy

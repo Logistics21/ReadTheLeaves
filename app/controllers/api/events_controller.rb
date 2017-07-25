@@ -1,14 +1,8 @@
 class Api::EventsController < ApplicationController
   def index
-    @events = Event.all
+    @city = City.find_by(id: params[:city_id])
+    @events = @city.events
     render "api/events/index"
-  #   @city = City.find_by(id: params[:city_id])
-  #
-  #   if @city
-  #     render json: @city.events
-  #   else
-  #     render json: "There are no events in this city"
-  #   end
   end
 
   def create

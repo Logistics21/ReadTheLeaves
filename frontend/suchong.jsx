@@ -15,7 +15,8 @@ import {
   updateEvent,
   removeEvent,
   leaveEvent,
-  attendEvent
+  attendEvent,
+  requestCityEvents
 } from './actions/events_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
+  window.requestCityEvents = requestCityEvents;
   window.createEvent = createEvent;
   window.updateEvent = updateEvent;
   window.removeEvent = removeEvent;

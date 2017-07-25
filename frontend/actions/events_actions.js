@@ -1,5 +1,6 @@
 import * as EventAPIUTil from '../util/event_util';
 
+export const RECEIVE_ALL_EVENTS = "RECEIVE_ALL_EVENTS";
 export const RECEIVE_NEW_EVENT = "RECEIVE_NEW_EVENT";
 export const RECEIVE_UPDATED_EVENT = "RECEIVE_UPDATED_EVENT";
 export const DELETE_EVENT = "DELETE_EVENT";
@@ -31,6 +32,10 @@ export const leaveEvent = id => dispatch => (
     .then(id => dispatch(removeAttendee(id)))
 )
 
+export const receiveAllEvents = events => ({
+  type: RECEIVE_ALL_EVENTS,
+  events
+});
 
 export const receiveNewEvent = event => ({
   type: RECEIVE_NEW_EVENT,

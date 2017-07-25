@@ -5,8 +5,10 @@ class Api::CitiesController < ApplicationController
 
   def show
     @city = City.find_by(id: params[:id])
-
+    # debugger
     if @city
+      # debugger
+      @users = @city.users
       @hosts = @city.city_hosts
       @events = @city.events
       render :show
