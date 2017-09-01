@@ -24,9 +24,9 @@ import {
 //   updateEvent,
 //   removeEvent,
 //   leaveEvent,
-  updateUser,
-  requestUser
-} from './util/users_util';
+  fetchUser,
+  updateUser
+} from './actions/users_actions';
 
 import {
   createEvent,
@@ -48,13 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.receiveAllEvents = receiveAllEvents;
+  // window.receiveAllEvents = receiveAllEvents;
   // window.requestCityEvents = requestCityEvents;
   window.updateUser = updateUser;
-  window.requestUser = requestUser;
-  window.removeEvent = removeEvent;
-  window.leaveEvent = leaveEvent;
-  window.attendEvent = attendEvent;
+  window.fetchUser = fetchUser;
+  // window.removeEvent = removeEvent;
+  // window.leaveEvent = leaveEvent;
+  // window.attendEvent = attendEvent;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 

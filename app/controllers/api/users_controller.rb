@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
   # end
 
   def create
-    debugger
+    # debugger
     @user = User.new(user_params)
     if @user.save
       login!(@user)
@@ -25,7 +25,7 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    debugger
+    # debugger
     @user = User.find(current_user.id)
 
     if @user.update(user_params)

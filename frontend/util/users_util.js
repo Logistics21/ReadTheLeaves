@@ -1,11 +1,10 @@
-export const updateUser = (id, user) => {
-  debugger
-  return $.ajax({
+export const updateUser = (id, user) => (
+  $.ajax({
     method: 'PATCH',
     url: `api/users/${id}`,
     data: { user },
   })
-};
+);
 
 export const requestUser = (id) => (
   $.ajax({
