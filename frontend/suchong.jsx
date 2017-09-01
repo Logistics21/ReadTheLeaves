@@ -3,12 +3,30 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
+// import {
+//   updateUserCity,
+//   // updateUser,
+//   RECEIVE_CURRENT_USER,
+//   receiveCurrentUser
+// } from './actions/session_actions';
+
 import {
-  updateUserCity,
+//   createEvent,
+//   updateEvent,
+//   removeEvent,
+//   leaveEvent,
+//   attendEvent,
+  receiveAllEvents
+} from './actions/events_actions';
+
+import {
+//   createEvent,
+//   updateEvent,
+//   removeEvent,
+//   leaveEvent,
   updateUser,
-  RECEIVE_CURRENT_USER,
-  receiveCurrentUser
-} from './actions/session_actions';
+  requestUser
+} from './util/users_util';
 
 import {
   createEvent,
@@ -16,8 +34,8 @@ import {
   removeEvent,
   leaveEvent,
   attendEvent,
-  requestCityEvents
-} from './actions/events_actions';
+  // requestCityEvents
+} from './util/event_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -30,9 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.requestCityEvents = requestCityEvents;
-  window.createEvent = createEvent;
-  window.updateEvent = updateEvent;
+  window.receiveAllEvents = receiveAllEvents;
+  // window.requestCityEvents = requestCityEvents;
+  window.updateUser = updateUser;
+  window.requestUser = requestUser;
   window.removeEvent = removeEvent;
   window.leaveEvent = leaveEvent;
   window.attendEvent = attendEvent;

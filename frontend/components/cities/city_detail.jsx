@@ -27,7 +27,7 @@ class CityDetail extends React.Component {
 
   renderCurrentUsers() {
     const users = this.props.users.map( (user, idx) => {
-      debugger
+      // debugger
       return (
         <div className="current-host-container" key={idx}>
           <h2>{user.first_name}</h2>

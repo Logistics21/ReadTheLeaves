@@ -24,7 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'paperclip'
 
 gem 'aws-sdk'
-
+gem 'bullet', group: 'development'
 gem "figaro"
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -39,8 +39,8 @@ gem 'font-awesome-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'pry-rails'
   gem 'byebug'
+  gem 'pry-rails'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -48,7 +48,6 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'bullet'
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

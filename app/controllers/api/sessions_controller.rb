@@ -20,7 +20,7 @@ class Api::SessionsController < ApplicationController
       signout!
       render "api/users/show"
     else
-      render json: ["Not currently signed in"], status: 401
+      render json: ["You are not currently signed in"], status: 401
     end
   end
 end
