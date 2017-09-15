@@ -12,7 +12,7 @@ const Auth = ({component: Component, path, signedIn}) => (
   )}/>
 );
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {signedIn: Boolean(state.session.currentUser)};
 };
 

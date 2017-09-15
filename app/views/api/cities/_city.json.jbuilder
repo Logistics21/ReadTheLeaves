@@ -1,4 +1,4 @@
-# json.extract! city, :id, :name, :city_code
+json.extract! city, :id, :name, :city_code
 # json.image_url asset_path(city.image.url)
 #
 # json.set! :hosts do

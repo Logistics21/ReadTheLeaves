@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
-import Flash from '../flash/flash';
 
 const NavBar = ({signedIn, signout, clearErrors}) => {
   const navbarRight = () => {
@@ -38,9 +37,9 @@ const NavBar = ({signedIn, signout, clearErrors}) => {
 
         </div>
         <div className="nav-links">
+          <Link className="nav-item" to="/update_profile">PROFILE</Link>
           <Link className="nav-item" to="/cities">CITIES</Link>
           <Link className="nav-item" to="/hosting">HOSTING</Link>
-          <Link className="nav-item" to="/about">ABOUT</Link>
           {navbarRight()}
         </div>
       </div>
@@ -49,19 +48,3 @@ const NavBar = ({signedIn, signout, clearErrors}) => {
 };
 
 export default NavBar;
-
-
-
-// <Flash message={ signedIn } />
-
-// city() {
-//   if (this.props.signedIn) {
-//     return (
-//       <Link to="/cityId">{this.props.currentUser.city_name}</Link>
-//     );
-//   } else {
-//     return null;
-//   }
-// }
-
-// {this.city()}

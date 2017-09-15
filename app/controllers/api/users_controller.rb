@@ -1,11 +1,9 @@
 class Api::UsersController < ApplicationController
-  # def index
-    # @users = Event.all.select { |event| event.host }
-    # maybe change users to hosts???
-  # end
+  def index
+    @users = User.all
+  end
 
   def create
-    # debugger
     @user = User.new(user_params)
     if @user.save
       login!(@user)
@@ -25,7 +23,6 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    # debugger
     @user = User.find(current_user.id)
 
     if @user.update(user_params)
