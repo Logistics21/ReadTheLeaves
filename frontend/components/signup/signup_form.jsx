@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       first_name: '',
       email: '',
       password: '',
     };
+
     this.guestSignIn = this.guestSignIn.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }

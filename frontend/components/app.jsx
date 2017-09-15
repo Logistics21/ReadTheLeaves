@@ -5,7 +5,7 @@ import MainPageContainer from './mainpage/mainpage_container';
 import NavBarContainer from './navbar/navbar_container';
 import CitiesIndexContainer from './cities/cities_index_container';
 import CitiesDetailContainer from './cities/cities_detail_container';
-import ProfileContainer from './profile/profile_container';
+import ProfileContainer from './profile/profile_form_container';
 import Footer from './footer/footer';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';

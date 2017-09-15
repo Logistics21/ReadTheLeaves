@@ -11,7 +11,8 @@ export const receiveUser = (user) => ({
 
 export const updateUser = (id, user) => (dispatch) => {
   return UserAPIUtil.updateUser(id, user).then(user => {
-    dispatch(receiveUser(user))
+    // debugger
+    return dispatch(receiveUser(user))
   });
 };
 
