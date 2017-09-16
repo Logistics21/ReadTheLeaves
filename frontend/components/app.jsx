@@ -5,6 +5,7 @@ import MainPageContainer from './mainpage/mainpage_container';
 import NavBarContainer from './navbar/navbar_container';
 import CitiesIndexContainer from './cities/cities_index_container';
 import CitiesDetailContainer from './cities/cities_detail_container';
+import DashboardContainer from './dashboard/dashboard_container';
 import ProfileContainer from './profile/profile_form_container';
 import Footer from './footer/footer';
 import { Route, Switch } from 'react-router-dom';
@@ -19,8 +20,9 @@ const App = () => (
         <AuthRoute path="/signin" component={SignInContainer} />
         <Route exact path="/" component={MainPageContainer} />
         <Route exact path="/cities" component={CitiesIndexContainer} />
+        <Route path="/cities/:id" component={CitiesDetailContainer} />
+        <Route path="/dashboard" component={DashboardContainer} />
         <Route path="/update_profile" component={ProfileContainer} />
-        <Route exact path="/cities" component={CitiesIndexContainer} />
       </Switch>
     </div>
     <Footer />

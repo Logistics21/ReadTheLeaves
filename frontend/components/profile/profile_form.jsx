@@ -57,9 +57,9 @@ class ProfileForm extends React.Component {
     userData.append("user[city_id]", this.state.city_id)
     userData.append("user[image]", this.state.imageFile)
 
-    this.props.updateUser(this.props.currentUser.id, userData).then((res) => {
-      debugger
-      let newID = res.user.city_id;
+    this.props.updateUser(this.props.currentUser.id, userData)
+    .then((updatedUser) => {
+      let newID = res.updatedUser.city_id;
       this.props.history.push(`cities/${newID}`);
     });
   }

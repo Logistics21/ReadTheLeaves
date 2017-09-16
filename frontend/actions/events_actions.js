@@ -17,37 +17,37 @@ export const updateEvent = event => dispatch => (
     .then(event => dispatch(receiveUpdatedEvent(event)))
 )
 
-export const removeEvent = id => dispatch => (
-  EventAPIUTil.deleteEvent(id)
-    .then(id => dispatch(deleteEvent(id)))
+export const removeEvent = (event_id) => (dispatch) => (
+  EventAPIUTil.deleteEvent(event_id)
+    .then(event_id => dispatch(deleteEvent(event_id)))
 )
 
-export const attendEvent = id => dispatch => (
-  EventAPIUTil.attendEvent(id)
-    .then(id => dispatch(addAttendee(id)))
+export const attendEvent = (event_id) => (dispatch) => (
+  EventAPIUTil.attendEvent(event_id)
+    .then(event_id => dispatch(addAttendee(event_id)))
 )
 
-export const leaveEvent = id => dispatch => (
-  EventAPIUTil.leaveEvent(id)
-    .then(id => dispatch(removeAttendee(id)))
+export const leaveEvent = (event_id) => (dispatch) => (
+  EventAPIUTil.leaveEvent(event_id)
+    .then(event_id => dispatch(removeAttendee(event_id)))
 )
 
-export const receiveAllEvents = events => ({
+export const receiveAllEvents = (events) => ({
   type: RECEIVE_ALL_EVENTS,
   events
 });
 
-export const receiveNewEvent = event => ({
+export const receiveNewEvent = (event) => ({
   type: RECEIVE_NEW_EVENT,
   event
 });
 
-export const receiveUpdatedEvent = event => ({
+export const receiveUpdatedEvent = (event) => ({
   type: RECEIVE_UPDATED_EVENT,
   event
 });
 
-export const deleteEvent = id => ({
+export const deleteEvent = (id) => ({
   type: DELETE_EVENT,
   id
 });

@@ -37,6 +37,7 @@ const NavBar = ({signedIn, signout, clearErrors}) => {
 
         </div>
         <div className="nav-links">
+          <Link className="nav-item" to="/dashboard">DASHBOARD</Link>
           <Link className="nav-item" to="/update_profile">PROFILE</Link>
           <Link className="nav-item" to="/cities">CITIES</Link>
           <Link className="nav-item" to="/hosting">HOSTING</Link>
