@@ -5,7 +5,6 @@ class CityDetail extends React.Component {
   constructor(props) {
     super(props);
     this.id = this.props.match.params.id;
-    debugger
     // this.id = parseInt(this.props.match.params.id);
   }
 
@@ -28,7 +27,6 @@ class CityDetail extends React.Component {
 
   renderCurrentUsers() {
     const users = this.props.users.map( (user, idx) => {
-      // debugger
       return (
         <div className="current-host-container" key={idx}>
           <h2>{user.first_name}</h2>

@@ -50,7 +50,6 @@ class ProfileForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
     const userData = new FormData();
     userData.append("user[email]", this.state.email)
     userData.append("user[first_name]", this.state.first_name)
@@ -62,14 +61,12 @@ class ProfileForm extends React.Component {
 
     this.props.updateUser(this.props.currentUser.id, userData)
     .then((updatedUser) => {
-      debugger
-      let newID = updatedUser.city_id;
+      let newID = updatedUser.user.city_id;
       this.props.history.push(`cities/${newID}`);
     });
   }
 
   render() {
-    debugger
     return (
       <div>
         <h1>Hi</h1>

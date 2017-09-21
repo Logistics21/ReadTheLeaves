@@ -5,8 +5,7 @@ import { updateUserCity } from '../../actions/session_actions';
 import { selectAllEvents, selectAllUsers, selectAllHosts } from '../../reducers/selectors';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state, ownProps) => {
-  debugger
+const mapStateToProps = ({ session, cities }, ownProps) => {
   const city = cities[ownProps.match.params.id] ?
   cities[ownProps.match.params.id] : { hosts: [], name: "", city_code: "", city_name: "" };
   if (!city.hosts) city.hosts = [];
