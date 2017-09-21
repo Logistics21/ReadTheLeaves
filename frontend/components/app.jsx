@@ -20,7 +20,7 @@ const App = () => (
         <AuthRoute path="/signin" component={SignInContainer} />
         <Route exact path="/" component={MainPageContainer} />
         <Route exact path="/cities" component={CitiesIndexContainer} />
-        <Route path="/cities/:id" component={CitiesDetailContainer} />
+        { <Route path="/cities/:id" component={CitiesDetailContainer} /> }
         <Route path="/dashboard" component={DashboardContainer} />
         <Route path="/update_profile" component={ProfileContainer} />
       </Switch>

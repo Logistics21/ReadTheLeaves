@@ -12,14 +12,14 @@ class ProfileForm extends React.Component {
       first_name: currentUser.first_name,
       last_name: currentUser.last_name,
       city_id: currentUser.city_id,
+      city_code: currentUser.city_code,
+      city_name: currentUser.city_name,
       imageFile: currentUser.image_url,
       imageUrl: '',
     }
 
     this.handleUserPhoto = this.handleUserPhoto.bind(this);
-
     this.update = this.update.bind(this);
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -50,21 +50,26 @@ class ProfileForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger
     const userData = new FormData();
     userData.append("user[email]", this.state.email)
     userData.append("user[first_name]", this.state.first_name)
     userData.append("user[last_name]", this.state.last_name)
     userData.append("user[city_id]", this.state.city_id)
+    userData.append("user[city_code]", this.props.cities[this.state.city_id-1].city_code)
+    userData.append("user[city_name]", this.props.cities[this.state.city_id-1].name)
     userData.append("user[image]", this.state.imageFile)
 
     this.props.updateUser(this.props.currentUser.id, userData)
     .then((updatedUser) => {
-      let newID = res.updatedUser.city_id;
+      debugger
+      let newID = updatedUser.city_id;
       this.props.history.push(`cities/${newID}`);
     });
   }
 
   render() {
+    debugger
     return (
       <div>
         <h1>Hi</h1>

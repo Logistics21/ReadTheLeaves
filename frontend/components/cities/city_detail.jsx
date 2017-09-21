@@ -5,6 +5,7 @@ class CityDetail extends React.Component {
   constructor(props) {
     super(props);
     this.id = this.props.match.params.id;
+    debugger
     // this.id = parseInt(this.props.match.params.id);
   }
 
