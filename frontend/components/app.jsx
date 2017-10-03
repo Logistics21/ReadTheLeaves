@@ -10,7 +10,7 @@ import DashboardContainer from './dashboard/dashboard_container';
 import ProfileContainer from './profile/profile_form_container';
 import Footer from './footer/footer';
 import { Route, Switch } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div className="main-content">
@@ -24,8 +24,8 @@ const App = () => (
         <Route path="/cities/:id" component={CitiesDetailContainer} />
         <Route path="new_event" component={EventFormContainer} />
         <Route path="update_event" component={EventFormContainer} />
-        <Route path="/dashboard" component={DashboardContainer} />
-        <Route path="/update_profile" component={ProfileContainer} />
+        <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+        <ProtectedRoute path="/update_profile" component={ProfileContainer} />
       </Switch>
     </div>
     <Footer />
