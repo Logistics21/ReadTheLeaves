@@ -13,12 +13,12 @@ export const receiveCities = (cities) => ({
   cities
 });
 
-export const fetchCities = () => dispatch => (
+export const fetchCities = () => (dispatch) => (
   ApiUtil.fetchCities()
     .then(cities => dispatch(receiveCities(cities)))
 );
 
-export const fetchCity = (id) => dispatch => (
+export const fetchCity = (id) => (dispatch) => (
   ApiUtil.fetchCity(id)
     .then(city => dispatch(receiveCity(city)))
 );

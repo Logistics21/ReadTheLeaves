@@ -21,6 +21,7 @@ class CitiesIndex extends React.Component {
       ]
     );
   }
+  
   cityList() {
     const list = this.cities().map( (city, idx) => {
       return (

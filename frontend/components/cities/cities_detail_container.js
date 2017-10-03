@@ -6,10 +6,11 @@ import { selectAllEvents, selectAllUsers, selectAllHosts } from '../../reducers/
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({ session, cities }, ownProps) => {
+  debugger
   const city = cities[ownProps.match.params.id] ?
-  cities[ownProps.match.params.id] : { hosts: [], name: "", city_code: "", city_name: "" };
-  if (!city.hosts) city.hosts = [];
-  if (!city.events) city.events = [];
+  cities[ownProps.match.params.id] : { hosts: {}, name: "", city_code: "", city_name: "" };
+  if (!city.hosts) city.hosts = {};
+  if (!city.events) city.events = {};
   return {
     currentUser: session.currentUser,
     events: selectAllEvents(city.events),
@@ -19,7 +20,7 @@ const mapStateToProps = ({ session, cities }, ownProps) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     fetchCity: (id) => dispatch(fetchCity(id)),
     // updateUserCity: (user, city_id, city_name, city_code) => (

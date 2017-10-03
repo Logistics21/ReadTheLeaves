@@ -5,10 +5,14 @@ const CitiesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CITIES:
-      return merge({}, state, action.cities);
-      case RECEIVE_CITY:
+      let newState = merge({}, state, action.cities)
+      // debugger
+      return newState;
+    case RECEIVE_CITY:
       const city = { [action.city.id]: action.city };
-      return merge({}, state, city);
+      let updatedState = merge({}, state, city);
+      // debugger
+      return updatedState;
     default:
       return state;
   }
