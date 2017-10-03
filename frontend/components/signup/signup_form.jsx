@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       first_name: '',
       email: '',
@@ -54,7 +54,6 @@ class SignUp extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // debugger
     const user = this.state;
     this.props.processForm(user)
     .then(() => this.props.history.push('/cities'));

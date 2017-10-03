@@ -13,7 +13,11 @@ const Auth = ({component: Component, path, signedIn}) => (
 );
 
 const Protected = ({component: Component, path, signedIn}) => (
-  <Route path={path} render={(props) => (signedIn ? (<Component {...props} />) : (<Redirect to="/signin" />)
+  <Route path={path} render={(props) => (signedIn ? (
+      <Component {...props} />
+    ) : (
+      <Redirect to="/signin" />
+    )
   )} />
 );
 

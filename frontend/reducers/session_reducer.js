@@ -6,7 +6,6 @@ const _defaultState = Object.freeze({
 });
 
 const sessionReducer = (state = _defaultState, action) => {
-  // debugger
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return merge({}, state, { currentUser: action.currentUser });

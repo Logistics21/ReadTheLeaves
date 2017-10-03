@@ -21,13 +21,13 @@ export const signout = () => (
   })
 );
 
-// export const updateUserCity = (user, city_id, city_name, city_code) => (
-//   $.ajax({
-//     method: 'PATCH',
-//     url: `api/users/${user.id}`,
-//     data: { user: { city_id, city_name, city_code } }
-//   })
-// );
+export const updateUserCity = (user, city_id, city_name, city_code) => (
+  $.ajax({
+    method: 'PATCH',
+    url: `api/users/${user.id}`,
+    data: { user: { city_id, city_name, city_code } }
+  })
+);
 //
 // export const updateUser = user => (
 //   $.ajax({

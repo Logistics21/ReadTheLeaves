@@ -4,20 +4,12 @@ import { Route, Link } from 'react-router-dom';
 class CityDetail extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
-    // this.id = this.props.match.params.id;
-    // this.id = parseInt(this.props.match.params.id);
+    this.id = this.props.match.params.id;
   }
 
   componentDidMount() {
     this.props.fetchCity(this.props.match.params.id);
-    // debugger
   }
-
-  // shouldComponentUpdate(nextProps) {
-  //   debugger
-  //   return nextProps.
-  // }
 
   renderCityName() {
     return (
@@ -233,7 +225,6 @@ class CityDetail extends React.Component {
   }
 
   render() {
-    // debugger
     return (
       <div className="city-detail-container">
         {this.renderCityName()}
