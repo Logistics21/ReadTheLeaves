@@ -49,7 +49,16 @@ Rails.application.configure do
                   # :password => 'bullets_password_for_jabber',
                   # :receiver => 'your_account@jabber.org',
                   # :show_online_status => true }
-  # Bullet.rails_logger = true
+  Bullet.rails_logger = true
+  # Detect N+1 queries
+  Bullet.n_plus_one_query_enable = true
+
+  # Detect eager-loaded associations which are not used
+  Bullet.unused_eager_loading_enable = true
+
+  # Detect unnecessary COUNT queries which could be avoided
+  # with a counter_cache
+  Bullet.counter_cache_enable = true
   # Bullet.honeybadger = true
   # Bullet.bugsnag = true
   # Bullet.airbrake = true

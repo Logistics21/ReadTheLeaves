@@ -11,6 +11,10 @@ class CityDetail extends React.Component {
     this.props.fetchCity(this.props.match.params.id);
   }
 
+  renderEventForm() {
+
+  }
+
   renderCityName() {
     return (
       <div className="city-name-container">

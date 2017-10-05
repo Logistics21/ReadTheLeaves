@@ -27,6 +27,19 @@ const NavBar = ({signedIn, signout, clearErrors}) => {
     }
   };
 
+  const profileLinks = () => {
+    if (signedIn) {
+      return (
+        [
+          <Link className="nav-item" to="/dashboard">DASHBOARD</Link>,
+          <Link className="nav-item" to="/update_profile">PROFILE</Link>
+        ]
+      );
+    } else {
+      return null;
+    }
+  }
+
   return (
     <header className="header">
       <div className="navbar-container">
@@ -37,8 +50,7 @@ const NavBar = ({signedIn, signout, clearErrors}) => {
 
         </div>
         <div className="nav-links">
-          <Link className="nav-item" to="/dashboard">DASHBOARD</Link>
-          <Link className="nav-item" to="/update_profile">PROFILE</Link>
+          {profileLinks()}
           <Link className="nav-item" to="/cities">CITIES</Link>
           <Link className="nav-item" to="/hosting">HOSTING</Link>
           {navbarRight()}
