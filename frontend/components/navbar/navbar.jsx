@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 
-debugger
 const NavBar = ({session, signedIn, signout, clearErrors}) => {
   const navbarRight = () => {
     if (signedIn) {

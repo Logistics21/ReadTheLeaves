@@ -74,7 +74,7 @@ class ProfileForm extends React.Component {
             Add or Change Your Profile Pic
             <input
               type="file" onChange={this.handleUserPhoto} />
-            <img src={this.state.imageUrl}/>
+            <img src={this.state.imageFile}/>
           </label>
           <label>
             Update Your Email:

@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import { attendEvent, leaveEvent } from '../../actions/events_actions';
 
 import Profile from './profile';
-//
-const mapStateToProps = (state) => {
+
+const mapStateToProps = ({ session }) => {
   return {
-    currentUser: state.session.currentUser,
+    user: session.currentUser,
   }
 }
 
