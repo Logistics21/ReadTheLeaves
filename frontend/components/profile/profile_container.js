@@ -1,14 +1,22 @@
 import { connect } from 'react-redux';
-import { Profile } from './profile';
+import { attendEvent, leaveEvent } from '../../actions/events_actions';
 
+import Profile from './profile';
+//
 const mapStateToProps = (state) => {
-  return ({
+  return {
     currentUser: state.session.currentUser,
-  })
+  }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return ({
-//     attend
-//   })
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    attendEvent: (event_id) => dispatch(attendEvent(id)),
+    leaveEvent: (event_id) => dispatch(leaveEvent(event_id)),
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Profile);

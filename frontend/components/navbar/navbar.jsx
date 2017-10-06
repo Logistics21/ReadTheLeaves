@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 
-const NavBar = ({signedIn, signout, clearErrors}) => {
+debugger
+const NavBar = ({session, signedIn, signout, clearErrors}) => {
   const navbarRight = () => {
     if (signedIn) {
       return (
@@ -26,13 +27,13 @@ const NavBar = ({signedIn, signout, clearErrors}) => {
       );
     }
   };
-
+``
   const profileLinks = () => {
     if (signedIn) {
       return (
         [
           <Link className="nav-item" to="/dashboard">DASHBOARD</Link>,
-          <Link className="nav-item" to="/update_profile">PROFILE</Link>
+          <Link className="nav-item" to={`/profile/:${session.currentUser.id}`}>PROFILE</Link>
         ]
       );
     } else {

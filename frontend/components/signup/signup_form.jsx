@@ -15,8 +15,12 @@ class SignUp extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   update(field) {
-    return e => this.setState({ [field]: e.currentTarget.value });
+    return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
   header() {

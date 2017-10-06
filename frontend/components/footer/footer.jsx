@@ -6,11 +6,17 @@ const Footer = () => (
     <div className="footer-wrapper">
       <div className="footer-container">
         <div className="footer-links">
-          <Link className="footer-item" to="/about">About</Link>
-          <Link className="footer-item" to="/hosting">Hosting</Link>
           <Link className="footer-item" to="/cities">Cities</Link>
-          <Link className="footer-item" to="/">Facebook</Link>
-          <Link className="footer-item" to="/">Twitter</Link>
+          <Link className="footer-item" to="/hosting">Hosting</Link>
+          <h4 className="footer-item">
+            <a href="https://github.com/Logistics21">Github</a>
+          </h4>
+          <h4 className="footer-item">
+            <a href="https://www.linkedin.com/in/david-halsey-72487559/">LinkedIn</a>
+          </h4>
+          <h4 className="footer-item">
+            <a href="https://www.davidhalsey.tech/">Portfolio</a>
+          </h4>
         </div>
         <div className="footer-about">
           <p className="footer-p">

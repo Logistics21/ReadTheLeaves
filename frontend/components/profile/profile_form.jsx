@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 class ProfileForm extends React.Component {
   constructor(props) {
     super(props);
 
-    const { cities, currentUser } = this.props;
+    const { currentUser, cities } = this.props;
 
     this.state = {
       email: currentUser.email,
@@ -28,7 +27,7 @@ class ProfileForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({ [field]: e.currentTarget.value });
+    return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
   handleUserPhoto(e) {

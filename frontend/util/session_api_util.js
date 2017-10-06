@@ -28,13 +28,3 @@ export const updateUserCity = (user, city_id, city_name, city_code) => (
     data: { user: { city_id, city_name, city_code } }
   })
 );
-//
-// export const updateUser = user => (
-//   $.ajax({
-//     method: 'PATCH',
-//     url: `api/users/${user.id}`,
-//     data: { user },
-//     contentType: false,
-//     processData: false
-//   })
-// );

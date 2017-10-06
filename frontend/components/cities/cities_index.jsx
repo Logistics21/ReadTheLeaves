@@ -7,7 +7,7 @@ class CitiesIndex extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchCities();
   }
 
@@ -21,7 +21,7 @@ class CitiesIndex extends React.Component {
       ]
     );
   }
-  
+
   cityList() {
     const list = this.cities().map( (city, idx) => {
       return (
