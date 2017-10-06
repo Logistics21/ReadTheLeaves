@@ -7,7 +7,7 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    
+
   }
 
   render() {
@@ -16,9 +16,7 @@ class Profile extends React.Component {
     return (
       <div className="profile_container">
         <div>
-          <Link
-            to="/update_profile">
-            Update Your Profile</Link>
+          <Link to="/update_profile">Update Your Profile</Link>
           <div>
             <img src={user.image_url}
                  alt="user-photo"
@@ -26,7 +24,7 @@ class Profile extends React.Component {
           </div>
           <div className="profile">
             <h2 className="user-info"> Hi, I'm {user.first_name}.</h2>
-          <h3 className="user-info">You can find me in {user.city_name}</h3>
+          <h3 className="user-info">You can find me in {user.city_name}.</h3>
           </div>
         </div>
           <div className="user-events">

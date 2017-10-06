@@ -4,7 +4,7 @@ class ProfileForm extends React.Component {
   constructor(props) {
     super(props);
 
-    const { currentUser, cities } = this.props;
+    const { currentUser } = this.props;
 
     this.state = {
       email: currentUser.email,
@@ -67,57 +67,71 @@ class ProfileForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Hi</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Add or Change Your Profile Pic
-            <input
-              type="file" onChange={this.handleUserPhoto} />
-            <img src={this.state.imageFile}/>
-          </label>
-          <label>
-            Update Your Email:
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              />
-          </label>
-          <label>
-            Update Your Name:
-            <input
-              type="text"
-              value={this.state.first_name}
-              onChange={this.update("first_name")}
-              />
-            <input
-              type="text"
-              placeholder="Last Name"
-              value={this.state.last_name}
-              onChange={this.update("last_name")}
-              />
-          </label>
-          <label>
-            Update Your City:
-            <select
-              value={this.state.city_id}
-              onChange={this.update("city_id")}>
-              <option disabled>
-                Update Your Home City
-              </option>
-              {this.props.cities.map(city =>
-              <option
-                key={`${city.id}`}
-                value={city.id}>
-                  {city.name}
-              </option>)}
-            </select>
-          </label>
-          <button
-            type="submit"
-            >Update Your Profile</button>
-        </form>
+      <div className="profile-form-container">
+        <div className="user-title">
+          <h1 className="user-name">Hi {this.props.currentUser.first_name}</h1>
+        </div>
+
+        <div className="profile-form-box">
+          <form className="profile-form"
+            onSubmit={this.handleSubmit}>
+
+          <div className="form-element">
+            <div className="profile-photo-form">
+              <label>
+                <img src={this.state.imageFile}
+                     alt="profile pic"
+                     className="profile-pic"/>
+                <input type="file"
+                  onChange={this.handleUserPhoto} />
+                Add or Change Your Profile Pic
+              </label>
+            </div>
+          </div>
+
+          <div className="form-element">
+            <label className="form-data">
+                Update Your Email:
+                <input
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  />
+              </label>
+            </div>
+
+            <div className="form-element">
+              <label className="form-data">
+                Update Your Name:
+                <input
+                  type="text"
+                  value={this.state.first_name}
+                  onChange={this.update("first_name")}
+                  />
+              </label>
+            </div>
+
+            <div className="form-element-dropdown">
+              <label className="form-data">
+                Update Your City:
+                <select className="form-city-choice"
+                        value={this.state.city_id}
+                        onChange={this.update("city_id")}>
+                  <option disabled>
+                    Update Your Home City
+                  </option>
+                  {this.props.cities.map(city =>
+                  <option key={`${city.id}`}
+                          value={city.id}>
+                          {city.name}
+                  </option>)}
+                </select>
+              </label>
+            </div>
+            <button className="button" type="submit">Update Your Profile
+            </button>
+          </form>
+        </div>
       </div>
     )
   }
