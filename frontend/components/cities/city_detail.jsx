@@ -1,6 +1,10 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
+import EventFormContainer from '../events/event_form_container';
+
+import EventItem from '../events/event_item';
+
 class CityDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -11,8 +15,21 @@ class CityDetail extends React.Component {
     this.props.fetchCity(this.props.match.params.id);
   }
 
-  renderEventForm() {
+  renderEventList() {
+    return (
+      <div>
+        <EventItem />
+      </div>
+    )
+  }
 
+  renderEventForm() {
+    return (
+      <Link to={{
+        pathname: '/new_event',
+        state: { cityId: this.id }
+      }}>Click here to host your own Event</Link>
+    )
   }
 
   renderCityName() {
@@ -123,6 +140,7 @@ class CityDetail extends React.Component {
     const hosts = this.props.hosts.map( (host, idx) => {
       return (
         <div className="current-host-container" key={idx}>
+          <img src={host.image_url}/>
           <h2>{host.first_name}</h2>
         </div>
       );
@@ -233,7 +251,8 @@ class CityDetail extends React.Component {
       <div className="city-detail-container">
         {this.renderCityName()}
         <div className="city-detail-body-container">
-          {this.renderCurrentUsers()}
+          {this.renderEventForm()}
+          {this.renderEventList()}
           {this.renderHasEvents()}
           {this.renderCityAlert()}
           {this.eventlist()}
