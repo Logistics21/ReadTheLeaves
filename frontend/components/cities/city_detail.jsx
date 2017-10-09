@@ -9,6 +9,7 @@ class CityDetail extends React.Component {
   constructor(props) {
     super(props);
     this.id = this.props.match.params.id;
+    debugger
   }
 
   componentDidMount() {
@@ -16,11 +17,16 @@ class CityDetail extends React.Component {
   }
 
   renderEventList() {
-    return (
-      <div>
-        <EventItem />
-      </div>
-    )
+    let event;
+    if (this.props.events.length) {
+      return (
+        <div>
+          <EventItem
+            event={this.props.events[0]}
+            user={this.props.currentUser} />
+        </div>
+      )
+    }
   }
 
   renderEventForm() {
@@ -247,6 +253,7 @@ class CityDetail extends React.Component {
   }
 
   render() {
+    debugger
     return (
       <div className="city-detail-container">
         {this.renderCityName()}

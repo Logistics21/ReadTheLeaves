@@ -1,9 +1,16 @@
 import React from 'react';
 
-const eventItem = (props) => {
-  return (
-    <h1>Event Item</h1>
-  )
+class eventItem extends React.Component {
+  constructor(props) {
+    super(props);
+    debugger
+  }
+
+  render() {
+    return (
+      <h1>Event Item</h1>
+    )
+  }
 }
 
 export default eventItem;
