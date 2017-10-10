@@ -18,8 +18,8 @@ const App = () => (
   <div className="main-content">
     <NavBarContainer />
     <div className="body-content">
+      <Route path="/" component={Analytics} />
       <Switch>
-        <Route path="/" component={Analytics} />
         <AuthRoute path="/signup" component={SignUpContainer} />
         <AuthRoute path="/signin" component={SignInContainer} />
         <Route exact path="/" component={MainPageContainer} />

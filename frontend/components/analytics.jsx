@@ -5,7 +5,6 @@ ReactGA.initialize('UA-105597701-2');
 class Analytics extends React.Component {
   constructor(props) {
     super(props);
-
     this.sendPageChange(props.location.pathname, props.location.search);
   }
 
@@ -27,7 +26,7 @@ class Analytics extends React.Component {
   }
 
   render() {
-    return null;
+    return null
   }
 }
 
