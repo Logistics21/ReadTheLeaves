@@ -12,12 +12,14 @@ import ProfileFormContainer from './profile/profile_form_container';
 import Footer from './footer/footer';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Analytics from './analytics';
 
 const App = () => (
   <div className="main-content">
     <NavBarContainer />
     <div className="body-content">
       <Switch>
+        <Route path="/" component={Analytics} />
         <AuthRoute path="/signup" component={SignUpContainer} />
         <AuthRoute path="/signin" component={SignInContainer} />
         <Route exact path="/" component={MainPageContainer} />
