@@ -52,7 +52,7 @@ const NavBar = ({session, signedIn, signout, clearErrors}) => {
         <div className="nav-links">
           {profileLinks()}
           <Link className="nav-item" to="/cities">CITIES</Link>
-          <Link className="nav-item" to="/hosting">HOSTING</Link>
+          <Link className="nav-item" to="/new_event">HOSTING</Link>
           {navbarRight()}
         </div>
       </div>

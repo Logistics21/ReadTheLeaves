@@ -5,7 +5,6 @@ import { createEvent, updateEvent } from '../../actions/events_actions';
 import EventForm from './event_form';
 
 const mapStateToProps = ({ session, cities }, { location }) => {
-  debugger
   const host = session.currentUser
   const formType = location.pathname;
   const cityId = location.state ? location.state.cityId : host.city_id;
@@ -17,7 +16,7 @@ const mapStateToProps = ({ session, cities }, { location }) => {
       address: '',
       host_id: host.id,
       cityId,
-      city
+      city_name: host.city_name
     }
   }
   return {

@@ -9,7 +9,6 @@ class CityDetail extends React.Component {
   constructor(props) {
     super(props);
     this.id = this.props.match.params.id;
-    debugger
   }
 
   componentDidMount() {
@@ -253,7 +252,6 @@ class CityDetail extends React.Component {
   }
 
   render() {
-    debugger
     return (
       <div className="city-detail-container">
         {this.renderCityName()}

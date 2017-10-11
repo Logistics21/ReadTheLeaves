@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link, history } from 'react-router-dom';
+import moment from 'moment';
+import DateTime from 'react-datetime';
+
 
 class EventForm extends React.Component {
   constructor(props) {
@@ -9,10 +12,24 @@ class EventForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.getValidTimes = this.getValidTimes.bind(this);
   }
 
-  onChange() {
+  componentWillMount() {
+    if (!this.state.date) {
+      this.setState({ date: moment()});
+    }
+  }
 
+  getValidTimes(date) {
+  // date is today, so only allow future times
+    if (moment().isSame(date, 'day')) {
+      return { minutes: { step: 30 } };
+    }
+  }
+
+  onChange(newDateTime) {
+    this.setState({ date: newDateTime });
   }
 
   handleSubmit(e) {
@@ -36,25 +53,38 @@ class EventForm extends React.Component {
   }
 
   render() {
+    debugger
     let eventType;
     let defaultDate;
     if (this.props.formType === "/new_event") {
-      eventType = `Create a New Event in ${this.props.city.name}`;
-      defaultDate = Date.now();
+      eventType = `Create a New Event in ${this.state.city_name}`;
+      defaultDate = moment();
     } else {
       eventType = "Update Event";
-      defaultDate = Date.parse(this.state.date);
+      defaultDate = this.state.date;
     }
 
+    let yesterday = moment().subtract(1, 'day');
+    let validDate = (defaultDate) => defaultDate.isAfter(yesterday);
+
     return (
-      <div>
-        <h1>EventForm</h1>
+      <div className="event-form-container">
         <form onSubmit={this.handleSubmit}>
           <h2>
             {eventType}
           </h2>
           <label>
-
+            Pick a Day and Time:
+            <div className="datetime-container">
+              <DateTime
+                className="datetime"
+                value={ this.state.date }
+                dateFormat="MMMM Do YYYY"
+                timeConstraints={ this.getValidTimes(this.state.date) }
+                isValidDate={ validDate }
+                onChange={this.onChange}
+              />
+            </div>
           </label>
           <button className="button" type="submit">
             {eventType}
