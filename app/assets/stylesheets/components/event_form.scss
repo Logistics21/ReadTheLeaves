@@ -1,0 +1,45 @@
+.event-form-container {
+  background-color: #FAF6E8;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-title {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  color: #EF6236;
+}
+
+.form-data {
+  line-height: 1.625;
+  font-weight: 400;
+  font-size: 19px;
+  margin-bottom: 17px;
+}
+
+input {
+  padding: 1.1em;
+  width: 700px;
+  border-radius: 3px;
+  border: 1px solid #DDD;
+  font-size: 19px;
+  margin-bottom: 0.8125em;
+}
+
+.datetime-container {
+  margin-bottom: 30px;
+}
+
+.form-control {
+  display: none;
+}
+
+.event-button {
+  width: 307px;
+  margin-bottom: 30px;
+}

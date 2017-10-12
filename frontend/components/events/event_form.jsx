@@ -7,7 +7,7 @@ import DateTime from 'react-datetime';
 class EventForm extends React.Component {
   constructor(props) {
     super(props);
-    debugger
+    // debugger
     this.state = this.props.eventStatus;
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,11 +21,36 @@ class EventForm extends React.Component {
     }
   }
 
-  getValidTimes(date) {
-  // date is today, so only allow future times
-    if (moment().isSame(date, 'day')) {
-      return { minutes: { step: 30 } };
+  getValidTimes(dateTime) {
+    // date is today, so only allow future times
+    if (moment().isSame(dateTime, 'day')) {
+      return {
+        hours: {
+          min: dateTime.hours(),
+          max: 23,
+          step: 1,
+        },
+        minutes: {
+          min: dateTime.minutes(),
+          max: 59,
+          step: 5,
+        },
+      };
     }
+
+    // date is in the future, so allow all times
+    return {
+      hours: {
+        min: 0,
+        max: 23,
+        step: 1,
+      },
+      minutes: {
+        min: 0,
+        max: 59,
+        step: 5,
+      },
+    };
   }
 
   onChange(newDateTime) {
@@ -34,7 +59,9 @@ class EventForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const event = this.state;
+    debugger
+    let event = this.state;
+    this.state.date = this.state.date._d;
 
     if (this.props.formType === "/new_event") {
       this.props.createEvent(event)
@@ -53,7 +80,7 @@ class EventForm extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger
     let eventType;
     let defaultDate;
     if (this.props.formType === "/new_event") {
@@ -69,24 +96,33 @@ class EventForm extends React.Component {
 
     return (
       <div className="event-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <h2>
-            {eventType}
-          </h2>
-          <label>
-            Pick a Day and Time:
+        <form
+          className="event-form"
+          onSubmit={this.handleSubmit}>
+          <h2 className="event-title">{eventType}</h2>
+          <label className="form-data">
+              Pick a Location 🏙️:
+          </label>
+            <input
+              type='text'
+              placeholder="Enter an Address..."
+              onChange={this.update("address")}
+              />
+          <label className="form-data">
+            Pick a Day and Time 🕒:
+          </label>
             <div className="datetime-container">
               <DateTime
                 className="datetime"
-                value={ this.state.date }
+                value={this.state.date}
                 dateFormat="MMMM Do YYYY"
-                timeConstraints={ this.getValidTimes(this.state.date) }
-                isValidDate={ validDate }
+                timeConstraints={this.getValidTimes(this.state.date)}
+                isValidDate={validDate}
                 onChange={this.onChange}
+                open={true}
               />
             </div>
-          </label>
-          <button className="button" type="submit">
+          <button className="button event-button" type="submit">
             {eventType}
           </button>
         </form>
