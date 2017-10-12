@@ -17,6 +17,7 @@ const mapStateToProps = ({ session, cities }, { location }) => {
       address: '',
       description: '',
       city_id,
+      spots: 5
     }
   }
   return {

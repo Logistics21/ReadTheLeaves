@@ -16,15 +16,19 @@ class CityDetail extends React.Component {
   }
 
   renderEventList() {
-    let event;
-    if (this.props.events.length) {
-      return (
-        <div>
-          <EventItem
-            event={this.props.events[0]}
-            user={this.props.currentUser} />
-        </div>
-      )
+    if (this.props.events) {
+      const events = this.props.events.map((event, idx) => {
+        debugger
+        return (
+          <div className="current-event-container" key={idx}>
+            <EventItem
+              event={event}
+              user={this.props.currentUser} />
+          </div>
+        );
+      });
+
+      return events;
     }
   }
 

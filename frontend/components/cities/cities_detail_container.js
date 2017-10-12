@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import CityDetail from './city_detail';
 import { fetchCity } from '../../actions/cities_actions';
 import { updateUserCity } from '../../actions/session_actions';
+import { attendEvent, leaveEvent, removeEvent } from '../../actions/events_actions';
 import { selectAllEvents, selectAllUsers, selectAllHosts } from '../../reducers/selectors';
 import { withRouter } from 'react-router-dom';
 
