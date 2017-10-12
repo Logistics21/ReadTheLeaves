@@ -7,7 +7,6 @@ import DateTime from 'react-datetime';
 class EventForm extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
     this.state = this.props.eventStatus;
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,41 +15,45 @@ class EventForm extends React.Component {
   }
 
   componentWillMount() {
-    if (!this.state.date) {
-      this.setState({ date: moment()});
-    }
+    // debugger
+    if (!this.state.date) { this.setState({
+      date: moment(),
+
+     }); }
   }
 
   getValidTimes(dateTime) {
-    // date is today, so only allow future times
-    if (moment().isSame(dateTime, 'day')) {
+    if (dateTime instanceof moment) {
+      if (moment().isSame(dateTime, 'day')) {
+        // date is today, so only allow future times
+        return {
+          hours: {
+            min: dateTime.hours(),
+            max: 23,
+            step: 1,
+          },
+          minutes: {
+            min: dateTime.minutes(),
+            max: 59,
+            step: 5,
+          },
+        };
+      }
+
+      // date is in the future, so allow all times
       return {
         hours: {
-          min: dateTime.hours(),
+          min: 0,
           max: 23,
           step: 1,
         },
         minutes: {
-          min: dateTime.minutes(),
+          min: 0,
           max: 59,
           step: 5,
         },
       };
     }
-
-    // date is in the future, so allow all times
-    return {
-      hours: {
-        min: 0,
-        max: 23,
-        step: 1,
-      },
-      minutes: {
-        min: 0,
-        max: 59,
-        step: 5,
-      },
-    };
   }
 
   onChange(newDateTime) {
@@ -58,19 +61,19 @@ class EventForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
     debugger
+    e.preventDefault();
     let event = this.state;
     this.state.date = this.state.date._d;
 
     if (this.props.formType === "/new_event") {
       this.props.createEvent(event)
                 .then(() => this.props.history
-                .push(this.state.cityId));
+                .push(`/cities/${this.state.city_id}`));
     } else {
       this.props.updateEvent(event)
                 .then(() => this.props.history
-                .push(this.state.cityId));
+                .push(`/cities/${this.state.city_id}`));
 
     }
   }
@@ -80,11 +83,11 @@ class EventForm extends React.Component {
   }
 
   render() {
-    // debugger
+    debugger
     let eventType;
     let defaultDate;
     if (this.props.formType === "/new_event") {
-      eventType = `Create a New Event in ${this.state.city_name}`;
+      eventType = `Create a New Event in \n${this.props.city.name}`;
       defaultDate = moment();
     } else {
       eventType = "Update Event";
@@ -107,6 +110,14 @@ class EventForm extends React.Component {
               type='text'
               placeholder="Enter an Address..."
               onChange={this.update("address")}
+              />
+          <label className="form-data">
+              (Optional) Event Theme ⚽:
+          </label>
+            <input
+              type='text'
+              placeholder="Let People Know the Theme or Activity for this Event..."
+              onChange={this.update("description")}
               />
           <label className="form-data">
             Pick a Day and Time 🕒:

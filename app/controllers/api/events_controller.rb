@@ -6,7 +6,7 @@ class Api::EventsController < ApplicationController
   end
 
   def create
-    debugger
+    # debugger
     @event = Event.new(event_params)
     @event.host_id = current_user.id
 
@@ -46,6 +46,6 @@ class Api::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :address, :city_id, :city_name)
+    params.require(:event).permit(:date, :address, :description, :city_id)
   end
 end

@@ -7,7 +7,7 @@ const Footer = () => (
       <div className="footer-container">
         <div className="footer-links">
           <Link className="footer-item" to="/cities">Cities</Link>
-          <Link className="footer-item" to="/hosting">Hosting</Link>
+          <Link className="footer-item" to="/new_event">Hosting</Link>
           <h4 className="footer-item">
             <a href="https://github.com/Logistics21">Github</a>
           </h4>

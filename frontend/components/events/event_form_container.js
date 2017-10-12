@@ -7,15 +7,16 @@ import EventForm from './event_form';
 const mapStateToProps = ({ session, cities }, { location }) => {
   const host = session.currentUser
   const formType = location.pathname;
-  const city_id = location.state ? location.state.cityId : host.city_id;
+  const city_id = host.city_id;
   const city = cities[city_id];
   let eventStatus;
+  // debugger
   if (formType === "/new_event") {
     eventStatus = {
       date: undefined,
       address: '',
+      description: '',
       city_id,
-      city_name: host.city_name
     }
   }
   return {

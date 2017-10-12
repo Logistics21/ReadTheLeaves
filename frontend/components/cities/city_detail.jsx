@@ -32,8 +32,8 @@ class CityDetail extends React.Component {
     return (
       <Link to={{
         pathname: '/new_event',
-        state: { cityId: this.id }
-      }}>Click here to host your own Event</Link>
+        state: { cityId: this.props.currentUser.city_id }
+      }}>Click here to host an Event in your City</Link>
     )
   }
 
@@ -195,7 +195,7 @@ class CityDetail extends React.Component {
         <div className="alert-container">
           <Link
             className="city-button"
-            to="/hosting">
+            to="/new_event">
             CLICK HERE TO HOST AN EVENT IN {city.city_code.toUpperCase()}
           </Link>
         </div>
