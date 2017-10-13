@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom';
 
 import EventFormContainer from '../events/event_form_container';
 
-import EventItem from '../events/event_item';
+import EventIndex from '../events/event_index';
 
 class CityDetail extends React.Component {
   constructor(props) {
@@ -17,20 +17,18 @@ class CityDetail extends React.Component {
   }
 
   renderEventList() {
-    if (this.props.events) {
-      const events = this.props.events.map((event, idx) => {
-        // debugger
-        return (
-          <div className="current-event-container" key={idx}>
-            <EventItem
-              event={event}
-              currentUser={this.props.currentUser} />
-          </div>
-        );
-      });
+    const { events, currentUser, attendEvent, leaveEvent, removeEvent } = this.props;
 
-      return events;
-    }
+    return (
+      <div>
+        <EventIndex
+          events={events}
+          currentUser={currentUser}
+          attendEvent={attendEvent}
+          leaveEvent={leaveEvent}
+          removeEvent={removeEvent} />
+      </div>
+    );
   }
 
   renderEventForm() {

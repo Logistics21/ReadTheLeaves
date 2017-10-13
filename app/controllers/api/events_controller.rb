@@ -30,12 +30,12 @@ class Api::EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy!
-    render json: {}
+    render "api/events/show"
   end
 
   def update
     @event = Event.find_by(id: params[:id])
-
+    debugger
     if @event.update(event_params)
       render :show
     else

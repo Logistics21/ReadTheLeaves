@@ -4,13 +4,13 @@ import { createEvent, updateEvent } from '../../actions/events_actions';
 
 import EventForm from './event_form';
 
-const mapStateToProps = ({ session, cities }, { location }) => {
+const mapStateToProps = ({ session, cities }, { location, match }) => {
+  debugger
   const host = session.currentUser
   const formType = location.pathname;
   const city_id = host.city_id;
   const city = cities[city_id];
   let eventStatus;
-  // debugger
   if (formType === "/new_event") {
     eventStatus = {
       date: undefined,
@@ -19,7 +19,17 @@ const mapStateToProps = ({ session, cities }, { location }) => {
       city_id,
       spots: 5
     }
+  } else {
+    const event = city.events[match.params.event_id]
+    eventStatus = {
+      date: event.date,
+      address: event.address,
+      description: event.description,
+      city_id: event.city_id,
+      spots: event.spots
+    }
   }
+
   return {
     currentUser: session.currentUser,
     city,

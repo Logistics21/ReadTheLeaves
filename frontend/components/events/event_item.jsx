@@ -9,24 +9,24 @@ class EventItem extends React.Component {
     this.handleLeave = this.handleLeave.bind(this);
     this.hostCancelEvent = this.hostCancelEvent.bind(this);
     this.hostUpdateEvent = this.hostUpdateEvent.bind(this);
-    this.state = {
-      spots: this.props.event.spots
-    }
-
+    this.state = { spots: this.props.event.spots }
   }
 
   handleAttend(e) {
+    debugger
     e.preventDefault();
     const { event, attendEvent } = this.props;
+    debugger
     attendEvent(event.id).then(() => this.setState({ spots:
-    this.state.event.spots - 1 }));
+    this.state.spots - 1 }));
   }
 
   handleLeave(e) {
+    debugger
     e.preventDefault();
     const { event, currentUser, leaveEvent } = this.props;
     leaveEvent(event.id).then(() => this.setState({ spots:
-    this.state.event.spots + 1 }));
+    this.state.spots + 1 }));
   }
 
   hostCancelEvent(e) {
@@ -43,7 +43,7 @@ class EventItem extends React.Component {
 
   render() {
     const { event, currentUser } = this.props;
-
+    debugger
     let attendButton;
     if (event.host_id === currentUser.id) {
       attendButton = (
@@ -53,13 +53,13 @@ class EventItem extends React.Component {
         </div>
       );
     } else if (this.state.spots < 1 &&
-             !(event.id in currentUser.attending_events)) {
+             !(currentUser.attending_events.includes(event.id))) {
       attendButton = (
         <button>
           Sorry All Full!
         </button>
       )
-    } else if (!(event.id in currentUser.attending_events)) {
+    } else if (!(currentUser.attending_events.includes(event.id))) {
       attendButton = (
         <button onClick={this.handleAttend}>Join</button>
       );
@@ -112,6 +112,7 @@ class EventItem extends React.Component {
 
         <div className="event-spots-container">
           <div className="event-spots-left">
+            {displaySpotsLeft}
             <div className="event-spots"
                  style={{width: 100 - (`${this.state.spots}` * 20) + '%'}}>
             </div>

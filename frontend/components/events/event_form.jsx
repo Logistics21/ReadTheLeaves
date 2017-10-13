@@ -15,11 +15,8 @@ class EventForm extends React.Component {
   }
 
   componentWillMount() {
-    // debugger
-    if (!this.state.date) { this.setState({
-      date: moment(),
-
-     }); }
+    if (!this.state.date) { this.setState({ date: moment() });
+    }
   }
 
   getValidTimes(dateTime) {
@@ -83,7 +80,6 @@ class EventForm extends React.Component {
   }
 
   render() {
-    debugger
     let eventType;
     let defaultDate;
     if (this.props.formType === "/new_event") {
@@ -91,7 +87,7 @@ class EventForm extends React.Component {
       defaultDate = moment();
     } else {
       eventType = "Update Event";
-      defaultDate = this.state.date;
+      defaultDate = Date.parse(this.state.date);
     }
 
     let yesterday = moment().subtract(1, 'day');
@@ -108,6 +104,7 @@ class EventForm extends React.Component {
           </label>
             <input
               type='text'
+              value={this.state.address}
               placeholder="Enter an Address..."
               onChange={this.update("address")}
               />
@@ -116,6 +113,7 @@ class EventForm extends React.Component {
           </label>
             <input
               type='text'
+              value={this.state.description}
               placeholder="Let People Know the Theme or Activity for this Event..."
               onChange={this.update("description")}
               />
@@ -125,7 +123,7 @@ class EventForm extends React.Component {
             <div className="datetime-container">
               <DateTime
                 className="datetime"
-                value={this.state.date}
+                defaultValue={this.state.date}
                 dateFormat="MMMM Do YYYY"
                 timeConstraints={this.getValidTimes(this.state.date)}
                 isValidDate={validDate}
