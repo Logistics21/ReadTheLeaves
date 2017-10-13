@@ -52,12 +52,14 @@ export const deleteEvent = (id) => ({
   id
 });
 
-export const addAttendee = (eventId) => ({
+export const addAttendee = (eventId, userId) => ({
   type: ADD_ATTENDEE,
-  eventId
+  eventId,
+  userId
 })
 
-export const removeAttendee = (eventId) => ({
+export const removeAttendee = (eventId, userId) => ({
   type: REMOVE_ATTENDEE,
-  eventId
+  eventId,
+  userId
 })
