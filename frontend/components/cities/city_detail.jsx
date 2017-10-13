@@ -79,27 +79,6 @@ class CityDetail extends React.Component {
     );
   }
 
-  eventlist() {
-    const events = this.props.events.map(event => {
-      return (
-        <li key={event.id} className="event-container">
-          <div className="event">
-            <div className="e-day">{event.day}</div>
-            <div className="e-date">{event.date}</div>
-            <div className="e-time">{event.time}</div>
-            <div className="e-add">{event.address}</div>
-            <div className="e-des">{event.description}</div>
-          </div>
-          <div className="join-button">
-            <button>Join Event</button>
-          </div>
-        </li>
-      );
-    });
-
-    return (<div className="event-list-container">{events}</div>);
-  }
-
   renderHasEvents() {
     if (this.props.events !== undefined) {
       return (
@@ -262,10 +241,9 @@ class CityDetail extends React.Component {
         {this.renderCityName()}
         <div className="city-detail-body-container">
           {this.renderEventForm()}
-          {this.renderEventList()}
           {this.renderHasEvents()}
           {this.renderCityAlert()}
-          {this.eventlist()}
+          {this.renderEventList()}
           {this.renderCurrentHosts()}
         </div>
     </div>

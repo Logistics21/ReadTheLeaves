@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class EventItem extends React.Component {
   constructor(props) {
@@ -42,26 +42,88 @@ class EventItem extends React.Component {
   }
 
   render() {
-    let attendButton;
     const { event, currentUser } = this.props;
+
+    let attendButton;
     if (event.host_id === currentUser.id) {
-      <div>
-        <button onClick={this.hostUpdateEvent}>Edit</button>
-        <button onClick={this.hostCancelEvent}>Cancel</button>
-      </div>
-    } else if (this.state.spots < 1 && !true) {
+      attendButton = (
+        <div>
+          <button onClick={this.hostUpdateEvent}>Edit</button>
+          <button onClick={this.hostCancelEvent}>Cancel</button>
+        </div>
+      );
+    } else if (this.state.spots < 1 &&
+             !(event.id in currentUser.attending_events)) {
       attendButton = (
         <button>
           Sorry All Full!
         </button>
       )
-    // } else if (!) {
-    //   attendButton=(<button></button>)
+    } else if (!(event.id in currentUser.attending_events)) {
+      attendButton = (
+        <button onClick={this.handleAttend}>Join</button>
+      );
     } else {
       attendButton = (
-        <button>Leave</button>
-      )
+        <button onClick={this.handleLeave}>Leave</button>
+      );
     }
+
+    let displaySpotsLeft;
+    if (this.state.spots < 1) {
+      displaySpotsLeft = (
+        <h3>Full!</h3>
+      );
+    } else if (this.state.spots === 1) {
+      displaySpotsLeft = (
+        <h3>1 Spot Left</h3>
+      );
+    } else {
+      displaySpotsLeft = (
+        <h3>{this.state.spots} Spots Left</h3>
+      );
+    }
+
+    return (
+      <div className="event-item-container">
+        <div className="event-item-header">
+          <div className="date-time">
+            <h3>{event.day}</h3>
+            <h3>{event.date}</h3>
+            <h3>{event.time}</h3>
+          <div>
+            <div className="host">
+              <h3>Your Host is:</h3>
+              <Link to={`/profile/${event.host_id}`}>
+                <img className="host-event-pic"
+                     src={event.image_url}
+                  />
+                <h3>{event.host_name}</h3>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="event-item-body">
+          <div className="event-location">
+            <h4>{event.address}</h4>
+          </div>
+        </div>
+
+        <div className="event-spots-container">
+          <div className="event-spots-left">
+            <div className="event-spots"
+                 style={{width: 100 - (`${this.state.spots}` * 20) + '%'}}>
+            </div>
+          </div>
+        </div>
+
+        <div className="attend-button">
+          {attendButton}
+        </div>
+      </div>
+    </div>
+  );
   }
 }
 
