@@ -25,7 +25,7 @@ const App = () => (
         <Route exact path="/" component={MainPageContainer} />
         <Route exact path="/cities" component={CitiesIndexContainer} />
         <Route path="/cities/:id" component={CitiesDetailContainer} />
-        <Route exact path="/new_event" component={EventFormContainer} />
+        <ProtectedRoute exact path="/new_event" component={EventFormContainer} />
         <ProtectedRoute path="/update_event/:event_id" component={EventFormContainer} />
         <ProtectedRoute path="/dashboard" component={DashboardContainer} />
         <ProtectedRoute path="/update_profile" component={ProfileFormContainer} />

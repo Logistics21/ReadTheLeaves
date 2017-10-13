@@ -9,6 +9,7 @@ class CityDetail extends React.Component {
   constructor(props) {
     super(props);
     this.id = this.props.match.params.id;
+    // debugger
   }
 
   componentDidMount() {
@@ -18,12 +19,12 @@ class CityDetail extends React.Component {
   renderEventList() {
     if (this.props.events) {
       const events = this.props.events.map((event, idx) => {
-        debugger
+        // debugger
         return (
           <div className="current-event-container" key={idx}>
             <EventItem
               event={event}
-              user={this.props.currentUser} />
+              currentUser={this.props.currentUser} />
           </div>
         );
       });

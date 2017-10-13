@@ -87,7 +87,7 @@ class EventForm extends React.Component {
     let eventType;
     let defaultDate;
     if (this.props.formType === "/new_event") {
-      eventType = `Create a New Event in \n${this.props.city.name}`;
+      eventType = `Create a New Event in ${this.props.city.name}`;
       defaultDate = moment();
     } else {
       eventType = "Update Event";
