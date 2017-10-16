@@ -22,14 +22,18 @@ export const removeEvent = (event_id) => (dispatch) => (
     .then(event_id => dispatch(deleteEvent(event_id)))
 )
 
-export const attendEvent = (event_id) => (dispatch) => (
-  EventAPIUTil.attendEvent(event_id)
-    .then(event_id => dispatch(addAttendee(event_id)))
-)
+export const attendEvent = (event_id) => (dispatch) => {
+  debugger
+  return EventAPIUTil.attendEvent(event_id)
+    .then(event_id, user_id => {
+      debugger
+      dispatch(addAttendee(event_id, user_id))
+    })
+}
 
 export const leaveEvent = (event_id) => (dispatch) => (
   EventAPIUTil.leaveEvent(event_id)
-    .then(event_id => dispatch(removeAttendee(event_id)))
+    .then(event_id, user_id => dispatch(removeAttendee(event_id, user_id)))
 )
 
 export const receiveAllEvents = (events) => ({
@@ -52,14 +56,17 @@ export const deleteEvent = (id) => ({
   id
 });
 
-export const addAttendee = (eventId, userId) => ({
-  type: ADD_ATTENDEE,
-  eventId,
-  userId
-})
+export const addAttendee = (event_id, user_id) => {
+  debugger
+  return {
+    type: ADD_ATTENDEE,
+    event_id,
+    user_id
+  }
+}
 
-export const removeAttendee = (eventId, userId) => ({
+export const removeAttendee = (event_id, user_id) => ({
   type: REMOVE_ATTENDEE,
-  eventId,
-  userId
+  event_id,
+  user_id
 })

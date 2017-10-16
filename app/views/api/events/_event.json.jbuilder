@@ -7,4 +7,6 @@ json.spots
 
 unless event.users.empty?
   json.attendees event.users.pluck(:id)
+else
+  json.attendees({})
 end

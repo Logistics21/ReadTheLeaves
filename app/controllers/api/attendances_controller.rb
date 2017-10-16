@@ -18,7 +18,7 @@ class Api::AttendancesController < ApplicationController
   end
 
   private
-  
+
   def attendance_params
     params.require(:attendance).permit(:event_id)
   end

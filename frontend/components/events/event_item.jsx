@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 class EventItem extends React.Component {
   constructor(props) {
     super(props);
-    debugger
     this.handleAttend = this.handleAttend.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
     this.hostCancelEvent = this.hostCancelEvent.bind(this);
@@ -13,16 +12,13 @@ class EventItem extends React.Component {
   }
 
   handleAttend(e) {
-    debugger
     e.preventDefault();
     const { event, attendEvent } = this.props;
-    debugger
     attendEvent(event.id).then(() => this.setState({ spots:
     this.state.spots - 1 }));
   }
 
   handleLeave(e) {
-    debugger
     e.preventDefault();
     const { event, currentUser, leaveEvent } = this.props;
     leaveEvent(event.id).then(() => this.setState({ spots:
@@ -43,7 +39,6 @@ class EventItem extends React.Component {
 
   render() {
     const { event, currentUser } = this.props;
-    debugger
     let attendButton;
     if (event.host_id === currentUser.id) {
       attendButton = (
