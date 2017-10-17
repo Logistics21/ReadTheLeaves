@@ -26,7 +26,6 @@ export const attendEvent = (event_id) => (dispatch) => {
   debugger
   return EventAPIUTil.attendEvent(event_id)
     .then(event_id, user_id => {
-      debugger
       dispatch(addAttendee(event_id, user_id))
     })
 }

@@ -2,6 +2,7 @@ import * as ApiUtil from '../util/city_util';
 
 export const RECEIVE_CITY = 'RECEIVE_CITY';
 export const RECEIVE_CITIES = 'RECEIVE_CITIES';
+export const CLEAR_CITY = 'CLEAR_CITY';
 
 export const receiveCity = (city) => ({
   type: RECEIVE_CITY,
@@ -12,6 +13,10 @@ export const receiveCities = (cities) => ({
   type: RECEIVE_CITIES,
   cities
 });
+
+export const clearCity = () => ({
+  type: CLEAR_CITY
+})
 
 export const fetchCities = () => (dispatch) => (
   ApiUtil.fetchCities()
