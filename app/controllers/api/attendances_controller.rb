@@ -1,6 +1,8 @@
 class Api::AttendancesController < ApplicationController
   def create
     @attendance = current_user.attendances.new(attendance_params)
+    @event = @attendance.event
+
     if @attendance.save
       render :show
     else

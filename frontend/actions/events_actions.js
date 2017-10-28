@@ -9,9 +9,13 @@ export const ADD_ATTENDEE = "ADD_ATTENDEE";
 export const REMOVE_ATTENDEE = "REMOVE_ATTENDEE";
 
 
-export const createEvent = event => dispatch => (
+export const createEvent = (event) => dispatch => (
   EventAPIUTil.createEvent(event)
-    .then(event => dispatch(receiveNewEvent(event)))
+    .then(res => {
+      debugger
+      dispatch(receiveNewEvent(res));
+      dispatch(addHosting(res.id, res));
+    })
 )
 
 export const updateEvent = event => dispatch => (
@@ -21,20 +25,27 @@ export const updateEvent = event => dispatch => (
 
 export const removeEvent = (event_id) => (dispatch) => (
   EventAPIUTil.deleteEvent(event_id)
-    .then(event_id => dispatch(deleteEvent(event_id)))
+    .then(event_id => {
+      dispatch(deleteEvent(event_id));
+      dispatch(removeHosting(event_id));
+    })
 )
 
-export const attendEvent = (event_id) => (dispatch) => {
-  debugger
-  return EventAPIUTil.attendEvent(event_id)
-    .then(event_id, user_id => {
-      dispatch(addAttendee(event_id, user_id))
+export const attendEvent = (event, currentUser) => (dispatch) => {
+  return EventAPIUTil.attendEvent(event.id)
+    .then(event => {
+      debugger
+      dispatch(addAttendance(event.id, event));
+      dispatch(addAttendee(event.id, currentUser));
     })
 }
 
-export const leaveEvent = (event_id) => (dispatch) => (
+export const leaveEvent = (event_id, currentUser) => (dispatch) => (
   EventAPIUTil.leaveEvent(event_id)
-    .then(event_id, user_id => dispatch(removeAttendee(event_id, user_id)))
+    .then(event_id, user_id => {
+      dispatch(removeAttendance(event_id));
+      dispatch(removeAttendee(event_id, user_id))
+    })
 )
 
 export const receiveAllEvents = (events) => ({
@@ -57,12 +68,11 @@ export const deleteEvent = (id) => ({
   id
 });
 
-export const addAttendee = (event_id, user_id) => {
-  debugger
+export const addAttendee = (event_id, user) => {
   return {
     type: ADD_ATTENDEE,
     event_id,
-    user_id
+    user
   }
 }
 

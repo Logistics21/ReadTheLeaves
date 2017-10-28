@@ -15,23 +15,22 @@ const CityReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_CITY:
-      // let city = { [action.city.id]: action.city };
       newState = merge({}, state, action.city);
       return newState;
     case RECEIVE_NEW_EVENT:
       newState = merge({}, state, { city: { events: action.event } });
       return newState;
     case RECEIVE_UPDATED_EVENT:
-      newState['city']['events'][action.event.id] = event;
+      newState['city']['events'][action.event.id] = action.event;
       return newState;
     case DELETE_EVENT:
-      delete newState['city']['events'][action.event.id]
+      delete newState['city']['events'][action.id]
       return newState;
     case ADD_ATTENDEE:
-      newState['city']['events'][action.event.id]["attendees"][action.user_id] = action.user
+      newState['city']['events'][action.event_id]["attendees"][action.user.id] = action.user
       return newState;
     case REMOVE_ATTENDEE:
-      delete newState['city']['events'][action.event.id]["attendees"][action.user_id]
+      delete newState['city']['events'][action.event_id]["attendees"][action.user_id]
       return newState;
     default:
       return state;

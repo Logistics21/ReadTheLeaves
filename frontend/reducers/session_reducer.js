@@ -1,4 +1,8 @@
-import { RECEIVE_CURRENT_USER, ADD_ATTENDANCE, REMOVE_ATTENDANCE, ADD_HOSTING, DELETE_HOSTING, RECEIVE_ERRORS } from '../actions/session_actions';
+import {
+  RECEIVE_CURRENT_USER, ADD_ATTENDANCE,
+  REMOVE_ATTENDANCE, ADD_HOSTING,
+  DELETE_HOSTING, RECEIVE_ERRORS
+} from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 const _defaultState = Object.freeze({
@@ -14,9 +18,9 @@ const sessionReducer = (state = _defaultState, action) => {
       const currentUser = action.currentUser;
       return merge({}, state, { currentUser });
     case ADD_ATTENDANCE:
-      const newState = merge({}, state);
-      newState['currentUser']['attending_events'][action.event_id] = action.event;
-      return newState;
+      const addedState = merge({}, state);
+      addedState['currentUser']['attending_events'][action.event_id] = action.event;
+      return addedState;
     case REMOVE_ATTENDANCE:
         const removedState = merge({}, state);
         delete removedState['currentUser']['attending_events'][action.event_id];
