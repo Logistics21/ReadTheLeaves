@@ -6,15 +6,15 @@ import { attendEvent, leaveEvent, removeEvent, updateEvent } from '../../actions
 import { selectAllEvents, selectAllUsers, selectAllHosts } from '../../reducers/selectors';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = ({ session, cities }, ownProps) => {
-  const city = cities[ownProps.match.params.id] ?
-  cities[ownProps.match.params.id] : { hosts: {}, name: "", city_code: "", city_name: "" };
-  if (!city.hosts) city.hosts = {};
-  if (!city.events) city.events = {};
+const mapStateToProps = ({ session, city }, ownProps) => {
+  // city ? city :
+        //  { hosts: {}, events: {}, name: "", city_code: "", city_name: "" };
+  // if (!city.hosts) city.hosts = {};
+  // if (!city.events) city.events = {};
   return {
     currentUser: session.currentUser,
     events: selectAllEvents(city.events),
-    users: selectAllUsers(city.users),
+    // users: selectAllUsers(city.users),
     hosts: selectAllHosts(city.hosts),
     city
   };

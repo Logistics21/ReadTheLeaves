@@ -1,15 +1,13 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
-
 import EventFormContainer from '../events/event_form_container';
-
 import EventIndex from '../events/event_index';
 
 class CityDetail extends React.Component {
   constructor(props) {
     super(props);
     this.id = this.props.match.params.id;
-    // debugger
+    debugger
   }
 
   componentDidMount() {
@@ -32,37 +30,53 @@ class CityDetail extends React.Component {
   }
 
   renderEventForm() {
-    return (
-      <Link to={{
-        pathname: '/new_event',
-        state: { cityId: this.props.currentUser.city_id }
-      }}>Click here to host an Event in your City</Link>
-    )
+    const { currentUser } = this.props;
+
+    if (!currentUser) {
+      return (
+        <Link to='/signup'>Sign up to host an Event in your City</Link>
+        )
+    } else {
+      return (
+        <Link to={{
+          pathname: '/new_event',
+          state: { cityId: this.id }
+        }}>Click here to host an Event in your City</Link>
+      )
+    }
   }
 
   renderCityName() {
-    return (
-      <div className="city-name-container">
-        <div className="city-image-container"></div>
+    if (this.props.city) {
+      return (
+        <div className="city-name-container">
+          <div className="city-image-container"></div>
           <img className="city-image" src={this.props.city.image_url} />
-        <div className="city-head-container">
-          <h1 className="city-title">{this.props.city.name}</h1>
-          <h3 className="get-tea">LET'S GET TEA!</h3>
+          <div className="city-head-container">
+            <h1 className="city-title">{this.props.city.name}</h1>
+            <h3 className="get-tea">LET'S GET TEA!</h3>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return null;
+    }
   }
 
   renderCurrentUsers() {
-    const users = this.props.users.map( (user, idx) => {
-      return (
-        <div className="current-host-container" key={idx}>
-          <h2>{user.first_name}</h2>
-        </div>
-      );
-    });
+    if (this.props.users) {
+      const users = this.props.users.map((user, idx) => {
+        return (
+          <div className="current-host-container" key={idx}>
+            <h2>{user.first_name}</h2>
+          </div>
+        );
+      });
 
-    return users
+      return users
+    } else {
+      return null;
+    }
   }
 
 
@@ -124,34 +138,36 @@ class CityDetail extends React.Component {
   }
 
   renderCurrentHosts() {
-    const hosts = this.props.hosts.map( (host, idx) => {
+    if (this.props.host) {
+      const hosts = this.props.hosts.map( (host, idx) => {
+        return (
+          <div className="current-host-container" key={idx}>
+            <img src={host.image_url}/>
+            <h2>{host.first_name}</h2>
+          </div>
+        );
+      });
+
       return (
-        <div className="current-host-container" key={idx}>
-          <img src={host.image_url}/>
-          <h2>{host.first_name}</h2>
+        <div className="hosts-container">
+          <div className="hosts-stories">
+            <h2 className="host-title">
+              The Host Community is full of amazing stories.
+            </h2>
+            <p className="host-p">
+              How else would someone end up regularly bringing strangers together
+              for conversations? Before each of them were invited to community,
+              they were attendees that fed their tea times with their questions,
+              open-mindedness, and presence.
+            </p>
+          </div>
+          <div className="current-hosts-container">
+            {hosts}
+          </div>
+          {this.renderPastHosts()}
         </div>
       );
-    });
-
-    return (
-      <div className="hosts-container">
-        <div className="hosts-stories">
-          <h2 className="host-title">
-            The Host Community is full of amazing stories.
-          </h2>
-          <p className="host-p">
-            How else would someone end up regularly bringing strangers together
-            for conversations? Before each of them were invited to community,
-            they were attendees that fed their tea times with their questions,
-            open-mindedness, and presence.
-          </p>
-        </div>
-        <div className="current-hosts-container">
-          {hosts}
-        </div>
-        {this.renderPastHosts()}
-      </div>
-    );
+    }
   }
 
   renderCityAlert() {
@@ -234,18 +250,24 @@ class CityDetail extends React.Component {
   }
 
   render() {
-    return (
-      <div className="city-detail-container">
-        {this.renderCityName()}
-        <div className="city-detail-body-container">
-          {this.renderEventForm()}
-          {this.renderHasEvents()}
-          {this.renderCityAlert()}
-          {this.renderEventList()}
-          {this.renderCurrentHosts()}
+    const { city } = this.props;
+
+    if (!city.id) {
+      return null;
+    } else {
+      return (
+        <div className="city-detail-container">
+          {this.renderCityName()}
+          <div className="city-detail-body-container">
+            {this.renderEventForm()}
+            {this.renderHasEvents()}
+           {this.renderCityAlert()}
+            {this.renderEventList()}
+            {this.renderCurrentHosts()}
+          </div>
         </div>
-    </div>
-    );
+      );
+    }
   }
 }
 

@@ -40,7 +40,14 @@ class EventItem extends React.Component {
   render() {
     const { event, currentUser } = this.props;
     let attendButton;
-    if (event.host_id === currentUser.id) {
+
+    if (!currentUser) {
+      attendButton = (
+        <div>
+          <Link to='/signup'>Sign Up Before You Join</Link>
+        </div>
+      );
+    } else if (event.host_id === currentUser.id) {
       attendButton = (
         <div>
           <button onClick={this.hostUpdateEvent}>Edit</button>

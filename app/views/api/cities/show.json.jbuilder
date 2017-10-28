@@ -1,9 +1,7 @@
-# json.partial! "/api/cities/city", city: @city, hosts: @hosts, events: @events
-
+# debugger
 json.extract! @city, :id, :name, :city_code
 json.image_url asset_path(@city.image.url)
 
-# changes events from array to object with keys pointing to event ids
 json.events do
   @events.each do |event|
     json.set! event.id do
