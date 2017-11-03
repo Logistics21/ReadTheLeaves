@@ -6,7 +6,6 @@ class Api::EventsController < ApplicationController
   end
 
   def create
-    # debugger
     @event = Event.new(event_params)
     @event.host_id = current_user.id
 
@@ -35,7 +34,7 @@ class Api::EventsController < ApplicationController
 
   def update
     @event = Event.find_by(id: params[:id])
-    debugger
+
     if @event.update(event_params)
       render :show
     else

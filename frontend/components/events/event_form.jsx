@@ -12,6 +12,7 @@ class EventForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
     this.getValidTimes = this.getValidTimes.bind(this);
+    debugger
   }
 
   componentWillMount() {
@@ -47,7 +48,7 @@ class EventForm extends React.Component {
         minutes: {
           min: 0,
           max: 59,
-          step: 5,
+          step: 1,
         },
       };
     }
@@ -83,7 +84,7 @@ class EventForm extends React.Component {
     let eventType;
     let defaultDate;
     if (this.props.formType === "/new_event") {
-      eventType = `Create a New Event in ${this.props.city.name}`;
+      eventType = `Create a New Event in ${this.state.city_name}`;
       defaultDate = moment();
     } else {
       eventType = "Update Event";

@@ -1,4 +1,3 @@
-# debugger
 json.extract! @city, :id, :name, :city_code
 json.image_url asset_path(@city.image.url)
 
@@ -9,7 +8,6 @@ json.events do
     end
   end
 end
-
 
 json.hosts do
   @hosts.each do |host|

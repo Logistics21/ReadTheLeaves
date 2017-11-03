@@ -1,18 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import EventIndex from '../events/event_index';
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-
-  }
 
   render() {
     const { user, attendEvent, leaveEvent } = this.props;
-
+    const { attending_events, hosted_events } = user;
     return (
       <div className="profile_container">
         <div>

@@ -4,15 +4,15 @@ import { RECEIVE_ALL_EVENTS, RECEIVE_NEW_EVENT, RECEIVE_UPDATED_EVENT,
 import { RECEIVE_CITY } from '../actions/cities_actions';
 import merge from 'lodash/merge';
 
-// const defaultState = {
-//   events: {},
-//   hosts: {}
-// }
+const defaultState = {
+  events: {},
+  hosts: {}
+}
 
 const CityReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
-
+  debugger
   switch (action.type) {
     case RECEIVE_CITY:
       newState = merge({}, state, action.city);
@@ -21,16 +21,20 @@ const CityReducer = (state = {}, action) => {
       newState = merge({}, state, { city: { events: action.event } });
       return newState;
     case RECEIVE_UPDATED_EVENT:
-      newState['city']['events'][action.event.id] = action.event;
+      newState['events'][action.event.id] = action.event;
+      // newState['city']['events'][action.event.id] = action.event;
       return newState;
     case DELETE_EVENT:
-      delete newState['city']['events'][action.id]
+      delete newState['events'][action.id]
+      // delete newState['city']['events'][action.id]
       return newState;
     case ADD_ATTENDEE:
-      newState['city']['events'][action.event_id]["attendees"][action.user.id] = action.user
+      newState['events'][action.event_id]["attendees"][action.user.id] = action.user
+      // newState['city']['events'][action.event_id]["attendees"][action.user.id] = action.user
       return newState;
     case REMOVE_ATTENDEE:
-      delete newState['city']['events'][action.event_id]["attendees"][action.user_id]
+      delete newState['events'][action.event_id]["attendees"][action.user_id]
+      // delete newState['city']['events'][action.event_id]["attendees"][action.user_id]
       return newState;
     default:
       return state;

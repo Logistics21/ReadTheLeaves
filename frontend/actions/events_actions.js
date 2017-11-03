@@ -11,7 +11,7 @@ export const REMOVE_ATTENDEE = "REMOVE_ATTENDEE";
 
 export const createEvent = (event) => dispatch => (
   EventAPIUTil.createEvent(event)
-    .then(res => {
+    .then(event => {
       debugger
       dispatch(receiveNewEvent(res));
       dispatch(addHosting(res.id, res));
@@ -40,9 +40,10 @@ export const attendEvent = (event, currentUser) => (dispatch) => {
     })
 }
 
-export const leaveEvent = (event_id, currentUser) => (dispatch) => (
+export const leaveEvent = (event_id) => (dispatch) => (
   EventAPIUTil.leaveEvent(event_id)
     .then(event_id, user_id => {
+      debugger
       dispatch(removeAttendance(event_id));
       dispatch(removeAttendee(event_id, user_id))
     })

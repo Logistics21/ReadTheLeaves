@@ -6,12 +6,14 @@ import EventIndex from '../events/event_index';
 class CityDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.id = this.props.match.params.id;
-    debugger
+    // debugger
+    this.state = { loading: true };
   }
 
   componentDidMount() {
-    this.props.fetchCity(this.props.match.params.id);
+    // debugger
+    this.props.fetchCity(this.props.cityId).then(
+      () => this.setState({loading: false}));
   }
 
   renderEventList() {
@@ -21,7 +23,7 @@ class CityDetail extends React.Component {
       <div>
         <EventIndex
           events={events}
-          currentUser={currentUser}
+          user={currentUser}
           attendEvent={attendEvent}
           leaveEvent={leaveEvent}
           removeEvent={removeEvent} />
@@ -40,27 +42,23 @@ class CityDetail extends React.Component {
       return (
         <Link to={{
           pathname: '/new_event',
-          state: { cityId: this.id }
-        }}>Click here to host an Event in your City</Link>
+          state: { cityId: this.props.cityId }
+        }}>Click here to host an Event in this City</Link>
       )
     }
   }
 
   renderCityName() {
-    if (this.props.city) {
-      return (
-        <div className="city-name-container">
-          <div className="city-image-container"></div>
-          <img className="city-image" src={this.props.city.image_url} />
-          <div className="city-head-container">
-            <h1 className="city-title">{this.props.city.name}</h1>
-            <h3 className="get-tea">LET'S GET TEA!</h3>
-          </div>
+    return (
+      <div className="city-name-container">
+        <div className="city-image-container"></div>
+        <img className="city-image" src={this.props.city.image_url} />
+        <div className="city-head-container">
+          <h1 className="city-title">{this.props.city.name}</h1>
+          <h3 className="get-tea">LET'S GET TEA!</h3>
         </div>
-      );
-    } else {
-      return null;
-    }
+      </div>
+    );
   }
 
   renderCurrentUsers() {
@@ -92,7 +90,7 @@ class CityDetail extends React.Component {
   }
 
   renderHasEvents() {
-    if (this.props.events !== undefined) {
+    if (!this.props.events) {
       return (
         <div>
           <div className="tea-time-container">
@@ -238,11 +236,8 @@ class CityDetail extends React.Component {
           <h6 className="home-sentence">
             You have no home city yet!
           </h6>
-          <Link
-            className="city-button"
-            onClick={() => this.props.updateUserCity(user, this.id, city.name, city.city_code)}
-            to={`/cities/${this.id}`}>
-            SET {city.name.toUpperCase()} AS MY HOME CITY
+          <Link className="city-button" to='/update_profile'>
+            Click Here to Update Your Profile
           </Link>
         </div>
       );
@@ -250,9 +245,8 @@ class CityDetail extends React.Component {
   }
 
   render() {
-    const { city } = this.props;
-
-    if (!city.id) {
+    // debugger
+    if (this.state.loading) {
       return null;
     } else {
       return (
@@ -261,7 +255,7 @@ class CityDetail extends React.Component {
           <div className="city-detail-body-container">
             {this.renderEventForm()}
             {this.renderHasEvents()}
-           {this.renderCityAlert()}
+            {this.renderCityAlert()}
             {this.renderEventList()}
             {this.renderCurrentHosts()}
           </div>

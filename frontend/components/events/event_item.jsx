@@ -13,14 +13,14 @@ class EventItem extends React.Component {
 
   handleAttend(e) {
     e.preventDefault();
-    const { event, attendEvent } = this.props;
-    attendEvent(event.id).then(() => this.setState({ spots:
+    const { user, event, attendEvent } = this.props;
+    attendEvent(event, user).then(() => this.setState({ spots:
     this.state.spots - 1 }));
   }
 
   handleLeave(e) {
     e.preventDefault();
-    const { event, currentUser, leaveEvent } = this.props;
+    const { event, leaveEvent } = this.props;
     leaveEvent(event.id).then(() => this.setState({ spots:
     this.state.spots + 1 }));
   }
@@ -38,16 +38,21 @@ class EventItem extends React.Component {
   }
 
   render() {
-    const { event, currentUser } = this.props;
+    // debugger
+
+    const { event, user } = this.props;
+
     let attendButton;
 
-    if (!currentUser) {
+    if (!user) {
       attendButton = (
         <div>
           <Link to='/signup'>Sign Up Before You Join</Link>
         </div>
       );
-    } else if (event.host_id === currentUser.id) {
+    } else if (!user.attending_events) {
+        user.attending_events = {};
+    } else if (event.host_id === user.id) {
       attendButton = (
         <div>
           <button onClick={this.hostUpdateEvent}>Edit</button>
@@ -55,13 +60,13 @@ class EventItem extends React.Component {
         </div>
       );
     } else if (this.state.spots < 1 &&
-             !(currentUser.attending_events.includes(event.id))) {
+             !(event.id in user.attending_events)) {
       attendButton = (
         <button>
           Sorry All Full!
         </button>
       )
-    } else if (!(currentUser.attending_events.includes(event.id))) {
+    } else if (!(event.id in user.attending_events)) {
       attendButton = (
         <button onClick={this.handleAttend}>Join</button>
       );
@@ -98,7 +103,7 @@ class EventItem extends React.Component {
               <h3>Your Host is:</h3>
               <Link to={`/profile/${event.host_id}`}>
                 <img className="host-event-pic"
-                     src={event.image_url}
+                     src={event.host_image}
                   />
                 <h3>{event.host_name}</h3>
               </Link>
