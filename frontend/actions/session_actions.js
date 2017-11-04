@@ -16,7 +16,7 @@ export const addAttendance = (event_id, event) => ({
 })
 
 export const removeAttendance = (event_id) => {
-  debugger
+  // debugger
   return {
     type: REMOVE_ATTENDANCE,
     event_id
@@ -24,7 +24,7 @@ export const removeAttendance = (event_id) => {
 }
 
 export const addHosting = (event_id, event) => {
-  debugger
+  // debugger
   return {
     type: ADD_HOSTING,
     event_id,
@@ -66,24 +66,11 @@ export const signout = () => dispatch => (
     .then(() => dispatch(receiveCurrentUser(null)))
 );
 
-
-
-export const userQuickUpdate = (user, city) => (dispatch) => {
-  debugger
-  return APIUtil.userQuickUpdate(user, city).then(user => {
-    debugger
+export const userQuickUpdate = (user, city) => (dispatch) => (
+  APIUtil.userQuickUpdate(user, city).then(user => {
     dispatch(clearErrors());
     dispatch(receiveCurrentUser(user));
   }, err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
-}
-
-// export const updateUserCity = (user, city_id, city_name, city_code) => dispatch => (
-//   APIUtil.updateUserCity(user, city_id, city_name, city_code).then(user => {
-//     dispatch(clearErrors());
-//     return dispatch(receiveCurrentUser(user));
-//   }, err => (
-//     dispatch(receiveErrors(err.responseJSON))
-//   ))
-// );
+)

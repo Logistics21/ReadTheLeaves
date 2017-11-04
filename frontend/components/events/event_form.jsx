@@ -12,7 +12,7 @@ class EventForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
     this.getValidTimes = this.getValidTimes.bind(this);
-    debugger
+    // debugger
   }
 
   componentWillMount() {
@@ -59,7 +59,7 @@ class EventForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
+    // debugger
     e.preventDefault();
     let event = this.state;
     this.state.date = this.state.date._d;

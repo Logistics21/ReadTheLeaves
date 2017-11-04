@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 class EventItem extends React.Component {
   constructor(props) {
     super(props);
-    debugger
+    // debugger
     this.handleAttend = this.handleAttend.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
     this.hostCancelEvent = this.hostCancelEvent.bind(this);
@@ -27,7 +27,7 @@ class EventItem extends React.Component {
   handleLeave(e) {
     e.preventDefault();
     const { user, event, leaveEvent } = this.props;
-    debugger
+    // debugger
     leaveEvent(event.id, user.id).then(() => this.setState({ spots:
     this.state.spots + 1 }));
   }
@@ -35,7 +35,7 @@ class EventItem extends React.Component {
   hostCancelEvent(e) {
     e.preventDefault();
     const { event, removeEvent } = this.props;
-    debugger
+    // debugger
     return removeEvent(event.id);
   }
 
@@ -46,7 +46,7 @@ class EventItem extends React.Component {
   }
 
   render() {
-    // debugger
+    // // debugger
 
     const { event, user } = this.props;
 
@@ -110,7 +110,7 @@ class EventItem extends React.Component {
             <div className="host">
               <h3>Your Host is:</h3>
               <Link to={`/profile/${event.host_id}`}>
-                <img className="host-event-pic"
+                <img className="host-pic"
                      src={event.host_image}
                   />
                 <h3>{event.host_name}</h3>

@@ -11,7 +11,7 @@ class CityDetail extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
+    // // debugger
     this.props.fetchCity(this.props.cityId).then(
       () => this.setState({loading: false}));
   }
@@ -169,9 +169,9 @@ class CityDetail extends React.Component {
   }
 
   renderCityAlert() {
-    const user = this.props.currentUser;
-    const city = this.props.city;
-    if (!user) {
+    const { currentUser, city }  = this.props;
+    const cityId = parseInt(this.props.cityId);
+    if (!currentUser) {
       return (
         <div className="alert-container">
           <h6 className="home-sentence">
@@ -186,7 +186,7 @@ class CityDetail extends React.Component {
             </Link>
         </div>
       );
-    } else if (user.city_id === this.id && user.is_host) {
+    } else if (currentUser.city_id === cityId && currentUser.is_host) {
       return (
         <div className="alert-container">
           <Link
@@ -196,7 +196,7 @@ class CityDetail extends React.Component {
           </Link>
         </div>
       );
-    } else if (user.city_id === this.id && !user.is_host) {
+    } else if (currentUser.city_id === cityId && !currentUser.is_host) {
       return (
         <div className="alert-container">
           <div className="change-city-container">
@@ -210,7 +210,7 @@ class CityDetail extends React.Component {
           </div>
         </div>
       );
-    } else if (user.city_id && user.city_id !== this.id) {
+    } else if (currentUser.city_id && currentUser.city_id !== cityId) {
       return (
         <div className="alert-container">
           <h6 className="home-sentence">
@@ -218,15 +218,15 @@ class CityDetail extends React.Component {
           </h6>
           <Link
             className="city-button"
-            onClick={() => this.props.userQuickUpdate(user, city)}
-            to={`/cities/${this.id}`}>
+            onClick={() => this.props.userQuickUpdate(currentUser, city)}
+            to={`/cities/${cityId}`}>
             YUP!
           </Link>
           <h6 className="set-city">
             <Link
               className="home-link"
-              to={`/cities/${user.city_id}`}>
-              {user.city_name}
+              to={`/cities/${currentUser.city_id}`}>
+              {currentUser.city_name}
           </Link> is your home city right now. The big button will change that!</h6>
         </div>
       );
@@ -245,7 +245,7 @@ class CityDetail extends React.Component {
   }
 
   render() {
-    // debugger
+    // // debugger
     if (this.state.loading) {
       return null;
     } else {
