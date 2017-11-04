@@ -218,7 +218,7 @@ class CityDetail extends React.Component {
           </h6>
           <Link
             className="city-button"
-            onClick={() => this.props.updateUserCity(user, this.id, city.name, city.city_code)}
+            onClick={() => this.props.userQuickUpdate(user, city)}
             to={`/cities/${this.id}`}>
             YUP!
           </Link>

@@ -31,7 +31,7 @@ const mapStateToProps = (state, { match, location }) => {
       spots: 5
     }
   } else {
-    const event = host.events[match.params.event_id]
+    const event = host.hosted_events[match.params.event_id];
 
     eventStatus = {
       date: event.date,

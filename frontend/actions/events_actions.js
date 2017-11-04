@@ -14,7 +14,7 @@ export const createEvent = (event) => dispatch => (
     .then(event => {
       debugger
       dispatch(receiveNewEvent(event));
-      dispatch(addHosting({ id }, event));
+      dispatch(addHosting(event.id, event));
     })
 )
 

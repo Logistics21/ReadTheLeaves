@@ -68,11 +68,22 @@ export const signout = () => dispatch => (
 
 
 
-export const updateUserCity = (user, city_id, city_name, city_code) => dispatch => (
-  APIUtil.updateUserCity(user, city_id, city_name, city_code).then(user => {
+export const userQuickUpdate = (user, city) => (dispatch) => {
+  debugger
+  return APIUtil.userQuickUpdate(user, city).then(user => {
+    debugger
     dispatch(clearErrors());
-    return dispatch(receiveCurrentUser(user));
+    dispatch(receiveCurrentUser(user));
   }, err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
-);
+}
+
+// export const updateUserCity = (user, city_id, city_name, city_code) => dispatch => (
+//   APIUtil.updateUserCity(user, city_id, city_name, city_code).then(user => {
+//     dispatch(clearErrors());
+//     return dispatch(receiveCurrentUser(user));
+//   }, err => (
+//     dispatch(receiveErrors(err.responseJSON))
+//   ))
+// );

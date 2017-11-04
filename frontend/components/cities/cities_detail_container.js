@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import CityDetail from './city_detail';
 import { fetchCity } from '../../actions/cities_actions';
-import { updateUserCity } from '../../actions/session_actions';
+import { userQuickUpdate } from '../../actions/session_actions';
 import { attendEvent, leaveEvent, removeEvent, updateEvent } from '../../actions/events_actions';
 import { selectAllEvents, selectAllUsers, selectAllHosts } from '../../reducers/selectors';
 import { withRouter } from 'react-router-dom';
@@ -25,8 +25,8 @@ const mapStateToProps = ({ session, city }, { match }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchCity: (id) => dispatch(fetchCity(id)),
-    updateUserCity: (user, city_id, city_name, city_code) => (
-      dispatch(updateUserCity(user, city_id, city_name, city_code))
+    userQuickUpdate: (user, city) => (
+      dispatch(userQuickUpdate(user, city))
     ),
     attendEvent: (event, user) => dispatch(attendEvent(event, user)),
     leaveEvent: (event_id, user_id) => dispatch(leaveEvent(event_id, user_id)),

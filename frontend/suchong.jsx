@@ -3,32 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import {
-//   createEvent,
-//   updateEvent,
-//   removeEvent,
-//   leaveEvent,
-//   attendEvent,
-  receiveAllEvents
-} from './actions/events_actions';
-
-import {
-//   createEvent,
-//   updateEvent,
-//   removeEvent,
-//   leaveEvent,
-  fetchUser,
-  updateUser
-} from './actions/users_actions';
-
-import {
-  createEvent,
-  updateEvent,
-  removeEvent,
-  leaveEvent,
-  attendEvent,
-  // requestCityEvents
-} from './util/event_util';
+import { userQuickUpdate, receiveCurrentUser } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -41,8 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.updateUser = updateUser;
-  window.fetchUser = fetchUser;
+  window.userQuickUpdate = userQuickUpdate;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
