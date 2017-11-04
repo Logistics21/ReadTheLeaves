@@ -15,16 +15,22 @@ export const addAttendance = (event_id, event) => ({
   event
 })
 
-export const removeAttendance = (event_id) => ({
-  type: REMOVE_ATTENDANCE,
-  event_id
-})
+export const removeAttendance = (event_id) => {
+  debugger
+  return {
+    type: REMOVE_ATTENDANCE,
+    event_id
+  }
+}
 
-export const addHosting = (event_id, event) => ({
-  type: ADD_HOSTING,
-  event_id,
-  event
-})
+export const addHosting = (event_id, event) => {
+  debugger
+  return {
+    type: ADD_HOSTING,
+    event_id,
+    event
+  }
+}
 
 export const removeHosting = (event_id) => ({
   type: DELETE_HOSTING,

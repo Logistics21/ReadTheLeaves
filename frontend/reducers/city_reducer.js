@@ -18,10 +18,10 @@ const CityReducer = (state = {}, action) => {
       newState = merge({}, state, action.city);
       return newState;
     case RECEIVE_NEW_EVENT:
-      newState = merge({}, state, { city: { events: action.event } });
+      newState = merge({}, state, { events: action.event });
       return newState;
     case RECEIVE_UPDATED_EVENT:
-      newState['events'][action.event.id] = action.event;
+      newState['events'][action.event_id] = action.event;
       // newState['city']['events'][action.event.id] = action.event;
       return newState;
     case DELETE_EVENT:

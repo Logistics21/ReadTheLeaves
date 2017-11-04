@@ -29,7 +29,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(updateUserCity(user, city_id, city_name, city_code))
     ),
     attendEvent: (event, user) => dispatch(attendEvent(event, user)),
-    leaveEvent: (event_id) => dispatch(leaveEvent(event_id)),
+    leaveEvent: (event_id, user_id) => dispatch(leaveEvent(event_id, user_id)),
     removeEvent: (event_id) => dispatch(removeEvent(event_id)),
     updateEvent: (event_id) => dispatch(updateEvent(event_id)),
   };

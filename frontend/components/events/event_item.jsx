@@ -4,11 +4,17 @@ import { Link, withRouter } from 'react-router-dom';
 class EventItem extends React.Component {
   constructor(props) {
     super(props);
+    debugger
     this.handleAttend = this.handleAttend.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
     this.hostCancelEvent = this.hostCancelEvent.bind(this);
     this.hostUpdateEvent = this.hostUpdateEvent.bind(this);
-    this.state = { spots: this.props.event.spots }
+
+    const spots = this.props.event.attendees ?
+      this.props.event.spots - (Object.keys(this.props.event.attendees).length)
+      : this.props.event.spots;
+      
+    this.state = { spots: spots };
   }
 
   handleAttend(e) {
@@ -20,8 +26,9 @@ class EventItem extends React.Component {
 
   handleLeave(e) {
     e.preventDefault();
-    const { event, leaveEvent } = this.props;
-    leaveEvent(event.id).then(() => this.setState({ spots:
+    const { user, event, leaveEvent } = this.props;
+    debugger
+    leaveEvent(event.id, user.id).then(() => this.setState({ spots:
     this.state.spots + 1 }));
   }
 

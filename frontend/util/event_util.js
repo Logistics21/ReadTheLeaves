@@ -36,7 +36,7 @@ export const attendEvent = event_id => (
   })
 );
 
-export const leaveEvent = event_id => (
+export const leaveEvent = (event_id, user_id) => (
   $.ajax({
     method: 'DELETE',
     url: `api/attendances/${event_id}`,
