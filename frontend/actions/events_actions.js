@@ -23,13 +23,14 @@ export const updateEvent = event => dispatch => (
     .then(event => dispatch(receiveUpdatedEvent(event)))
 )
 
-export const removeEvent = (event_id) => (dispatch) => (
-  EventAPIUTil.deleteEvent(event_id)
-    .then(event_id => {
+export const removeEvent = (event_id) => (dispatch) => {
+  debugger
+  return EventAPIUTil.deleteEvent(event_id)
+    .then(res => {
       dispatch(deleteEvent(event_id));
       dispatch(removeHosting(event_id));
-    })
-)
+  })
+}
 
 export const attendEvent = (event, currentUser) => (dispatch) => {
   debugger

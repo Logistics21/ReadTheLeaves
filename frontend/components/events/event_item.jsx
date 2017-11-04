@@ -13,7 +13,7 @@ class EventItem extends React.Component {
     const spots = this.props.event.attendees ?
       this.props.event.spots - (Object.keys(this.props.event.attendees).length)
       : this.props.event.spots;
-      
+
     this.state = { spots: spots };
   }
 
@@ -35,6 +35,7 @@ class EventItem extends React.Component {
   hostCancelEvent(e) {
     e.preventDefault();
     const { event, removeEvent } = this.props;
+    debugger
     return removeEvent(event.id);
   }
 
