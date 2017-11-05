@@ -1,7 +1,7 @@
 class Api::AttendancesController < ApplicationController
   def create
-    @attendance = current_user.attendances.new(attendance_params)
-    @event = @attendance.event
+    @attendance = Attendance.new(attendance_params)
+    @attendance.user_id = current_user.id
 
     if @attendance.save
       render :show

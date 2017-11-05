@@ -5,6 +5,7 @@ json.city_code user.city_code
 json.city_name user.city_name
 json.is_host user.is_host
 
+
 if user.events.empty?
   json.attending_events({})
 else
@@ -22,7 +23,7 @@ if user.hosted_events.empty?
   json.hosted_events({})
 else
   json.hosted_events do
-    user.events.each do |event|
+    user.hosted_events.each do |event|
       json.set! event.id do
         json.partial! "api/events/event.json",
         event: event

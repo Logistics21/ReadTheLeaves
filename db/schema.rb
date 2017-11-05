@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012161934) do
+ActiveRecord::Schema.define(version: 20171105050621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 20171012161934) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "attendances", ["user_id", "event_id"], name: "index_attendances_on_user_id_and_event_id", unique: true, using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -47,14 +45,14 @@ ActiveRecord::Schema.define(version: 20171012161934) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                              null: false
-    t.string   "first_name",                         null: false
-    t.string   "password_digest",                    null: false
-    t.string   "session_token",                      null: false
+    t.string   "email",                             null: false
+    t.string   "first_name",                        null: false
+    t.string   "password_digest",                   null: false
+    t.string   "session_token",                     null: false
     t.string   "last_name"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.boolean  "is_host",            default: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.boolean  "is_host",            default: true
     t.integer  "city_id"
     t.string   "city_code"
     t.string   "city_name"

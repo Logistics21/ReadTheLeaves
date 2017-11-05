@@ -26,7 +26,8 @@ const sessionReducer = (state = _defaultState, action) => {
         delete removedState['currentUser']['attending_events'][action.event_id];
         return removedState;
     case ADD_HOSTING:
-      const newHostedState = merge({}, state, { currentUser: { hosted_events: action.event } });
+      const newHostedState = merge({}, state);
+      newHostedState['currentUser']['hosted_events'][action.event_id] = action.event;
       return newHostedState;
     case DELETE_HOSTING:
       const removedHostedState = merge({}, state);
