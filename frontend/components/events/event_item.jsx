@@ -35,7 +35,6 @@ class EventItem extends React.Component {
   hostCancelEvent(e) {
     e.preventDefault();
     const { event, removeEvent } = this.props;
-    // debugger
     return removeEvent(event.id);
   }
 
@@ -46,8 +45,6 @@ class EventItem extends React.Component {
   }
 
   render() {
-    // // debugger
-
     const { event, user } = this.props;
 
     let attendButton;

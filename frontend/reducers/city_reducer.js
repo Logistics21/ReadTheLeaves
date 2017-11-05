@@ -12,7 +12,7 @@ const defaultState = {
 const CityReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
-  // debugger
+  debugger
   switch (action.type) {
     case RECEIVE_CITY:
       newState = merge({}, state, action.city);
@@ -26,15 +26,12 @@ const CityReducer = (state = {}, action) => {
       return newState;
     case DELETE_EVENT:
       delete newState['events'][action.id]
-      // delete newState['city']['events'][action.id]
       return newState;
     case ADD_ATTENDEE:
       newState['events'][action.event_id]["attendees"][action.user.id] = action.user
-      // newState['city']['events'][action.event_id]["attendees"][action.user.id] = action.user
       return newState;
     case REMOVE_ATTENDEE:
       delete newState['events'][action.event_id]["attendees"][action.user_id]
-      // delete newState['city']['events'][action.event_id]["attendees"][action.user_id]
       return newState;
     default:
       return state;

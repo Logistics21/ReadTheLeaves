@@ -21,6 +21,19 @@ export const signout = () => (
   })
 );
 
+// contentType and processData can only be used with formData Object
+// will clear params passed to controller otherwise
+export const updateUser = (id, user) => {
+  return (
+  $.ajax({
+    method: 'PATCH',
+    url: `api/users/${id}`,
+    data: user,
+    contentType: false,
+    processData: false,
+  }))
+};
+
 export const userQuickUpdate = (user, { id, name, city_code }) => (
   $.ajax({
     method: 'PATCH',
@@ -34,10 +47,3 @@ export const userQuickUpdate = (user, { id, name, city_code }) => (
     }
   })
 );
-// export const updateUserCity = (user, city_id, city_name, city_code) => (
-//   $.ajax({
-//     method: 'PATCH',
-//     url: `api/users/${user.id}`,
-//     data: { user: { city_id, city_name, city_code } }
-//   })
-// );

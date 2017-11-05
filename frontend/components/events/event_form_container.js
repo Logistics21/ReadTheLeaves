@@ -4,9 +4,8 @@ import { createEvent, updateEvent } from '../../actions/events_actions';
 
 import EventForm from './event_form';
 
-// const mapStateToProps = ({ session, cities }, { location, match }) => {
 const mapStateToProps = (state, { match, location }) => {
-  // debugger
+  debugger
   const host = state.session.currentUser
   const formType = location.pathname;
   let city_name;

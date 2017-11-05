@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import { userQuickUpdate, receiveCurrentUser } from './actions/session_actions';
-
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.userQuickUpdate = userQuickUpdate;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 

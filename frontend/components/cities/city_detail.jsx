@@ -6,12 +6,10 @@ import EventIndex from '../events/event_index';
 class CityDetail extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
     this.state = { loading: true };
   }
 
   componentDidMount() {
-    // // debugger
     this.props.fetchCity(this.props.cityId).then(
       () => this.setState({loading: false}));
   }
@@ -36,7 +34,11 @@ class CityDetail extends React.Component {
 
     if (!currentUser) {
       return (
-        <Link to='/signup'>Sign up to host an Event in your City</Link>
+        <Link to='/signup'>Sign up to host an Event in this City</Link>
+        )
+    } else if (!currentUser.city_id) {
+      return (
+        <Link to='/cities'>Choose a Home City so you can host Events</Link>
         )
     } else {
       return (
@@ -171,6 +173,7 @@ class CityDetail extends React.Component {
   renderCityAlert() {
     const { currentUser, city }  = this.props;
     const cityId = parseInt(this.props.cityId);
+
     if (!currentUser) {
       return (
         <div className="alert-container">
@@ -245,7 +248,6 @@ class CityDetail extends React.Component {
   }
 
   render() {
-    // // debugger
     if (this.state.loading) {
       return null;
     } else {

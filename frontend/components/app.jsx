@@ -11,7 +11,7 @@ import ProfileContainer from './profile/profile_container';
 import ProfileFormContainer from './profile/profile_form_container';
 import Footer from './footer/footer';
 import { Route, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute, HomelessRoute } from '../util/route_util';
 import Analytics from './analytics';
 
 const App = () => (
@@ -25,8 +25,8 @@ const App = () => (
         <Route exact path="/" component={MainPageContainer} />
         <Route exact path="/cities" component={CitiesIndexContainer} />
         <Route path="/cities/:id" component={CitiesDetailContainer} />
-        <ProtectedRoute exact path="/new_event" component={EventFormContainer} />
-        <ProtectedRoute path="/update_event/:event_id" component={EventFormContainer} />
+        <HomelessRoute exact path="/new_event" component={EventFormContainer} />
+        <HomelessRoute path="/update_event/:event_id" component={EventFormContainer} />
         <ProtectedRoute path="/dashboard" component={DashboardContainer} />
         <ProtectedRoute path="/update_profile" component={ProfileFormContainer} />
         <ProtectedRoute path="/profile/:id" component={ProfileContainer} />

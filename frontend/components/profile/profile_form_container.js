@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchCities } from '../../actions/cities_actions';
-import { updateUser } from '../../actions/users_actions';
+import { updateUser } from '../../actions/session_actions';
 import  { selectAllCities } from '../../reducers/selectors';
 
 import ProfileForm from './profile_form';

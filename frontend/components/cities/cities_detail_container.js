@@ -7,7 +7,6 @@ import { selectAllEvents, selectAllUsers, selectAllHosts } from '../../reducers/
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({ session, city }, { match }) => {
-  // // debugger
   const cityId = match.params.id;
   const currentCity = city;
   const { currentUser } = session;

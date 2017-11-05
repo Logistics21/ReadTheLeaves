@@ -7,8 +7,8 @@ json.spots
 
 unless event.users.empty?
   json.attendees do
-    event.users.each do |user|
-      json.set! user.id do
+    event.users.each do |attendee|
+      json.set! attendee.id do
         json.partial! "api/users/user_mini.json",
         user: user
       end
