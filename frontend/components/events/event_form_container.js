@@ -1,19 +1,21 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createEvent, updateEvent } from '../../actions/events_actions';
+import { fetchCity } from '../../actions/cities_actions';
 
 import EventForm from './event_form';
 
 const mapStateToProps = (state, { match, location }) => {
-  debugger
+
   const host = state.session.currentUser
   const formType = location.pathname;
   let city_name;
   let city_id;
-
+  let city;
   if (state.city.id) {
     city_name = state.city.name;
     city_id = state.city.id;
+    city = state.city;
   } else {
     city_name = host.city_name;
     city_id = host.city_id;
@@ -44,7 +46,8 @@ const mapStateToProps = (state, { match, location }) => {
   return {
     host,
     eventStatus,
-    formType
+    formType,
+    city
   }
 }
 
@@ -52,6 +55,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createEvent: (event) => dispatch(createEvent(event)),
     updateEvent: (event) => dispatch(updateEvent(event)),
+    fetchCity: (id) => dispatch(fetchCity(id))
   }
 }
 

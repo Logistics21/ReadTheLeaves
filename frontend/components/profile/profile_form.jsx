@@ -152,7 +152,7 @@ class ProfileForm extends React.Component {
   constructor(props) {
     super(props);
 
-    debugger
+    
     const { currentUser } = this.props;
 
     this.state = {

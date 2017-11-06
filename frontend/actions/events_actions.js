@@ -18,10 +18,10 @@ export const createEvent = (event) => (dispatch) => (
 )
 
 export const updateEvent = (event) => (dispatch) => {
-  debugger
+  
   return EventAPIUTil.updateEvent(event)
     .then(event => {
-      debugger
+      
       dispatch(receiveUpdatedEvent(event))
     })
 }

@@ -12,12 +12,18 @@ class EventForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
     this.getValidTimes = this.getValidTimes.bind(this);
-    debugger
+
   }
 
   componentWillMount() {
     if (!this.state.date) { this.setState({ date: moment() });
     }
+  }
+
+  componentDidMount() {
+    const { city_id } = this.state;
+
+    if (!this.props.city) { this.props.fetchCity(city_id); }
   }
 
   getValidTimes(dateTime) {
@@ -62,7 +68,8 @@ class EventForm extends React.Component {
     e.preventDefault();
     let event = this.state;
     event.date = this.state.date._d;
-    debugger
+    event['id'] = this.props.match.params.event_id;
+
 
     if (this.props.formType === "/new_event") {
       this.props.createEvent(event)
@@ -87,7 +94,7 @@ class EventForm extends React.Component {
       eventType = `Create a New Event in ${this.state.city_name}`;
       defaultDate = moment();
     } else {
-      eventType = "Update Event";
+      eventType = "Update This Event";
       defaultDate = Date.parse(this.state.date);
     }
 
