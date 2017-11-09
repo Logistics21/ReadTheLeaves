@@ -34,7 +34,10 @@ class CityDetail extends React.Component {
 
     if (!currentUser) {
       return (
-        <Link to='/signup'>Sign up to host an Event in this City</Link>
+        <Link
+          className="city-button"
+          to='/signup'>
+          Sign up to host an Event in this City</Link>
         )
     } else if (!currentUser.city_id) {
       return (
@@ -42,7 +45,9 @@ class CityDetail extends React.Component {
         )
     } else {
       return (
-        <Link to={{
+        <Link
+          className="city-button"
+          to={{
           pathname: '/new_event',
           state: { cityId: this.props.cityId }
         }}>Click here to host an Event in this City</Link>

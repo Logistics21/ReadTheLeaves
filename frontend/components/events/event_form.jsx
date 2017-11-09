@@ -12,7 +12,6 @@ class EventForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
     this.getValidTimes = this.getValidTimes.bind(this);
-
   }
 
   componentWillMount() {
