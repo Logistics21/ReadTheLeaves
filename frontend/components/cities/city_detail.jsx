@@ -97,7 +97,7 @@ class CityDetail extends React.Component {
   }
 
   renderHasEvents() {
-    if (!this.props.events) {
+    if (this.props.events) {
       return (
         <div>
           <div className="tea-time-container">

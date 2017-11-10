@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CitiesIndexItem = ({ city }) => {
+const CitiesIndexItem = ({ city, history }) => {
   return (
     <div key={city.id}>
-      <Link to={`/cities/${city.id}`} className="city-photo">
+      <Link
+        to={`/cities/${city.id}`}
+        className="city-photo">
         <h2 className="city-name">{city.name}</h2>
         <div className="city_image">
           <img className="city-index-image" src={city.image_url} />

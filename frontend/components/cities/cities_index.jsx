@@ -37,7 +37,7 @@ class CitiesIndex extends React.Component {
   render() {
     const cities = this.props.cities.map(city => {
       return (
-        <CitiesIndexItem key = {city.id} city={city} />
+        <CitiesIndexItem key ={city.id} city={city} />
       );
     });
 
