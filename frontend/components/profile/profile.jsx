@@ -10,7 +10,7 @@ class Profile extends React.Component {
   render() {
     const { user, attendEvent, leaveEvent } = this.props;
     const { attending_events, hosted_events } = user;
-    
+
     return (
       <div className="profile-body-container">
         <div className="update-button">
@@ -27,6 +27,14 @@ class Profile extends React.Component {
           </div>
         </div>
         <div className="profile-events-body-container">
+          <div className="profile-events-container">
+            <EventIndex
+              events={events}
+              user={currentUser}
+              attendEvent={attendEvent}
+              leaveEvent={leaveEvent}
+              removeEvent={removeEvent} />
+          </div>
         </div>
       </div>
     );

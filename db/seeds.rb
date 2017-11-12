@@ -23,7 +23,7 @@ user11 = User.create(first_name: "clyde", last_name: "gorceries", email: "test9@
 
 
 Event.delete_all
-
+# (DateTime.now + 30).strftime('%A %B %e %Y %l:%M %p')
 datetime = DateTime.civil(2017, 7, 1, 12, 35)
 
 Event.create(date: datetime, address: "112 Wharf Ave.",description: "Time for Tea", city_id: city1.id, host_id: user1.id)

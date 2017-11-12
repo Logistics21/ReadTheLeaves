@@ -39,7 +39,9 @@ class MainPage extends React.Component {
             <h3 className="why-title">SO WHY ARE THOUSANDS OF PEOPLE DOING IT?</h3>
 
             <div className="why-explain">
-              <img className="mainpage-image" src={window.images.people} />
+              <img
+                className="mainpage-image"
+                src='https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/people.png' />
               <div className="why-explain-right">
                 <h2 className="why-explain-header h2">It’s weird.</h2>
                 <p className="why-explain-p p">
@@ -61,11 +63,15 @@ class MainPage extends React.Component {
                   we manufacture serendipity.
                 </p>
               </div>
-              <img className="mainpage-image" src={window.images.never} />
+              <img
+                className="mainpage-image"
+                src='https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/never.png' />
             </div>
 
             <div className="why-explain">
-              <img className="mainpage-image" src={window.images.five} />
+              <img
+                className="mainpage-image"
+                src='https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/five.png' />
               <div className="why-explain-right">
                 <h2 className="why-explain-header h2">Your hands are made for high fiving!</h2>
                 <p className="why-explain-p p">
@@ -106,13 +112,15 @@ class MainPage extends React.Component {
             </div>
           </div>
 
-          <img className="mainpage-image img2" src={window.images.weird} />
+          <img
+            className="mainpage-image img2"
+            src='https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/weird.png' />
 
           <div className="stranger-container">
             <h3 className="stranger-title">THERE'S NO SUCH THING AS A STRANGER.</h3>
 
             <div className="stranger-story">
-              <img className="mainpage-image img3" src={window.images.camp} />
+              <img className="mainpage-image img3" src='https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/camp.png' />
                 <article className="stranger-right">
                   <p className="stranger-p">
                     You'd never think of yourself as a stranger. But
