@@ -27,7 +27,7 @@ class EventItem extends React.Component {
   handleLeave(e) {
     e.preventDefault();
     const { user, event, leaveEvent } = this.props;
-    
+
     leaveEvent(event.id, user.id).then(() => this.setState({ spots:
     this.state.spots + 1 }));
   }
@@ -98,42 +98,43 @@ class EventItem extends React.Component {
 
     return (
       <div className="event-item-container">
-        <div className="event-item-header">
+        <div className="event-item-head">
           <div className="date-time">
             <h3>{event.day}</h3>
+            <h3>{event.month}</h3>
             <h3>{event.date}</h3>
-            <h3>{event.time}</h3>
-          <div>
-            <div className="host">
-              <h3>Your Host is:</h3>
-              <Link to={`/profile/${event.host_id}`}>
-                <img className="host-pic"
-                     src={event.host_image}
-                  />
-                <h3>{event.host_name}</h3>
-              </Link>
-            </div>
+            <h3>{event.year}</h3>
+            <h3>{event.time}{event.period}</h3>
+          </div>
+          <div className="host">
+            <h3>Your Host is:</h3>
+            <Link to={`/profile/${event.host_id}`}>
+              <img className="host-pic"
+                   src={event.host_image}
+                   alt="host-photo" />
+              <h3>{event.host_name}</h3>
+            </Link>
           </div>
         </div>
 
-        <div className="event-item-body">
-          <div className="event-location">
-            <h4>{event.address}</h4>
+      <div className="event-item-body">
+        <div className="event-location">
+          <h4>Location:</h4>
+          <h4>{event.address}</h4>
+        </div>
+      </div>
+
+      <div className="event-spots-container">
+        {displaySpotsLeft}
+        <div className="event-spots">
+          <div className="spots-left"
+            style={{width: 100 - (`${this.state.spots}` * 20) + '%'}}>
           </div>
         </div>
+      </div>
 
-        <div className="event-spots-container">
-          <div className="event-spots-left">
-            {displaySpotsLeft}
-            <div className="event-spots"
-                 style={{width: 100 - (`${this.state.spots}` * 20) + '%'}}>
-            </div>
-          </div>
-        </div>
-
-        <div className="attend-button">
-          {attendButton}
-        </div>
+      <div className="attend-button">
+        {attendButton}
       </div>
     </div>
   );

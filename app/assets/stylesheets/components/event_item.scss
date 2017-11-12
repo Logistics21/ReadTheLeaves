@@ -1,0 +1,16 @@
+.event-spots {
+ background: url("https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/leaf-black.png") repeat-x;
+ font-size: 0;
+ height: 50px;
+ line-height: 0;
+ overflow: hidden;
+ text-indent: -999em;
+ width: 250px;
+}
+
+.event-spots .spots-left {
+ background:  url("https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/leaf-green.png") repeat-x;
+ background-position: 0 100%;
+ float: left;
+ height: 50px;
+}

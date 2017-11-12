@@ -67,7 +67,7 @@ class EventForm extends React.Component {
     e.preventDefault();
     debugger
     let event = this.state;
-    event.date = this.state.format("LLL");
+    event.date = this.state.date.format("LLLL");
     event['id'] = this.props.match.params.event_id;
 
 
