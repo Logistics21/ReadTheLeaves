@@ -1,3 +1,80 @@
+.current-event-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.event-item-container {
+  width: 280px;
+  height: 490px;
+  border: 1px solid #5C5C5C;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+  font-weight: 400;
+}
+
+.event-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  margin-top: 10px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.host-pic {
+  width: 125px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.date-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 140px;
+}
+
+.event-location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 60px;
+}
+
+.event-spots-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  height: 105px;
+  width: 300px;
+  line-height: 60px;
+  border-top: 1px solid black;
+  justify-content: center;
+    /* align-content: center; */
+}
+
 .event-spots {
  background: url("https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/leaf-black.png") repeat-x;
  font-size: 0;

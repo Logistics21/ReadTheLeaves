@@ -15,6 +15,7 @@ class EventItem extends React.Component {
       : this.props.event.spots;
 
     this.state = { spots: spots };
+    debugger
   }
 
   handleAttend(e) {
@@ -101,8 +102,7 @@ class EventItem extends React.Component {
         <div className="event-item-head">
           <div className="date-time">
             <h3>{event.day}</h3>
-            <h3>{event.month}</h3>
-            <h3>{event.date}</h3>
+            <h3>{event.month} {event.date}</h3>
             <h3>{event.year}</h3>
             <h3>{event.time}{event.period}</h3>
           </div>

@@ -15,8 +15,9 @@ class CityDetail extends React.Component {
   }
 
   renderEventList() {
-    const { events, currentUser, attendEvent, leaveEvent, removeEvent } = this.props;
-
+    const { currentUser, attendEvent, leaveEvent, removeEvent } = this.props;
+    const { events } = this.props.city;
+    
     return (
       <div>
         <EventIndex
