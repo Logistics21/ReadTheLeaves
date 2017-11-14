@@ -177,6 +177,7 @@
   align-items: center;
   background: #f1e9c6;
   padding: 1.5em;
+  margin-bottom: 15px;
 }
 
 .redirect-link {
@@ -205,6 +206,19 @@
   padding: 1em 1.5em;
   letter-spacing: 2px;
   text-decoration: none;
+}
+
+.host-button {
+  background-color: #EF6236;
+  border: 2px solid #EF6236;
+  border-radius: 10px;
+  color: white;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 1em 1.5em;
+  letter-spacing: 2px;
+  text-decoration: none;
+  margin-top: 30px;
 }
 
 .home-link {

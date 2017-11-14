@@ -1,12 +1,12 @@
 .current-event-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .event-item-container {
   width: 280px;
-  height: 490px;
+  height: 475px;
   border: 1px solid #5C5C5C;
   border-radius: 20px;
   display: flex;
@@ -51,6 +51,7 @@
   align-items: center;
   height: 150px;
   width: 140px;
+  margin-left: 10px;
 }
 
 .event-location {
@@ -65,29 +66,27 @@
 .event-spots-container {
   display: flex;
   flex-direction: column;
-  margin: auto;
   align-items: center;
-  height: 105px;
+  height: 95px;
   width: 300px;
-  line-height: 60px;
+  line-height: 40px;
   border-top: 1px solid black;
   justify-content: center;
-    /* align-content: center; */
 }
 
 .event-spots {
- background: url("https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/leaf-black.png") repeat-x;
- font-size: 0;
- height: 50px;
- line-height: 0;
- overflow: hidden;
- text-indent: -999em;
- width: 250px;
+  background: url("https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/leaf-black.png") repeat-x;
+  font-size: 0;
+  height: 50px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 250px;
 }
 
 .event-spots .spots-left {
- background:  url("https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/leaf-green.png") repeat-x;
- background-position: 0 100%;
- float: left;
- height: 50px;
+  background: url("https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/images/leaf-green.png") repeat-x;
+  background-position: 0 100%;
+  float: left;
+  height: 50px;
 }

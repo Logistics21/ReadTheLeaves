@@ -17,7 +17,7 @@ class CityDetail extends React.Component {
   renderEventList() {
     const { currentUser, attendEvent, leaveEvent, removeEvent } = this.props;
     const { events } = this.props.city;
-    
+
     return (
       <div>
         <EventIndex
@@ -36,18 +36,22 @@ class CityDetail extends React.Component {
     if (!currentUser) {
       return (
         <Link
-          className="city-button"
+          className="host-button"
           to='/signup'>
           Sign up to host an Event in this City</Link>
         )
     } else if (!currentUser.city_id) {
       return (
-        <Link to='/cities'>Choose a Home City so you can host Events</Link>
+        <Link
+          to='/cities'
+          className="host-button">
+          Choose a Home City so you can host Events
+        </Link>
         )
     } else {
       return (
         <Link
-          className="city-button"
+          className="host-button"
           to={{
           pathname: '/new_event',
           state: { cityId: this.props.cityId }
