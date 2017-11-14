@@ -7,6 +7,7 @@ class CityDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = { loading: true };
+    debugger
   }
 
   componentDidMount() {
@@ -38,8 +39,9 @@ class CityDetail extends React.Component {
         <Link
           className="host-button"
           to='/signup'>
-          Sign up to host an Event in this City</Link>
-        )
+          Sign up to host an Event in this City
+        </Link>
+      )
     } else if (!currentUser.city_id) {
       return (
         <Link
@@ -47,15 +49,6 @@ class CityDetail extends React.Component {
           className="host-button">
           Choose a Home City so you can host Events
         </Link>
-        )
-    } else {
-      return (
-        <Link
-          className="host-button"
-          to={{
-          pathname: '/new_event',
-          state: { cityId: this.props.cityId }
-        }}>Click here to host an Event in this City</Link>
       )
     }
   }
@@ -102,7 +95,7 @@ class CityDetail extends React.Component {
   }
 
   renderHasEvents() {
-    if (this.props.events) {
+    if (this.props.city.events) {
       return (
         <div>
           <div className="tea-time-container">
@@ -265,7 +258,7 @@ class CityDetail extends React.Component {
         <div className="city-detail-container">
           {this.renderCityName()}
           <div className="city-detail-body-container">
-            {this.renderEventForm()}
+          {/*  {this.renderEventForm()} */}
             {this.renderHasEvents()}
             {this.renderCityAlert()}
             {this.renderEventList()}

@@ -13,8 +13,6 @@ const mapStateToProps = ({ session, city }, { match }) => {
 
   return {
     currentUser,
-    // events: selectAllEvents(city.events),
-    // users: selectAllUsers(city.users),
     hosts: selectAllHosts(city.hosts),
     cityId,
     city: currentCity

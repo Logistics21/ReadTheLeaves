@@ -33,10 +33,9 @@
 }
 
 .tea-time-container {
-  margin-top: 61px;
-  margin-bottom: 36px;
   display: flex;
   flex-direction: column;
+  margin: 1.35em 0;
 }
 
 .tea-time-title {
@@ -50,7 +49,6 @@
   font-weight: 400;
   font-size: 17px;
   line-height: 1.625;
-  margin-bottom: 12px;
   width: 648px;
 }
 
