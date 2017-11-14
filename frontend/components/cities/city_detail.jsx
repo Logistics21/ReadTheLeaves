@@ -7,7 +7,6 @@ class CityDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = { loading: true };
-    debugger
   }
 
   componentDidMount() {

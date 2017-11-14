@@ -6,7 +6,6 @@ const EventIndex = (
   return (
     <div className="current-event-container">
       { Object.values(events).map((event) => {
-        debugger
           return (<EventItem
             key={event.id}
             event={event}

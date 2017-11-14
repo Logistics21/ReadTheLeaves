@@ -6,7 +6,6 @@ import isEmpty from 'lodash/isEmpty';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    debugger
   }
 
   render() {
@@ -36,9 +35,8 @@ class Profile extends React.Component {
         </div>
       )
     } else {
-      userHostText = "I'm currently not hosting any events";
+      userHostText = "I'm currently not hosting any events.";
     }
-    debugger
     return (
       <div className="profile-body-container">
         <div className="update-button">

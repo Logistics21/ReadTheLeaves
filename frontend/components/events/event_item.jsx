@@ -15,7 +15,6 @@ class EventItem extends React.Component {
       : this.props.event.spots;
 
     this.state = { spots: spots };
-    debugger
   }
 
   handleAttend(e) {
