@@ -22,7 +22,6 @@ export const removeAttendance = (event_id) => {
 }
 
 export const addHosting = (event_id, event) => {
-  debugger
   return {
     type: ADD_HOSTING,
     event_id,

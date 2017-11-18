@@ -89,7 +89,6 @@ class EventForm extends React.Component {
   }
 
   render() {
-    debugger
     let eventType;
     let defaultDate;
     if (this.props.formType === "/new_event") {

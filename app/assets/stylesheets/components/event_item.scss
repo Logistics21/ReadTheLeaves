@@ -19,39 +19,24 @@
 .event-item-head {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  margin-right: 0.7em;
 }
 
 .host {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 140px;
-  margin-top: 10px;
-  margin-right: 20px;
   text-align: center;
 }
 
 .host-pic {
   width: 125px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
   border: 1px solid transparent;
   border-radius: 15px;
-  margin-top: 10px;
-  margin-bottom: 5px;
 }
 
 .date-time {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-top: 1em;
+  text-align: center;
   height: 150px;
   width: 140px;
-  margin-left: 10px;
 }
 
 .event-location {
@@ -92,44 +77,45 @@
 }
 
 .event-item-button {
-	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
-	box-shadow:inset 0px 1px 0px 0px #caefab;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811));
-	background:-moz-linear-gradient(top, #77d42a 5%, #5cb811 100%);
-	background:-webkit-linear-gradient(top, #77d42a 5%, #5cb811 100%);
-	background:-o-linear-gradient(top, #77d42a 5%, #5cb811 100%);
-	background:-ms-linear-gradient(top, #77d42a 5%, #5cb811 100%);
-	background:linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811',GradientType=0);
-	background-color:#77d42a;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #268a16;
-	display:inline-block;
-	cursor:pointer;
-	color:#306108;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #aade7c;
+  -moz-box-shadow: inset 0px 1px 0px 0px #caefab;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #caefab;
+  box-shadow: inset 0px 1px 0px 0px #caefab;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811));
+  background: -moz-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+  background: -webkit-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+  background: -o-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+  background: -ms-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+  background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811',GradientType=0);
+  background-color: #77d42a;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #268a16;
+  display: inline-block;
+  cursor: pointer;
+  color: #306108;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #aade7c;
+  margin: 0 0.75em;
 }
 
 .event-item-button:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a));
-	background:-moz-linear-gradient(top, #5cb811 5%, #77d42a 100%);
-	background:-webkit-linear-gradient(top, #5cb811 5%, #77d42a 100%);
-	background:-o-linear-gradient(top, #5cb811 5%, #77d42a 100%);
-	background:-ms-linear-gradient(top, #5cb811 5%, #77d42a 100%);
-	background:linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a',GradientType=0);
-	background-color:#5cb811;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a));
+  background: -moz-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+  background: -webkit-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+  background: -o-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+  background: -ms-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+  background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a',GradientType=0);
+  background-color: #5cb811;
 }
 
 .event-item-button:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }

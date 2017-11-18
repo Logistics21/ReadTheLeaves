@@ -216,7 +216,6 @@ class CityDetail extends React.Component {
         </div>
       );
     } else if (currentUser.city_id && currentUser.city_id !== cityId) {
-      debugger
       return (
         <div className="alert-container">
           <h6 className="home-sentence">

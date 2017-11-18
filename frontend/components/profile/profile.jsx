@@ -6,12 +6,10 @@ import isEmpty from 'lodash/isEmpty';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    debugger
   }
 
   componentDidMount() {
     if (this.props.user.city_id) {
-      debugger
       const { city_id } = this.props.user;
       this.props.fetchCity(city_id);
     }

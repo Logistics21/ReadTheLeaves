@@ -16,7 +16,6 @@ class Dashboard extends React.Component {
     let cityLink;
     let hostedEvents;
     let attendingEvents;
-    debugger
 
     if (currentUser.city_id) {
         cityLink = <Link to={`${currentUser.city_id}`}><h3>Your City</h3></Link>
@@ -52,7 +51,6 @@ class Dashboard extends React.Component {
       )
     }
 
-    debugger
     return (
       <div className="dashboard-body-container">
         <div className="dashboard-container">

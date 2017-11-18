@@ -15,12 +15,10 @@ class EventItem extends React.Component {
       : this.props.event.spots;
 
     this.state = { spots: spots };
-    debugger
   }
 
   handleAttend(e) {
     e.preventDefault();
-    debugger
     const { user, event, attendEvent } = this.props;
     attendEvent(event, user).then(() => this.setState({ spots:
     this.state.spots - 1 }));
@@ -48,8 +46,16 @@ class EventItem extends React.Component {
 
   render() {
     const { event, user } = this.props;
-
     let attendButton;
+    const dateArray = event.date_info.replace(/\s\s+/g, ' ').split(" ");
+    const dateObj = {
+      day: dateArray[0],
+      month: dateArray[1],
+      date: dateArray[2],
+      year: dateArray[3],
+      time: dateArray[4],
+      period: dateArray[5]
+    }
 
     if (!user) {
       attendButton = (
@@ -102,10 +108,10 @@ class EventItem extends React.Component {
       <div className="event-item-container">
         <div className="event-item-head">
           <div className="date-time">
-            <h3>{event.day}</h3>
-            <h3>{event.month} {event.date}</h3>
-            <h3>{event.year}</h3>
-            <h3>{event.time}{event.period}</h3>
+            <h3>{dateObj.day}</h3>
+            <h3>{dateObj.month} {dateObj.date}</h3>
+            <h3>{dateObj.year}</h3>
+            <h3>{dateObj.time}{dateObj.period}</h3>
           </div>
           <div className="host">
             <h3>Your Host is:</h3>

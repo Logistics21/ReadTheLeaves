@@ -3,7 +3,6 @@ import EventItem from './event_item';
 
 const EventIndex = (
   { events, user, attendEvent, leaveEvent, removeEvent }) => {
-    debugger
   return (
     <div className="current-event-container">
       { Object.values(events).map((event) => {
