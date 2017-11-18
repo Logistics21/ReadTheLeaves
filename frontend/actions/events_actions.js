@@ -9,21 +9,19 @@ export const ADD_ATTENDEE = "ADD_ATTENDEE";
 export const REMOVE_ATTENDEE = "REMOVE_ATTENDEE";
 
 
-export const createEvent = (event) => (dispatch) => (
-  EventAPIUTil.createEvent(event)
+export const createEvent = (event) => (dispatch) => {
+  debugger
+  return EventAPIUTil.createEvent(event)
     .then(event => {
+      debugger
       dispatch(receiveNewEvent(event));
       dispatch(addHosting(Object.keys(event)[0], event));
-    })
-)
+  })
+}
 
 export const updateEvent = (event) => (dispatch) => {
-  
   return EventAPIUTil.updateEvent(event)
-    .then(event => {
-      
-      dispatch(receiveUpdatedEvent(event))
-    })
+    .then(event => { dispatch(receiveUpdatedEvent(event)); })
 }
 
 export const removeEvent = (event_id) => (dispatch) => {
@@ -35,10 +33,12 @@ export const removeEvent = (event_id) => (dispatch) => {
 }
 
 export const attendEvent = (event, currentUser) => (dispatch) => {
+  debugger
   return EventAPIUTil.attendEvent(event.id)
-    .then(event => {
-      dispatch(addAttendance(event.event_id, event));
-      dispatch(addAttendee(event.event_id, currentUser));
+    .then(res => {
+      debugger
+      dispatch(addAttendance(res.event_id, event));
+      dispatch(addAttendee(res.event_id, currentUser));
     })
 }
 

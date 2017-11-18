@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { attendEvent, leaveEvent } from '../../actions/events_actions';
+import { leaveEvent, removeEvent } from '../../actions/users_actions';
 
 import Profile from './profile';
 
@@ -11,8 +11,8 @@ const mapStateToProps = ({ session }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    attendEvent: (event_id) => dispatch(attendEvent(id)),
     leaveEvent: (event_id) => dispatch(leaveEvent(event_id)),
+    removeEvent: (event_id) => dispatch(removeEvent(event_id)),
   }
 }
 

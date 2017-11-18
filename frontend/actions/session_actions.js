@@ -1,5 +1,4 @@
 import * as APIUtil from '../util/session_api_util';
-// import * as UserApiUtil from '../util/user_util';
 
 import { clearErrors, receiveErrors } from './errors_actions';
 
@@ -23,6 +22,7 @@ export const removeAttendance = (event_id) => {
 }
 
 export const addHosting = (event_id, event) => {
+  debugger
   return {
     type: ADD_HOSTING,
     event_id,

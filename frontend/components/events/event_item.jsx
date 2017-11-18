@@ -15,10 +15,12 @@ class EventItem extends React.Component {
       : this.props.event.spots;
 
     this.state = { spots: spots };
+    debugger
   }
 
   handleAttend(e) {
     e.preventDefault();
+    debugger
     const { user, event, attendEvent } = this.props;
     attendEvent(event, user).then(() => this.setState({ spots:
     this.state.spots - 1 }));
@@ -60,8 +62,8 @@ class EventItem extends React.Component {
     } else if (event.host_id === user.id) {
       attendButton = (
         <div>
-          <button onClick={this.hostUpdateEvent}>Edit</button>
-          <button onClick={this.hostCancelEvent}>Cancel</button>
+          <button className="event-item-button" onClick={this.hostUpdateEvent}>Edit</button>
+          <button className="event-item-button" onClick={this.hostCancelEvent}>Cancel</button>
         </div>
       );
     } else if (this.state.spots < 1 &&
@@ -73,11 +75,11 @@ class EventItem extends React.Component {
       )
     } else if (!(event.id in user.attending_events)) {
       attendButton = (
-        <button onClick={this.handleAttend}>Join</button>
+        <button className="event-item-button" onClick={this.handleAttend}>Join</button>
       );
     } else {
       attendButton = (
-        <button onClick={this.handleLeave}>Leave</button>
+        <button className="event-item-button" onClick={this.handleLeave}>Leave</button>
       );
     }
 

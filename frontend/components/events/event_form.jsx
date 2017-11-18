@@ -66,8 +66,9 @@ class EventForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let event = this.state;
+    debugger
     event.date = this.state.date.format("LLLL");
-    event['id'] = this.props.match.params.event_id;
+    // event['id'] = this.props.match.params.event_id;
 
 
     if (this.props.formType === "/new_event") {
@@ -87,6 +88,7 @@ class EventForm extends React.Component {
   }
 
   render() {
+    debugger
     let eventType;
     let defaultDate;
     if (this.props.formType === "/new_event") {

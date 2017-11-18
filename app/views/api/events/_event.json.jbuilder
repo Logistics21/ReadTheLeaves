@@ -1,6 +1,6 @@
-json.extract! event, :id, :address, :description, :city_id, :host_id, :spots
 date_array = event.date.gsub(/[,]/, "").split(" ")
 
+json.extract! event, :id, :address, :description, :city_id, :host_id, :spots
 json.day date_array[0]
 json.month date_array[1]
 json.date date_array[2]
