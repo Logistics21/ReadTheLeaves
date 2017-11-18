@@ -6,6 +6,7 @@ class Api::EventsController < ApplicationController
   end
 
   def create
+    debugger
     @event = Event.new(event_params)
     @event.host_id = current_user.id
 
@@ -34,7 +35,7 @@ class Api::EventsController < ApplicationController
 
   def update
     @event = Event.find_by(id: params[:id])
-    
+
     if @event.update(event_params)
       render :show
     else
@@ -46,6 +47,6 @@ class Api::EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:date, :address, :description,
-      :city_id, :spots)
+                                  :city_id, :spots)
   end
 end

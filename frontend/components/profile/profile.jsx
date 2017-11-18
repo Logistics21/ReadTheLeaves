@@ -10,8 +10,11 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    const { cityId } = this.props.user.city_id
-    if (cityId) { this.props.fetchCity(cityId); }
+    if (this.props.user.city_id) {
+      debugger
+      const { city_id } = this.props.user;
+      this.props.fetchCity(city_id);
+    }
   }
 
   render() {

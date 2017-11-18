@@ -1,13 +1,7 @@
-date_array = event.date.gsub(/[,]/, "").split(" ")
 
 json.extract! event, :id, :address, :description, :city_id, :host_id, :spots
-json.day date_array[0]
-json.month date_array[1]
-json.date date_array[2]
-json.year date_array[3]
-json.time date_array[4]
-json.period date_array[5]
-
+json.date event.date.to_s
+json.date_info event.date.strftime('%A %B %e %Y %l:%M %p')
 json.host_name event.host.first_name
 json.city_name event.city.name
 json.host_image asset_path(event.host.image.url)

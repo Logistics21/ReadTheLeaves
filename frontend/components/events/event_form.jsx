@@ -8,6 +8,7 @@ class EventForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.eventStatus;
+    this.state.date = new Date(this.state.date);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -16,6 +17,8 @@ class EventForm extends React.Component {
 
   componentWillMount() {
     if (!this.state.date) { this.setState({ date: moment() });
+    } else {
+      this.state.date = new Date(this.state.date);
     }
   }
 
@@ -67,9 +70,7 @@ class EventForm extends React.Component {
     e.preventDefault();
     let event = this.state;
     debugger
-    event.date = this.state.date.format("LLLL");
-    // event['id'] = this.props.match.params.event_id;
-
+    event.date = this.state.date.format();
 
     if (this.props.formType === "/new_event") {
       this.props.createEvent(event)

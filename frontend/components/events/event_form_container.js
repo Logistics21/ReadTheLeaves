@@ -12,7 +12,7 @@ const mapStateToProps = (state, { match, location }) => {
   let city_name;
   let city_id;
   let city;
-  
+
   if (state.city.id) {
     city_name = state.city.name;
     city_id = state.city.id;
