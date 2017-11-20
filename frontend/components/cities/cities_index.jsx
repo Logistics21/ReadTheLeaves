@@ -69,12 +69,12 @@ class CitiesIndex extends React.Component {
                   know when we Read The Leaves is coming your way!
                 </p>
               </div>
-              <div className="cities-section-list-container">
+              {/* }<div className="cities-section-list-container">
                 <Link className="button" to="/suggestcities">DON'T SEE YOUR CITY? ADD IT HERE!</Link>
                 <div className="suggested-list">
                   {this.cityList()}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

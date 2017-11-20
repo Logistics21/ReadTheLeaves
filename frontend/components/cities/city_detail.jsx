@@ -55,9 +55,9 @@ class CityDetail extends React.Component {
   renderCityName() {
     return (
       <div className="city-name-container">
-        <div className="city-image-container"></div>
+        <div className="city-image-filter"></div>
         <img className="city-image" src={this.props.city.image_url} />
-        <div className="city-head-container">
+        <div className="city-info-container">
           <h1 className="city-title">{this.props.city.name}</h1>
           <h3 className="get-tea">LET'S GET TEA!</h3>
         </div>
@@ -134,7 +134,7 @@ class CityDetail extends React.Component {
           movement come to life. You might not have seen tea times from these
           hosts in a bit, but without them, Read the Leaves in {this.props.city.name} wouldn't be where it is today.
         </p>
-        {this.pastHosts()}
+      {/*  {this.pastHosts()} */}
       </div>
     );
   }

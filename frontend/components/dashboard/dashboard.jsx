@@ -14,11 +14,17 @@ class Dashboard extends React.Component {
     const { currentUser, leaveEvent, removeEvent, updateEvent } = this.props;
     const { attending_events, hosted_events } = currentUser;
     let cityLink;
+    let hostLink;
     let hostedEvents;
     let attendingEvents;
 
     if (currentUser.city_id) {
-        cityLink = <Link to={`${currentUser.city_id}`}><h3>Your City</h3></Link>
+        cityLink = <Link className="dashboard-element" to={`/cities/${currentUser.city_id}`}>
+                    <h3>Go to Your City</h3>
+                  </Link>;
+        hostLink = <Link className="update-button" to="/new_event">
+                      CLICK HERE TO HOST AN EVENT IN {currentUser.city_name.toUpperCase()}
+                   </Link>;
     }
 
     if (!_.isEmpty(hosted_events)) {
@@ -53,18 +59,15 @@ class Dashboard extends React.Component {
 
     return (
       <div className="dashboard-body-container">
-        <div className="dashboard-container">
         <div className="dashboard-header">
-          <h1 className="dashboard-title">Your Dashboard:</h1>
-          <h2 className="user-name">Hello, {currentUser.first_name}</h2>
+          <h1 className="dashboard-element">Your Dashboard: Hello, {currentUser.first_name}</h1>
           {cityLink}
-            <Link to='/update_profile'><h3>Update Your Profile</h3></Link>
+          <Link className="dashboard-element" to='/update_profile'>
+            <h3>Update Your Profile</h3>
+          </Link>
         </div>
-        <Link
-          className="city-button"
-          to="/new_event">
-          CLICK HERE TO HOST AN EVENT IN {currentUser.city_name.toUpperCase()}
-        </Link>
+        <div className="dashboard-container">
+          {hostLink}
         <div className="dashboard-events-container">
           {hostedEvents}
           {attendingEvents}

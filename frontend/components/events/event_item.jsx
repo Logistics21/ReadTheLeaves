@@ -115,7 +115,7 @@ class EventItem extends React.Component {
           </div>
           <div className="host">
             <h3>Your Host is:</h3>
-            <Link to={`/profile/${event.host_id}`}>
+            <Link className="host-link" to={`/profile/${event.host_id}`}>
               <img className="host-pic"
                    src={event.host_image}
                    alt="host-photo" />

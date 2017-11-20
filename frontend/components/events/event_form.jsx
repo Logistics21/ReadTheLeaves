@@ -69,7 +69,6 @@ class EventForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let event = this.state;
-    debugger
     event.date = this.state.date.format();
 
     if (this.props.formType === "/new_event") {
