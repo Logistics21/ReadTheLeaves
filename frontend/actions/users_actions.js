@@ -1,9 +1,15 @@
 import * as EventAPIUtil from '../util/event_util';
 import { requestUser } from '../util/users_util';
-import { removeHosting, removeAttendance } from './session_actions';
-
+import { removeHosting, removeAttendance, addAttendance } from './session_actions';
 
 export const RECEIVE_SINGLE_USER = "RECEIVE_SINGLE_USER";
+
+export const attendEvent = (event, currentUser) => (dispatch) => {
+  return EventAPIUtil.attendEvent(event.id)
+    .then(res => {
+      dispatch(addAttendance(res.event_id, event));
+    })
+}
 
 export const removeEvent = (event_id) => (dispatch) => {
   return EventAPIUtil.deleteEvent(event_id)
@@ -20,8 +26,10 @@ export const leaveEvent = (event_id, user_id) => (dispatch) => {
 }
 
 export const fetchUser = (user_id) => (dispatch) => {
+  debugger
   return requestUser(user_id)
     .then((user) => {
+      debugger
       dispatch(receiveSingleUser(user));
     })
 }

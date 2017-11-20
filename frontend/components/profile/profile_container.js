@@ -1,20 +1,25 @@
 import { connect } from 'react-redux';
-import { leaveEvent, removeEvent } from '../../actions/users_actions';
-import { fetchCity } from '../../actions/cities_actions';
+import {
+  attendEvent, leaveEvent,
+  removeEvent, fetchUser
+} from '../../actions/users_actions';
 
 import Profile from './profile';
 
-const mapStateToProps = ({ session }) => {
+const mapStateToProps = ({ session, user }) => {
+  debugger
   return {
     currentUser: session.currentUser,
+    user,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    attendEvent: (event, user) => dispatch(attendEvent(event, user)),
     leaveEvent: (event_id) => dispatch(leaveEvent(event_id)),
     removeEvent: (event_id) => dispatch(removeEvent(event_id)),
-    fetchCity: (id) => dispatch(fetchCity(id))
+    fetchUser: (id) => dispatch(fetchUser(id)),
   }
 }
 
