@@ -36,7 +36,7 @@ class Profile extends React.Component {
           <h3 className="user-info">These are the events I'm hosting...</h3>
           <EventIndex
             events={hosted_events}
-            user={user}
+            user={currentUser}
             attendEvent={attendEvent}
             leaveEvent={leaveEvent}
             removeEvent={removeEvent}
@@ -46,7 +46,7 @@ class Profile extends React.Component {
     } else {
       userHostText = "I'm currently not hosting any events.";
       pebcStyle = {
-        marginBottom: '0.5em' 
+        marginBottom: '0.5em'
       };
     }
     return (
