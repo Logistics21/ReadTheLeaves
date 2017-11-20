@@ -6,40 +6,52 @@ import isEmpty from 'lodash/isEmpty';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      match: this.props.currentUser.id ===
+             parseInt(this.props.match.params.id)
+    }
   }
 
   componentDidMount() {
-    debugger
-    const { user } = this.props;
-    const { id } = this.props.match.params;
+    const { currentUser, user } = this.props;
+    const id = this.props.match.params.id;
 
-    if (_.isEmpty(user) || user.id !== parseInt(id)) {
-      this.props.fetchUser(id);
+    if (!this.state.match) {
+      if (_.isEmpty(user) || user.id !== parseInt(id)) {
+        this.props.fetchUser(id);
+      }
     }
   }
 
   render() {
-    debugger
-    const { user } = this.props;
+    let profile;
+    const { currentUser, user } = this.props;
 
-    if (_.isEmpty(user)) {
+    if (this.state.match) {
+      profile = currentUser;
+    } else {
+      profile = user;
+    }
+
+    if (_.isEmpty(profile)) {
       return null;
     } else {
       const { currentUser, attendEvent, leaveEvent, removeEvent } = this.props;
-      const { hosted_events } = user;
+      const { hosted_events } = profile;
       let userCityText;
       let userHostText;
       let userAttendText;
       let pebcStyle;
       let updateButton;
 
-      if (!user.city_id) {
+      if (!profile.city_id) {
         userCityText = "Currently, I don't have a home city. But just you wait...";
       } else {
-        userCityText = `You can find me in ${user.city_name}.`;
+        userCityText = `You can find me in ${profile.city_name}.`;
       }
 
-      if (user.id === currentUser.id) {
+      if (this.state.match) {
         updateButton = (
           <div className="update-button">
             <Link to="/update_profile">Update Your Profile</Link>
@@ -71,12 +83,12 @@ class Profile extends React.Component {
           {updateButton}
           <div className="profile-container">
             <div className="user-profile-pic">
-              <img src={user.image_url}
+              <img src={profile.image_url}
                    alt="user-photo"
                    className="profile-pic" />
             </div>
             <div className="profile">
-              <h2 className="user-info"> Hi, I'm {user.first_name}.</h2>
+              <h2 className="user-info"> Hi, I'm {profile.first_name}.</h2>
               <h3 className="user-info">{userCityText}</h3>
               <div style={pebcStyle} className="profile-events-body-container">
                 {userHostText}

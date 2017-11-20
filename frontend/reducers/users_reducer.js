@@ -3,11 +3,11 @@ import merge from 'lodash/merge';
 
 const UserReducer = (state = {}, action) => {
   Object.freeze(state);
-  debugger
+  let newState = merge({}, state);
+
   switch (action.type) {
     case RECEIVE_SINGLE_USER:
-      let newState = merge({}, state, action.user);
-      return newState;
+      return action.user;
     default:
       return state;
   }

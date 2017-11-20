@@ -6,8 +6,9 @@ import isEmpty from 'lodash/isEmpty';
 class Dashboard extends React.Component {
 
   componentDidMount() {
-    const { cityId } = this.props.currentUser.city_id
-    if (cityId) { this.props.fetchCity(cityId); }
+    debugger
+    const { city_id } = this.props.currentUser.city_id;
+    if (city_id) { this.props.fetchCity(city_id); }
   }
 
   render() {

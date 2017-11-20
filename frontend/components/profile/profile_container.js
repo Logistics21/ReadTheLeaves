@@ -7,7 +7,6 @@ import {
 import Profile from './profile';
 
 const mapStateToProps = ({ session, user }) => {
-  debugger
   return {
     currentUser: session.currentUser,
     user,
