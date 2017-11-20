@@ -6,6 +6,7 @@ import isEmpty from 'lodash/isEmpty';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    debugger
   }
 
   componentDidMount() {
@@ -21,6 +22,7 @@ class Profile extends React.Component {
     let userCityText;
     let userHostText;
     let userAttendText;
+    let pebcStyle;
 
     if (!user.city_id) {
       userCityText = "Currently, I don't have a home city. But just you wait...";
@@ -43,6 +45,9 @@ class Profile extends React.Component {
       )
     } else {
       userHostText = "I'm currently not hosting any events.";
+      pebcStyle = {
+        marginBottom: '0.5em' 
+      };
     }
     return (
       <div className="profile-body-container">
@@ -58,7 +63,7 @@ class Profile extends React.Component {
           <div className="profile">
             <h2 className="user-info"> Hi, I'm {user.first_name}.</h2>
             <h3 className="user-info">{userCityText}</h3>
-            <div className="profile-events-body-container">
+            <div style={pebcStyle} className="profile-events-body-container">
               {userHostText}
             </div>
           </div>

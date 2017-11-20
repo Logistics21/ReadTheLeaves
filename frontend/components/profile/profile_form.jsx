@@ -75,11 +75,10 @@ class ProfileForm extends React.Component {
   render() {
     return (
       <div className="profile-form-container">
-        <h1 className="user-name">
-          Hi {this.props.currentUser.first_name}
-        </h1>
-
         <div className="profile-form-box">
+          <h1 className="user-name">
+            Hi {this.props.currentUser.first_name}
+          </h1>
           <form className="profile-form"
             onSubmit={this.handleSubmit}>
 

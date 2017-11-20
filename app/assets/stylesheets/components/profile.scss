@@ -26,6 +26,8 @@ img.profile-pic {
 }
 
 .profile-form-container {
+  display: flex;
+  flex-direction: column;
   background-color: #FAF6E8;
   line-height: 1.625;
   font-weight: 400;
@@ -49,6 +51,7 @@ img.profile-pic {
 
 h1.user-name {
   text-align: center;
+  margin: 0.5em 0;
 }
 
 .form-data {
