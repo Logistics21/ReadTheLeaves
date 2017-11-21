@@ -32,7 +32,7 @@ const NavBar = ({session, signedIn, signout, clearErrors}) => {
       return (
         [
           <Link className="nav-item" to="/dashboard">DASHBOARD</Link>,
-          <Link className="nav-item" to={`/profile/:${session.currentUser.id}`}>PROFILE</Link>
+          <Link className="nav-item" to={`/profile/${session.currentUser.id}`}>PROFILE</Link>
         ]
       );
     } else {

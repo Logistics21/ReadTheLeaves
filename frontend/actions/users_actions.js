@@ -26,10 +26,8 @@ export const leaveEvent = (event_id, user_id) => (dispatch) => {
 }
 
 export const fetchUser = (user_id) => (dispatch) => {
-  debugger
   return requestUser(user_id)
     .then((user) => {
-      debugger
       dispatch(receiveSingleUser(user));
     })
 }

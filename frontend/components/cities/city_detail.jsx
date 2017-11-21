@@ -191,17 +191,21 @@ class CityDetail extends React.Component {
             </Link>
         </div>
       );
-    } else if (currentUser.city_id === cityId && currentUser.is_host) {
+    } else if (!currentUser.city_id) {
       return (
         <div className="alert-container">
+          <h6 className="home-sentence">
+            You have no home city yet!
+          </h6>
           <Link
             className="city-button"
-            to="/new_event">
-            CLICK HERE TO HOST AN EVENT IN {city.city_code.toUpperCase()}
+            onClick={() => this.props.userQuickUpdate(currentUser, city)}
+            to={`/cities/${cityId}`}>
+            Make {city.city_code.toUpperCase()} Your Home.
           </Link>
         </div>
       );
-    } else if (currentUser.city_id === cityId && !currentUser.is_host) {
+    } else if (currentUser.city_id === cityId) {
       return (
         <div className="alert-container">
           <div className="change-city-container">
@@ -212,10 +216,16 @@ class CityDetail extends React.Component {
               className="city-change"
               to="/cities"> change your home city here.
             </Link>
+            <h6>OR</h6>
+            <Link
+              className="city-button"
+              to="/new_event">
+              CLICK HERE TO HOST AN EVENT IN {city.city_code.toUpperCase()}
+            </Link>
           </div>
         </div>
       );
-    } else if (currentUser.city_id && currentUser.city_id !== cityId) {
+    } else if (currentUser.city_id !== cityId) {
       return (
         <div className="alert-container">
           <h6 className="home-sentence">
@@ -233,17 +243,6 @@ class CityDetail extends React.Component {
               to={`/cities/${currentUser.city_id}`}>
               {currentUser.city_name}
           </Link> is your home city right now. The big button will change that!</h6>
-        </div>
-      );
-    } else {
-      return (
-        <div className="alert-container">
-          <h6 className="home-sentence">
-            You have no home city yet!
-          </h6>
-          <Link className="city-button" to='/update_profile'>
-            Click Here to Update Your Profile
-          </Link>
         </div>
       );
     }

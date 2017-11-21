@@ -60,7 +60,7 @@ class EventItem extends React.Component {
     if (!user) {
       attendButton = (
         <div>
-          <Link to='/signup'>Sign Up Before You Join</Link>
+          <Link className="event-item-button" to='/signup'>Sign Up Before You Join</Link>
         </div>
       );
     } else if (!user.attending_events) {

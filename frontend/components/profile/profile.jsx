@@ -6,7 +6,7 @@ import isEmpty from 'lodash/isEmpty';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-
+    debugger
     this.state = {
       match: this.props.currentUser.id ===
              parseInt(this.props.match.params.id)
@@ -24,7 +24,18 @@ class Profile extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    debugger
+    const { currentUser } = this.props;
+    const id = nextProps.match.params.id;
+
+    if (currentUser.id === parseInt(id)) {
+      this.setState({ match: true })
+    }
+  }
+
   render() {
+    debugger
     let profile;
     const { currentUser, user } = this.props;
 
