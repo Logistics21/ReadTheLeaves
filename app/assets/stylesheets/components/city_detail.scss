@@ -189,6 +189,40 @@
   margin-bottom: 15px;
 }
 
+span[data-descr] {
+  position: relative;
+}
+
+span[data-descr]:hover::after {
+  content: attr(data-descr);
+  position: absolute;
+  display: block;
+  z-index: 1;
+  text-transform: uppercase;
+  background: #FAF6E8;
+  border: 5px solid #EF6236;
+  color: #EF6236;
+  border-radius: 10px;
+  width: 13em;
+  font-size: 14px;
+  line-height: 2.5;
+  height: 2.5em;
+  text-align: center;
+  left: -3.5em;
+  bottom: 2.85em;
+}
+
+a.city-button:hover:after {
+  content: "";
+  position: absolute;
+  bottom: 45%;
+  left: 40%;
+  margin-left: 0px;
+  border-width: 13px;
+  border-style: solid;
+  border-color: #EF6236 transparent transparent transparent;
+}
+
 .redirect-link {
   font-weight: 100;
   font-size: 13px;
@@ -205,17 +239,17 @@
   margin: 0;
 }
 
-.city-button {
-  background-color: #EF6236;
-  border: 2px solid #EF6236;
-  border-radius: 10px;
-  color: white;
-  font-size: 17px;
-  font-weight: 400;
-  padding: 1em 1.5em;
-  letter-spacing: 2px;
-  text-decoration: none;
-}
+// .city-button {
+//   background-color: #EF6236;
+//   border: 2px solid #EF6236;
+//   border-radius: 10px;
+//   color: white;
+//   font-size: 17px;
+//   font-weight: 400;
+//   padding: 1em 1.5em;
+//   letter-spacing: 2px;
+//   text-decoration: none;
+// }
 
 .host-button {
   background-color: #EF6236;

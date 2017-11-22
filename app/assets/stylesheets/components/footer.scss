@@ -1,31 +1,31 @@
 .footer-container {
-    display: flex;
-    padding: 0 3em;
-    flex-direction: row;
-    color: white;
-    justify-content: center;
-    font-family: Helvetica;
-    font-weight: 400;
-    letter-spacing: 0.5px;
+  display: flex;
+  padding: 0 3em;
+  flex-direction: row;
+  color: white;
+  justify-content: center;
+  font-family: Helvetica;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 .footer-wrapper {
-    background-color: #F7BF4D;
+  background-color: #F7BF4D;
 }
 
 .footer-links {
-    margin: 2em;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.75;
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.75;
 }
 
 .footer-about {
-    margin: 2em;
-    line-height: 1.5;
-    width: 65%;
+  margin: 2em;
+  line-height: 1.5;
+  width: 65%;
 }
 
 p.footer-p {
-    margin-bottom: 0.825em;
+  margin-bottom: 0.825em;
 }
