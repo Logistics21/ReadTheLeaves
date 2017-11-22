@@ -1,8 +1,6 @@
 .dashboard-body-container {
   display: flex;
   flex-direction: column;
-  justify-content: right;
-  align-items: center;
   background-color: #FAF6E8;
 }
 
@@ -15,6 +13,29 @@
 .dashboard-header {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  font-family: Helvetica;
+  text-align: center;
+  justify-content: space-around;
   margin-bottom: 0.75em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+.dashboard-element {
+  outline: 1px solid #5C5C5C;
+  flex-grow: 1;
+}
+.link {
+  background: white;
+  
+    &:hover {
+      color: white;
+      background-color: #EF6236;
+    }
+}
+
+.myButton:active {
+	position:relative;
+	top:1px;
 }

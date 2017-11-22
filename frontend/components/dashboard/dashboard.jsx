@@ -15,12 +15,12 @@ class Dashboard extends React.Component {
     const { attending_events, hosted_events } = currentUser;
     let cityLink;
     let hostLink;
-    let hostedEvents;
-    let attendingEvents;
+    let hostedEvents = (<h3 className="user-info">You're currently not hosting any events...</h3>);
+    let attendingEvents = (<h3 className="user-info">You're currently not attending any events...</h3>);
 
     if (currentUser.city_id) {
-        cityLink = <Link className="dashboard-element" to={`/cities/${currentUser.city_id}`}>
-                    <h3>Go to Your City</h3>
+        cityLink = <Link className="dashboard-element link" to={`/cities/${currentUser.city_id}`}>
+                    <h3>Your City</h3>
                   </Link>;
         hostLink = <Link className="update-button" to="/new_event">
                       CLICK HERE TO HOST AN EVENT IN {currentUser.city_name.toUpperCase()}
@@ -62,7 +62,7 @@ class Dashboard extends React.Component {
         <div className="dashboard-header">
           <h1 className="dashboard-element">Your Dashboard: Hello, {currentUser.first_name}</h1>
           {cityLink}
-          <Link className="dashboard-element" to='/update_profile'>
+          <Link className="dashboard-element link" to='/update_profile'>
             <h3>Update Your Profile</h3>
           </Link>
         </div>

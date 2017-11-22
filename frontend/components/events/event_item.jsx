@@ -114,12 +114,12 @@ class EventItem extends React.Component {
             <h3>{dateObj.time}{dateObj.period}</h3>
           </div>
           <div className="host">
-            <h3>Your Host is:</h3>
+            <h3 className="event-host">Your Host is:</h3>
             <Link className="host-link" to={`/profile/${event.host_id}`}>
               <img className="host-pic"
                    src={event.host_image}
                    alt="host-photo" />
-              <h3>{event.host_name}</h3>
+                 <h3 className="host-name">{event.host_name}</h3>
             </Link>
           </div>
         </div>

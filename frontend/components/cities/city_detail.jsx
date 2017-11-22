@@ -81,18 +81,6 @@ class CityDetail extends React.Component {
     }
   }
 
-
-  pastHosts() {
-    return (
-      <div className="past-host-list-container">
-        <div className="past-host">
-          Shiv Jillian Misha Kyle Nou Owen Yohan
-          Willie Alex Sophia Shumita Joel Claire
-        </div>
-      </div>
-    );
-  }
-
   renderHasEvents() {
     if (this.props.city.events) {
       return (
@@ -134,7 +122,6 @@ class CityDetail extends React.Component {
           movement come to life. You might not have seen tea times from these
           hosts in a bit, but without them, Read the Leaves in {this.props.city.name} wouldn't be where it is today.
         </p>
-      {/*  {this.pastHosts()} */}
       </div>
     );
   }
@@ -209,14 +196,14 @@ class CityDetail extends React.Component {
       return (
         <div className="alert-container">
           <div className="change-city-container">
-            <h6 className="change-home">
-              This is your home city! </h6>
-            <h6 className="change-small">If you've moved, </h6>
-            <Link
-              className="city-change"
-              to="/cities"> change your home city here.
-            </Link>
-            <h6>OR</h6>
+            <h6 className="change-small">
+              <strong>This is your home city!</strong> If you've moved,
+              <Link
+                className="city-change"
+                to="/cities"> change your home city here.
+              </Link>
+          </h6>
+            <h6 className="change-small">OR</h6>
             <Link
               className="city-button"
               to="/new_event">
