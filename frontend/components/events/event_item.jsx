@@ -75,7 +75,7 @@ class EventItem extends React.Component {
     } else if (this.state.spots < 1 &&
              !(event.id in user.attending_events)) {
       attendButton = (
-        <button>
+        <button style={{cursor: 'not-allowed'}} className="event-item-button">
           Sorry All Full!
         </button>
       )
@@ -91,17 +91,11 @@ class EventItem extends React.Component {
 
     let displaySpotsLeft;
     if (this.state.spots < 1) {
-      displaySpotsLeft = (
-        <h3>Full!</h3>
-      );
+      displaySpotsLeft = "Full!"
     } else if (this.state.spots === 1) {
-      displaySpotsLeft = (
-        <h3>1 Spot Left</h3>
-      );
+      displaySpotsLeft = "1 Spot Left";
     } else {
-      displaySpotsLeft = (
-        <h3>{this.state.spots} Spots Left</h3>
-      );
+      displaySpotsLeft = `${this.state.spots} Spots Left`;
     }
 
     return (
@@ -132,7 +126,7 @@ class EventItem extends React.Component {
       </div>
 
       <div className="event-spots-container">
-        {displaySpotsLeft}
+        <h3 className="spots-left">{displaySpotsLeft}</h3>
         <div className="event-spots">
           <div className="spots-left"
             style={{width: 100 - (`${this.state.spots}` * 20) + '%'}}>
