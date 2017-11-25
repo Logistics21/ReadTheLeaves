@@ -30,27 +30,27 @@ class CityDetail extends React.Component {
     );
   }
 
-  renderEventForm() {
-    const { currentUser } = this.props;
-
-    if (!currentUser) {
-      return (
-        <Link
-          className="host-button"
-          to='/signup'>
-          Sign up to host an Event in this City
-        </Link>
-      )
-    } else if (!currentUser.city_id) {
-      return (
-        <Link
-          to='/cities'
-          className="host-button">
-          Choose a Home City so you can host Events
-        </Link>
-      )
-    }
-  }
+  // renderEventForm() {
+  //   const { currentUser } = this.props;
+  //
+  //   if (!currentUser) {
+  //     return (
+  //       <Link
+  //         className="host-button"
+  //         to='/signup'>
+  //         Sign up to host an Event in this City
+  //       </Link>
+  //     )
+  //   } else if (!currentUser.city_id) {
+  //     return (
+  //       <Link
+  //         to='/cities'
+  //         className="host-button">
+  //         Choose a Home City so you can host Events
+  //       </Link>
+  //     )
+  //   }
+  // }
 
   renderCityName() {
     return (
@@ -63,22 +63,6 @@ class CityDetail extends React.Component {
         </div>
       </div>
     );
-  }
-
-  renderCurrentUsers() {
-    if (this.props.users) {
-      const users = this.props.users.map((user, idx) => {
-        return (
-          <div className="current-host-container" key={idx}>
-            <h2>{user.first_name}</h2>
-          </div>
-        );
-      });
-
-      return users
-    } else {
-      return null;
-    }
   }
 
   renderHasEvents() {
@@ -108,52 +92,6 @@ class CityDetail extends React.Component {
             disappointment, but if you'd like, shoot us an email and we'll
             send it to the hosts to give em some inspiration.
           </p>
-        </div>
-      );
-    }
-  }
-
-  renderPastHosts() {
-    return (
-      <div className="past-hosts-container">
-        <h2 className="past-host-title">Hosts we've missed!</h2>
-        <p className="past-host-p">
-          Every host in the community has played a huge role in making this
-          movement come to life. You might not have seen tea times from these
-          hosts in a bit, but without them, Read the Leaves in {this.props.city.name} wouldn't be where it is today.
-        </p>
-      </div>
-    );
-  }
-
-  renderCurrentHosts() {
-    if (this.props.host) {
-      const hosts = this.props.hosts.map( (host, idx) => {
-        return (
-          <div className="current-host-container" key={idx}>
-            <img src={host.image_url}/>
-            <h2>{host.first_name}</h2>
-          </div>
-        );
-      });
-
-      return (
-        <div className="hosts-container">
-          <div className="hosts-stories">
-            <h2 className="host-title">
-              The Host Community is full of amazing stories.
-            </h2>
-            <p className="host-p">
-              How else would someone end up regularly bringing strangers together
-              for conversations? Before each of them were invited to community,
-              they were attendees that fed their tea times with their questions,
-              open-mindedness, and presence.
-            </p>
-          </div>
-          <div className="current-hosts-container">
-            {hosts}
-          </div>
-          {this.renderPastHosts()}
         </div>
       );
     }
@@ -245,11 +183,9 @@ class CityDetail extends React.Component {
         <div className="city-detail-container">
           {this.renderCityName()}
           <div className="city-detail-body-container">
-          {/*  {this.renderEventForm()} */}
             {this.renderHasEvents()}
             {this.renderCityAlert()}
             {this.renderEventList()}
-            {this.renderCurrentHosts()}
           </div>
         </div>
       );

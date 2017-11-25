@@ -1,11 +1,11 @@
 City.delete_all
 
-sf = City.create(name: "San Francisco", city_code: "SF", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/images/000/000/001/original/sf.jpg")
-nyc = City.create(name: "New York City", city_code: "NYC", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/images/000/000/002/original/nyc.jpg")
-chi = City.create(name: "Chicago", city_code: "CHI", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/images/000/000/003/original/chi.jpg")
-dc = City.create(name: "Washington D.C", city_code: "DC", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/images/000/000/004/original/dc.jpg")
-lax = City.create(name: "Los Angeles", city_code: "LAX", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/images/000/000/005/original/lax.png")
-ldn = City.create(name: "London", city_code: "LDN", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/images/000/000/006/original/ldn.jpg")
+sf = City.create(name: "San Francisco", city_code: "SF", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/sf.jpg")
+nyc = City.create(name: "New York City", city_code: "NYC", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/nyc.jpg")
+chi = City.create(name: "Chicago", city_code: "CHI", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/chi.jpg")
+dc = City.create(name: "Washington D.C", city_code: "DC", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/dc.jpg")
+lax = City.create(name: "Los Angeles", city_code: "LAX", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/lax.png")
+ldn = City.create(name: "London", city_code: "LDN", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/ldn.jpg")
 
 
 puts "city created"
