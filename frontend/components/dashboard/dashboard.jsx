@@ -4,10 +4,14 @@ import EventIndex from '../events/event_index';
 import isEmpty from 'lodash/isEmpty';
 
 class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
-    const { city_id } = this.props.currentUser.city_id;
-    if (city_id) { this.props.fetchCity(city_id); }
+    debugger
+    var id = this.props.currentUser.city_id;
+    if (id) { this.props.fetchCity(id); }
   }
 
   render() {

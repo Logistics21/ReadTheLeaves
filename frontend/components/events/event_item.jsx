@@ -11,8 +11,8 @@ class EventItem extends React.Component {
     this.hostUpdateEvent = this.hostUpdateEvent.bind(this);
 
     const spots = this.props.event.attendees ?
-      this.props.event.spots - (Object.keys(this.props.event.attendees).length)
-      : this.props.event.spots;
+      this.props.event.spots - this.props.event.attendees.length
+    : this.props.event.spots;
 
     this.state = { spots: spots };
   }
@@ -122,6 +122,7 @@ class EventItem extends React.Component {
         <div className="event-location">
           <h4>Location:</h4>
           <h4>{event.address}</h4>
+          <h4>{event.city}</h4>
         </div>
       </div>
 
