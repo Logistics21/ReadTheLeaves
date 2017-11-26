@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 class EventItem extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleAttend = this.handleAttend.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
     this.hostCancelEvent = this.hostCancelEvent.bind(this);
