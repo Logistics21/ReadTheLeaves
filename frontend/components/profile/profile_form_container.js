@@ -5,11 +5,11 @@ import  { selectAllCities } from '../../reducers/selectors';
 
 import ProfileForm from './profile_form';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ session, cities }) => {
   return {
-    signedIn: Boolean(state.session.currentUser),
-    currentUser: state.session.currentUser,
-    cities: selectAllCities(state),
+    signedIn: Boolean(session.currentUser),
+    currentUser: session.currentUser,
+    cities,
   }
 }
 
