@@ -9,7 +9,6 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     var id = this.props.currentUser.city_id;
     if (id) { this.props.fetchCity(id); }
   }

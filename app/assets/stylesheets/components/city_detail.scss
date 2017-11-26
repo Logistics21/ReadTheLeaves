@@ -212,16 +212,16 @@ span[data-descr]:hover::after {
   bottom: 2.85em;
 }
 
-a.city-button:hover:after {
-  content: "";
-  position: absolute;
-  bottom: 45%;
-  left: 40%;
-  margin-left: 0px;
-  border-width: 13px;
-  border-style: solid;
-  border-color: #EF6236 transparent transparent transparent;
-}
+// a.city-button:hover:after {
+//   content: "";
+//   position: absolute;
+//   bottom: 45%;
+//   left: 40%;
+//   margin-left: 0px;
+//   border-width: 13px;
+//   border-style: solid;
+//   border-color: #EF6236 transparent transparent transparent;
+// }
 
 .redirect-link {
   font-weight: 100;

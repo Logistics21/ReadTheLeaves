@@ -30,7 +30,8 @@ const CityReducer = (state = {}, action) => {
       newState['events'][action.event_id].attendees.push(action.user.id);
       return newState;
     case REMOVE_ATTENDEE:
-      newState['events'][action.event_id].attendees.splice(action.user.id, 1);
+      let i = newState['events'][action.event_id].attendees.indexOf(action.user_id);
+      newState['events'][action.event_id].attendees.splice(i, 1);
       return newState;
     default:
       return state;

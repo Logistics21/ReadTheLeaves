@@ -30,28 +30,6 @@ class CityDetail extends React.Component {
     );
   }
 
-  // renderEventForm() {
-  //   const { currentUser } = this.props;
-  //
-  //   if (!currentUser) {
-  //     return (
-  //       <Link
-  //         className="host-button"
-  //         to='/signup'>
-  //         Sign up to host an Event in this City
-  //       </Link>
-  //     )
-  //   } else if (!currentUser.city_id) {
-  //     return (
-  //       <Link
-  //         to='/cities'
-  //         className="host-button">
-  //         Choose a Home City so you can host Events
-  //       </Link>
-  //     )
-  //   }
-  // }
-
   renderCityName() {
     return (
       <div className="city-name-container">
@@ -138,7 +116,7 @@ class CityDetail extends React.Component {
               <strong>This is your home city!</strong> If you've moved,
               <Link
                 className="city-change"
-                to="/cities">change your home city here.
+                to="/cities"> change your home city here.
               </Link>
           </h6>
             <h6 className="change-small">OR</h6>
@@ -156,14 +134,19 @@ class CityDetail extends React.Component {
           <h6 className="home-sentence">
             Do you live in {city.city_code.toUpperCase()} now?
           </h6>
-          <span
+          <Link
+            className="city-button"
+            onClick={() => this.props.userQuickUpdate(currentUser, city)}
+            to={`/cities/${cityId}`}>YUP!
+          </Link>
+          {/* }<span
             data-descr={`Make ${city.city_code} Your Home`}>
             <Link
               className="city-button"
               onClick={() => this.props.userQuickUpdate(currentUser, city)}
               to={`/cities/${cityId}`}>YUP!
             </Link>
-          </span>
+          </span> */}
           <h6 className="set-city">
             <Link
               className="home-link"
@@ -192,6 +175,5 @@ class CityDetail extends React.Component {
     }
   }
 }
-
 
 export default CityDetail;
