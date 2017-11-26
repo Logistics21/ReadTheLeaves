@@ -4,7 +4,7 @@ sf = City.create(name: "San Francisco", city_code: "SF", image: "https://s3.us-e
 nyc = City.create(name: "New York City", city_code: "NYC", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/nyc.jpg")
 chi = City.create(name: "Chicago", city_code: "CHI", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/chi.jpg")
 dc = City.create(name: "Washington D.C", city_code: "DC", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/dc.jpg")
-lax = City.create(name: "Los Angeles", city_code: "LAX", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/lax.png")
+lax = City.create(name: "Los Angeles", city_code: "LAX", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/lax.jpg")
 ldn = City.create(name: "London", city_code: "LDN", image: "https://s3.us-east-2.amazonaws.com/readtheleaves1-dev/cities/ldn.jpg")
 
 
