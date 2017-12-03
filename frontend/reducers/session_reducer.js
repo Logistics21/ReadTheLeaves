@@ -19,6 +19,7 @@ const sessionReducer = (state = _defaultState, action) => {
       return merge({}, state, { currentUser });
     case ADD_ATTENDANCE:
       const addedState = merge({}, state);
+      action.event.attendees.push(addedState.currentUser.id);
       addedState['currentUser']['attending_events'][action.event_id] = action.event;
       return addedState;
     case REMOVE_ATTENDANCE:
