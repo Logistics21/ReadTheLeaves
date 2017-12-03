@@ -12,7 +12,7 @@ const defaultState = {
 const CityReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
-
+  debugger
   switch (action.type) {
     case RECEIVE_CITY:
       newState = merge({}, state, action.city);

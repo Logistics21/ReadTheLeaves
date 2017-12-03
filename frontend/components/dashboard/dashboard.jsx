@@ -6,6 +6,7 @@ import isEmpty from 'lodash/isEmpty';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
+    debugger
   }
 
   componentDidMount() {
@@ -20,7 +21,7 @@ class Dashboard extends React.Component {
     let hostLink;
     let hostedEvents = (<h3 className="user-info">You're currently not hosting any events...</h3>);
     let attendingEvents = (<h3 className="user-info">You're currently not attending any events...</h3>);
-
+    debugger
     if (currentUser.city_id) {
         cityLink = <Link className="dashboard-element link" to={`/cities/${currentUser.city_id}`}>
                     <h3>Your City</h3>

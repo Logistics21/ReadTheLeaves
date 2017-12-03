@@ -104,7 +104,7 @@ class CityDetail extends React.Component {
             className="city-button"
             onClick={() => this.props.userQuickUpdate(currentUser, city)}
             to={`/cities/${cityId}`}>
-            Make {city.city_code.toUpperCase()} Your Home.
+            Make {city.city_code.toUpperCase()} Your Home
           </Link>
         </div>
       );
