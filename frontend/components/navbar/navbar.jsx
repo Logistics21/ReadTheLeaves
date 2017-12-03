@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink, withRouter } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = ({session, signedIn, signout, clearErrors}) => {
   const navbarRight = () => {
@@ -41,22 +41,20 @@ const NavBar = ({session, signedIn, signout, clearErrors}) => {
   }
 
   return (
-    <header className="header">
-      <div className="navbar-container">
-        <div className="logo-container">
-          <Link to="/"><i className="fa fa-envira fa-lg" aria-hidden="true"></i></Link>
-          <Link to="/"><i className="fa fa-leaf fa-lg right-leaf" aria-hidden="true"></i></Link>
-          <Link className="logo-text" to="/"> Read The Leaves</Link>
+    <div className="navbar-container">
+      <div className="logo-container">
+        <Link to="/"><i className="fa fa-envira fa-lg" aria-hidden="true"></i></Link>
+        <Link to="/"><i className="fa fa-leaf fa-lg right-leaf" aria-hidden="true"></i></Link>
+        <Link className="logo-text" to="/"> Read The Leaves</Link>
 
-        </div>
-        <div className="nav-links">
-          {profileLinks()}
-          <Link className="nav-item" to="/cities">CITIES</Link>
-          <Link className="nav-item" to="/new_event">HOSTING</Link>
-          {navbarRight()}
-        </div>
       </div>
-    </header>
+      <div className="nav-links">
+        {profileLinks()}
+        <Link className="nav-item" to="/cities">CITIES</Link>
+        <Link className="nav-item" to="/new_event">HOSTING</Link>
+        {navbarRight()}
+      </div>
+    </div>
   );
 };
 
