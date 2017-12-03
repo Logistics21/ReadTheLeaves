@@ -3,9 +3,9 @@ import { leaveEvent, removeEvent } from '../../actions/users_actions';
 
 import Dashboard from './dashboard';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ session }) => {
   return ({
-    currentUser: state.session.currentUser
+    currentUser: session.currentUser
   });
 };
 

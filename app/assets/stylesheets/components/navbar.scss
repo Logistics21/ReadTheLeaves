@@ -5,70 +5,51 @@
   font-style: normal;
 }
 
-.header {
-  max-width: 100%;
-  background: rgba(247,191,77,0.95);
-  height: 85px;
-}
-
 .navbar-container {
-  max-width: 1020px;
-  padding-top: 1em;
   display: flex;
-  padding-bottom: 1em;
+  align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
+  width: 100%;
+  background: rgba(247, 191, 77, 0.95);
   color: white;
+  height: 4.5em;
 }
 
 .logo-container {
-  display: flex;
-  align-items: center;
-  padding-top: 4px;
+  margin-left: 2em;
+    .logo-text {
+      font-family: 'NanumPenScript-Regular';
+      font-size: 1.5em;
+    }
 }
 
-.right-leaf {
-  margin-right: 5px;
-}
-
-.logo-text {
-  font-family: 'NanumPenScript-Regular';
-  font-size: 30px;
+.fa-lg {
+  vertical-align: 0% !important;
 }
 
 .nav-links {
   display: flex;
+  font-size: 0.75em;
   align-items: center;
-  width: 450px;
-  height: 40px;
-  font-size: 19px;
-  padding-top: 4px;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 1.25px;
+  margin-right: 2em;
 }
 
 .nav-item {
-  display: flex;
-  align-items: center;
-  padding:0 9px;
-  letter-spacing: 1.2px;
-  font-size: 0.75em;
-  font-weight: 500;
-  height: 40px;
+  margin: 0 0.5em;
 }
 
 .nav-signup-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: white;
   color: #F7BF4D;
   border: 1px solid white;
   border-radius: 3px;
-  margin-left: 8px;
-  padding: 0 18px;
+  padding: .95em 1.25em;
   transition: .3s;
-}
-
-.nav-signup-button:hover {
-  background-color: Transparent;
-  color: white;
+  &:hover {
+    background-color: transparent;
+    color: white;
+  }
 }

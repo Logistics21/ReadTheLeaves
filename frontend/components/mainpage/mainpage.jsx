@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class MainPage extends React.Component {
+class MainPage extends React.PureComponent {
   render() {
     return (
       <div className="mainpage-container">

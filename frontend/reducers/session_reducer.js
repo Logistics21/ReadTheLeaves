@@ -12,13 +12,14 @@ const _defaultState = Object.freeze({
 
 const sessionReducer = (state = _defaultState, action) => {
   Object.freeze(state);
-  
+  debugger
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       const currentUser = action.currentUser;
       return merge({}, state, { currentUser });
     case ADD_ATTENDANCE:
       const addedState = merge({}, state);
+      action.event.attendees.push(addedState.currentUser.id);
       addedState['currentUser']['attending_events'][action.event_id] = action.event;
       return addedState;
     case REMOVE_ATTENDANCE:
