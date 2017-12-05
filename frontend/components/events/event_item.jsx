@@ -14,22 +14,25 @@ class EventItem extends React.Component {
     : this.props.event.spots;
 
     this.state = { spots: spots };
-    debugger
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //   debugger
+  // }
 
   handleAttend(e) {
     e.preventDefault();
     const { user, event, attendEvent } = this.props;
-    attendEvent(event, user).then(() => this.setState({ spots:
-    this.state.spots - 1 }));
+    attendEvent(event, user);
+    // .then(() => this.setState({ spots: this.state.spots - 1 }));
   }
 
   handleLeave(e) {
     e.preventDefault();
     const { user, event, leaveEvent } = this.props;
 
-    leaveEvent(event.id, user.id).then(() => this.setState({ spots:
-    this.state.spots + 1 }));
+    leaveEvent(event.id, user.id);
+    // .then(() => this.setState({ spots: this.state.spots + 1 }));
   }
 
   hostCancelEvent(e) {

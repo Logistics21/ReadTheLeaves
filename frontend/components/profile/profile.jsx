@@ -49,11 +49,7 @@ class Profile extends React.Component {
     } else {
       const { currentUser, attendEvent, leaveEvent, removeEvent } = this.props;
       const { hosted_events } = profile;
-      let userCityText;
-      let userHostText;
-      let userAttendText;
-      let pebcStyle;
-      let updateButton;
+      let userCityText, userHostText, userAttendText, pebcStyle, updateButton;
 
       if (!profile.city_id) {
         userCityText = "Currently, I don't have a home city. But just you wait...";
@@ -63,9 +59,7 @@ class Profile extends React.Component {
 
       if (this.state.match) {
         updateButton = (
-          <div className="update-button">
-            <Link to="/update_profile">Update Your Profile</Link>
-          </div>
+          <Link className="update-button" to="/update_profile">Update Your Profile</Link>
         )
       }
 

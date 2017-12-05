@@ -33,7 +33,6 @@ export const removeEvent = (event_id) => (dispatch) => {
 export const attendEvent = (event, currentUser) => (dispatch) => {
   return EventAPIUTil.attendEvent(event.id)
     .then(res => {
-      debugger
       dispatch(addAttendance(res.event_id, event));
       dispatch(addAttendee(res.event_id, currentUser));
     })

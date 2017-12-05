@@ -48,6 +48,8 @@
     "webpack": "^2.6.1"
   },
   "devDependencies": {
+    "react-addons-perf": "^15.4.2",
+    "react-perf-tool": "^0.2.2",
     "redux-logger": "^3.0.6"
   }
 }

@@ -139,14 +139,6 @@ class CityDetail extends React.Component {
             onClick={() => this.props.userQuickUpdate(currentUser, city)}
             to={`/cities/${cityId}`}>YUP!
           </Link>
-          {/* }<span
-            data-descr={`Make ${city.city_code} Your Home`}>
-            <Link
-              className="city-button"
-              onClick={() => this.props.userQuickUpdate(currentUser, city)}
-              to={`/cities/${cityId}`}>YUP!
-            </Link>
-          </span> */}
           <h6 className="set-city">
             <Link
               className="home-link"
@@ -159,6 +151,7 @@ class CityDetail extends React.Component {
   }
 
   render() {
+    debugger
     if (this.state.loading) {
       return null;
     } else {

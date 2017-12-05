@@ -73,6 +73,7 @@ class ProfileForm extends React.Component {
   }
 
   render() {
+    debugger
     if (_.isEmpty(this.props.cities)) {
       return null;
     } else {
