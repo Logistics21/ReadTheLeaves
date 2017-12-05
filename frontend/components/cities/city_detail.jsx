@@ -6,7 +6,9 @@ import EventIndex from '../events/event_index';
 class CityDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { loading: true };
+    this.state = {
+      loading: true
+     };
   }
 
   componentDidMount() {
@@ -41,38 +43,6 @@ class CityDetail extends React.Component {
         </div>
       </div>
     );
-  }
-
-  renderHasEvents() {
-    if (this.props.city.events) {
-      return (
-        <div>
-          <div className="tea-time-container">
-            <h2 className="tea-time-title">
-              Tea Time is a conversation between a few
-              people who know nothing about each other.
-            </h2>
-            <p className="tea-time-p">
-              You'll never leave without questions, new perspectives, and the
-              reminder that we're far more the same than we are different.
-            </p>
-        </div>
-      </div>
-      );
-    } else {
-      return (
-        <div className="tea-time-container">
-          <h2 className="tea-time-title">
-            There aren't any upcoming Tea Times!
-          </h2>
-          <p className="tea-time-p">
-            We're working on getting some more up on the board! Sorry for any
-            disappointment, but if you'd like, shoot us an email and we'll
-            send it to the hosts to give em some inspiration.
-          </p>
-        </div>
-      );
-    }
   }
 
   renderCityAlert() {
@@ -151,15 +121,37 @@ class CityDetail extends React.Component {
   }
 
   render() {
-    debugger
     if (this.state.loading) {
       return null;
     } else {
+
+      let teaTimeTitle, teaTimeText;
+      if (this.props.city.events) {
+        teaTimeTitle = "Tea Time is a conversation between a few \
+          people who know nothing about each other.";
+        teaTimeText = "You'll never leave without questions, new perspectives, and the \
+          reminder that we're far more the same than we are different.";
+      } else {
+        teaTimeTitle = "There aren't any upcoming Tea Times!";
+        teaTimeText = "We're working on getting some more up on the board! \
+          Sorry for any disappointment, but if you'd like, shoot us an \
+          email and we'll send it to the hosts to give em some inspiration.";
+      }
+      
       return (
         <div className="city-detail-container">
           {this.renderCityName()}
           <div className="city-detail-body-container">
-            {this.renderHasEvents()}
+            <div>
+              <div className="tea-time-container">
+                <h2 className="tea-time-title">
+                  {teaTimeTitle}
+                </h2>
+                <p className="tea-time-p">
+                  {teaTimeText}
+                </p>
+            </div>
+          </div>
             {this.renderCityAlert()}
             {this.renderEventList()}
           </div>

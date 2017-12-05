@@ -12,13 +12,13 @@ const NavBar = ({session, signedIn, signout, clearErrors}) => {
         [
           <Link
             onClick={() => clearErrors()}
-            key="1"
+            key="3"
             className="nav-item nav-button"
             to="/signin">SIGN IN
           </Link>,
           <NavLink
             onClick={() => clearErrors()}
-            key="2"
+            key="4"
             className="nav-item nav-signup-button"
             to="/signup">SIGN UP
           </NavLink>
@@ -31,8 +31,8 @@ const NavBar = ({session, signedIn, signout, clearErrors}) => {
     if (signedIn) {
       return (
         [
-          <Link className="nav-item" to="/dashboard">DASHBOARD</Link>,
-          <Link className="nav-item" to={`/profile/${session.currentUser.id}`}>PROFILE</Link>
+          <Link key="1" className="nav-item" to="/dashboard">DASHBOARD</Link>,
+          <Link key="2" className="nav-item" to={`/profile/${session.currentUser.id}`}>PROFILE</Link>
         ]
       );
     } else {

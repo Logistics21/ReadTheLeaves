@@ -59,8 +59,8 @@ class SignUp extends React.Component {
     if (this.props.location.pathname === "/signup") {
       headerText = "Join for tea time";
       paragraphText = "Thousands of strangers across the world have sat together for conversations. We can't wait for you to join them.";
-      linkName = '/signup';
-      linkText = "If you've never signed up before, click here and do that";
+      linkName = '/signin';
+      linkText = "If you've already done this before, click here to log in";
       nameInput = (
         <input
           className="input-box"
@@ -72,8 +72,8 @@ class SignUp extends React.Component {
     } else {
       headerText = "Hey stranger!";
       paragraphText = "It's good to have you back. Sign in here and sign up for your next tea time!";
-      linkName = '/signin';
-      linkText = "If you've already done this before, click here to log in";
+      linkName = '/signup';
+      linkText = "If you've never signed up before, click here and do that";
       nameInput = null;
     }
 

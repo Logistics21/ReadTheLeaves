@@ -1,7 +1,7 @@
 import React from 'react';
 import SignUpContainer from './signup/signup_container';
 import SignInContainer from './signup/signin_container';
-import MainPageContainer from './mainpage/mainpage_container';
+import MainPage from './mainpage/mainpage';
 import NavBarContainer from './navbar/navbar_container';
 import CitiesIndexContainer from './cities/cities_index_container';
 import CitiesDetailContainer from './cities/cities_detail_container';
@@ -22,7 +22,7 @@ const App = () => (
       <Switch>
         <AuthRoute path="/signup" component={SignUpContainer} />
         <AuthRoute path="/signin" component={SignInContainer} />
-        <Route exact path="/" component={MainPageContainer} />
+        <Route exact path="/" component={MainPage} />
         <Route exact path="/cities" component={CitiesIndexContainer} />
         <Route path="/cities/:id" component={CitiesDetailContainer} />
         <HomelessRoute exact path="/new_event" component={EventFormContainer} />

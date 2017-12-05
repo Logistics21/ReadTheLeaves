@@ -16,23 +16,16 @@ class EventItem extends React.Component {
     this.state = { spots: spots };
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   debugger
-  // }
-
   handleAttend(e) {
     e.preventDefault();
     const { user, event, attendEvent } = this.props;
-    attendEvent(event, user);
-    // .then(() => this.setState({ spots: this.state.spots - 1 }));
+    attendEvent(event, user).then(() => this.setState({ spots: this.state.spots - 1 }));
   }
 
   handleLeave(e) {
     e.preventDefault();
     const { user, event, leaveEvent } = this.props;
-
-    leaveEvent(event.id, user.id);
-    // .then(() => this.setState({ spots: this.state.spots + 1 }));
+    leaveEvent(event.id, user.id).then(() => this.setState({ spots: this.state.spots + 1 }));
   }
 
   hostCancelEvent(e) {
@@ -121,28 +114,25 @@ class EventItem extends React.Component {
           </div>
         </div>
 
-      <div className="event-item-body">
-        <div className="event-location">
-          <h4>Location:</h4>
-          <h4>{event.address}</h4>
-          <h4>{event.city}</h4>
-        </div>
-      </div>
-
-      <div className="event-spots-container">
-        <h3 className="spots-left">{displaySpotsLeft}</h3>
-        <div className="event-spots">
-          <div className="spots-left"
-            style={{width: 100 - (`${this.state.spots}` * 20) + '%'}}>
+        <div className="event-item-body">
+          <div className="event-location">
+            <h4>Location:</h4>
+            <h4>{event.address}</h4>
+            <h4>{event.city}</h4>
           </div>
         </div>
-      </div>
 
-      <div className="attend-button">
-        {attendButton}
+        <div className="event-spots-container">
+          <h3 className="spots-left">{displaySpotsLeft}</h3>
+          <div className="event-spots">
+            <div className="spots-left" style={{width: 100 - (`${this.state.spots}` * 20) + '%'}}>
+            </div>
+          </div>
+        </div>
+
+        <div className="attend-button">{attendButton}</div>
       </div>
-    </div>
-  );
+    );
   }
 }
 

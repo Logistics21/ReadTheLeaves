@@ -8,11 +8,6 @@ class Dashboard extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    var id = this.props.currentUser.city_id;
-    if (id) { this.props.fetchCity(id); }
-  }
-
   render() {
     const { currentUser, leaveEvent, removeEvent, updateEvent } = this.props;
     const { attending_events, hosted_events } = currentUser;
@@ -21,12 +16,12 @@ class Dashboard extends React.Component {
     let hostedEvents = (<h3 className="user-info">You're currently not hosting any events...</h3>);
     let attendingEvents = (<h3 className="user-info">You're currently not attending any events...</h3>);
     if (currentUser.city_id) {
-        cityLink = <Link className="dashboard-element link" to={`/cities/${currentUser.city_id}`}>
+        cityLink = (<Link className="dashboard-element link" to={`/cities/${currentUser.city_id}`}>
                     <h3>Your City</h3>
-                  </Link>;
-        hostLink = <Link className="update-button" to="/new_event">
+                  </Link>);
+        hostLink = (<Link className="update-button" to="/new_event">
                       CLICK HERE TO HOST AN EVENT IN {currentUser.city_name.toUpperCase()}
-                   </Link>;
+                   </Link>);
     }
 
     if (!_.isEmpty(hosted_events)) {
