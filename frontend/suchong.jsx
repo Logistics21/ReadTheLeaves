@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import Perf from 'react-addons-perf';
+// import Perf from 'react-addons-perf';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  window.Perf = Perf;
-  window.getState = store.getState;
+
+  // window.Perf = Perf;
+  // window.getState = store.getState;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
