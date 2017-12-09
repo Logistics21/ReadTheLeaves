@@ -1,3 +1,39 @@
+.main-content {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 19px;
+  font-weight: 600;
+  font-family: Helvetica;
+}
+
+.text-large {
+  font-size: 2.25em;
+}
+
+.text-medium {
+  font-size: 1.5em;
+}
+
+.text-small {
+  font-size: 1.125em;
+}
+
+.text-extra-small {
+  font-size: 1em;
+}
+
+.font-thick {
+  font-weight: 600;
+}
+
+.font-average {
+  font-weight: 400;
+}
+
+.font-thin {
+  font-weight: 100;
+}
+
 .update-button {
   display: inline-block;
   text-align: center;
@@ -35,5 +71,5 @@
 }
 
 .small {
-  
+
 }

@@ -5,8 +5,9 @@ class MainPage extends React.PureComponent {
   render() {
     return (
       <div className="mainpage-container">
-        <div className="jumbotron"></div>
-        <div className="pitch-container">
+
+        <div className="jumbotron">
+          <div className="jumbotron-filter" />
           <div className="pitch-box">
             <h1 className="pitch-text">Everyone is interesting</h1>
             <h2 className="pitch-p">But you don’t discover that when you’re staring at a screen.</h2>
@@ -15,21 +16,19 @@ class MainPage extends React.PureComponent {
         </div>
 
           <div className="about-container">
-            <div className="about-item-container">
-              <div className="about-part">
-                <h2 className="about-headline h2">Show up for tea time</h2>
-                <p className="about-text p">You and a few others join a host at a cafe.</p>
-              </div>
+            <div className="about-part">
+              <h2 className="about-headline h2">Show up for tea time</h2>
+              <p className="about-text p">You and a few others join a host at a cafe.</p>
+            </div>
 
-              <div className="about-part">
-                <h2 className="about-headline h2">Have a real conversation</h2>
-                <p className="about-text p">You talk for two hours about anything.</p>
-              </div>
+            <div className="about-part">
+              <h2 className="about-headline h2">Have a real conversation</h2>
+              <p className="about-text p">You talk for two hours about anything.</p>
+            </div>
 
-              <div className="about-part">
-                <h2 className="about-headline h2">See what happens</h2>
-                <p className="about-text p">That's it. No strings attached.</p>
-              </div>
+            <div className="about-part">
+              <h2 className="about-headline h2">See what happens</h2>
+              <p className="about-text p">That's it. No strings attached.</p>
             </div>
         </div>
 
@@ -85,16 +84,13 @@ class MainPage extends React.PureComponent {
         </div>
 
         <div className="body-signup">
-          <div className="body-sign-box">
-            <h2 className="signup-h2">Actually talk to people.</h2>
-            <Link to='/signup' className="body-signup-button">LET'S GET TEA</Link>
-          </div>
+          <h2 className="signup-h2">Actually talk to people.</h2>
+          <Link to='/signup' className="body-signup-button">LET'S GET TEA</Link>
         </div>
 
         <div className="lower-body-container">
 
           <div className="testimonials">
-            <div className="quotes">
               <p className="quote">
                 ”I met people who I continue to be in touch with almost
                 a year later, and people who I shared delightful
@@ -109,7 +105,6 @@ class MainPage extends React.PureComponent {
                 wants it too.”
                 <span className="quote-bold">Molly, SF</span>
               </p>
-            </div>
           </div>
 
           <img
@@ -145,13 +140,11 @@ class MainPage extends React.PureComponent {
                 </article>
             </div>
           </div>
+        </div>
 
-          <div className="body-signup">
-            <div className="body-sign-box">
-              <h2 className="signup-h2">Do we get to high five yet?</h2>
-              <Link to='/signup' className="body-signup-button">YES</Link>
-            </div>
-          </div>
+        <div className="body-signup">
+          <h2 className="signup-h2">Do we get to high five yet?</h2>
+          <Link to='/signup' className="body-signup-button">YES</Link>
         </div>
       </div>
     );
