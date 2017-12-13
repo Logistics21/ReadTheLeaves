@@ -31,7 +31,8 @@ img.profile-pic {
   background-color: #FAF6E8;
   line-height: 1.625;
   font-weight: 400;
-  font-size: 19px;
+  font-size: 1em;
+  padding: 1em;
 }
 
 .profile-form {
@@ -51,7 +52,7 @@ img.profile-pic {
 
 h1.user-name {
   text-align: center;
-  margin: 0.5em 0;
+  margin-bottom: 0.5em;
 }
 
 .form-data {

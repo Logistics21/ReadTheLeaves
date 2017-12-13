@@ -109,17 +109,15 @@ class EventItem extends React.Component {
               <img className="host-pic"
                    src={event.host_image}
                    alt="host-photo" />
-                 <h3 className="host-name">{event.host_name}</h3>
             </Link>
+            <h3 className="host-name">{event.host_name}</h3>
           </div>
         </div>
 
-        <div className="event-item-body">
-          <div className="event-location">
-            <h4>Location:</h4>
-            <h4>{event.address}</h4>
-            <h4>{event.city}</h4>
-          </div>
+        <div className="event-location">
+          <h4>Location:</h4>
+          <h4>{event.address}</h4>
+          <h4>{event.city}</h4>
         </div>
 
         <div className="event-spots-container">
