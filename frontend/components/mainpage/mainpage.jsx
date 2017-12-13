@@ -8,11 +8,11 @@ class MainPage extends React.PureComponent {
 
         <div className="jumbotron">
           <div className="jumbotron-filter" />
-        </div>
-        <div className="pitch-box">
-          <h1 className="pitch-text">Everyone is interesting</h1>
-          <h2 className="pitch-p">But you don’t discover that when you’re staring at a screen.</h2>
-          <Link to='/signup' className="body-signup-button">LET'S GET TEA</Link>
+          <div className="pitch-box">
+            <h1 className="pitch-text">Everyone is interesting</h1>
+            <h2 className="pitch-p">But you don’t discover that when you’re staring at a screen.</h2>
+            <Link to='/signup' className="body-signup-button">LET'S GET TEA</Link>
+          </div>
         </div>
 
         <div className="about-container">
