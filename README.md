@@ -4,65 +4,108 @@
 [Read The Leaves](https://readtheleaves.herokuapp.com/)
 
 
-Read The Leaves is a casual meetup app based on TeaWithStrangers, created by Ankit Shah. It's backend was built using Ruby on Rails with a PostgreSQL database. It uses React.js with a Redux architectural framework to create the frontend. Users (strangers) create accounts to join tea times which are hosted by one user that isn't a stranger (a host), and has their own profile and bio. Each user has a personal dashboard that keeps track of their previous attendances and events.
+Inspired by TeaWithStrangers, Read The Leaves is a single-page web application where users can casually meet up for different events. It was built with Ruby on Rails, JavaScript (ES5/ES6), React and Redux.
+
+![Mainpage](docs/mainpage.jpg)
+
 
 ## Features and implementation
+---
 
-### Attend Tea Times
+### Select a City
 
-The core feature of this application is anonymously joining tea times, in a given city.
+Once they join, a user may choose a home city.
 
-![City Event List](app/assets/images/city_event_list1.png)
+![Mainpage](docs/cities.jpg)
 
-Once they join, a user may leave the event at any time for any or no reason. If the event is currently full the user will be added to a waitlist and will be added to the event if another user should leave.
+### Attending Events
+
+Users can attend or leave events at any time before the event occurs. Events have a default value of 5 spots for attendees. If the event is currently full the users will be unable to join.
+
+![Attend Events](https://media.giphy.com/media/3ohc1eWWbd2wzhdHkQ/giphy.gif)
+
+### EventItem
+
+Events have their own slice of state, with each event also maintaining its own internal state. This ensures that updating the state of a single EventItem will not trigger a re-render of all EventItems.
+
+```javascript
+this.state = {
+  date: undefined,
+  address: '',
+  description: '',
+  city_id,
+  city_name,
+  spots: 5
+};
+```
+
+### Hosting and Updating Events
+
+Users can host events in any city, not just their home. Events require a time and address. They can also take an optional description.
+
+![Host Event](https://media.giphy.com/media/3o751QE0xCDxZXrWxy/giphy.gif)
+
+### EventForm
+
+Initially, the Event's date is set as a `moment` object. When the host picks a date and time, the moment object will be validated to ensure it cannot be a past time.
+
+```javascript
+getValidTimes(dateTime) {
+  if (dateTime instanceof moment) {
+    if (moment().isSame(dateTime, 'day')) {
+      // date is today, so only allow future times
+      return {
+        hours: {
+          min: dateTime.hours(),
+          max: 23,
+          step: 1,
+        },
+        minutes: {
+          min: dateTime.minutes(),
+          max: 59,
+          step: 5,
+        },
+      };
+    }
+
+    // date is in the future, so allow all times
+    return {
+      hours: {
+        min: 0,
+        max: 23,
+        step: 1,
+      },
+      minutes: {
+        min: 0,
+        max: 59,
+        step: 1,
+      },
+    };
+  }
+};  
+```
+A handleSubmit function formats the moment object into a JavaScript `datetime` object.
+
+If the event already exists, it's state will automatically be set to the events pre-existing values.
 
 ---
 
-### Host Tea Times
+### User Profile
 
-Users that become hosts are no longer strangers and can create their own profile with a profile pic and personal bio. They can host (create) events and cancel them for any reason. In addition to a time, date, and place, an event can also have a description which provides a theme for the tea time or to serve as a general icebreaker.
 
-![Host Event](app/assets/images/city_hosting.png)
-
----
-
-### User Sign Up & Authentication
-
-But we're getting ahead of ourselves.
-
-**First and foremost**, users must sign up to attend tea times and pick a home city. Despite being a casual meetup app, user passwords are hashed on the backend using encryption, and the resulting digest is stored in the database. This adds an extra layer of security as user passwords are never actually stored in the database.
-
-![City Sign Up](app/assets/images/city_signup.png)
+![City Sign Up]()
 
 
 ---
 
 
-### Attend
+### User Dashboard
 
-After signing up users will choice their home city and can now attend tea times. If a user cannot find their home city they may suggest a new potential home city for Read The Leaves to host tea times in.
 
-![Suggested Cities](app/assets/images/suggested_cities1.png)
 
 ---
 
 ## Features for implementation
-
-
-Currently, still under development, future builds will include:
-
-
-#### Event confirmation
-
-
-User tea time attendance and absence confirmation.
-
-
-#### User & Host profile and dashboard
-
-
-Ability for users to become hosts, and for hosts to be able to host events.
-
 
 #### Google Map API implementation
 
