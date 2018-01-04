@@ -9,8 +9,6 @@ Inspired by TeaWithStrangers, ReadTheLeaves is a single-page web application whe
 
 ## Features and Implementation
 
----
-
 ### Select a City
 
 After joining, a user chooses a home city from the CityIndex Component.
